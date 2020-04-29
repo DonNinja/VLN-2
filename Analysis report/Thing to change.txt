@@ -1,0 +1,15 @@
+Höfum breytt:
+
+Search bar
+Bættum við að hægt væri að breyta lykilorði
+Tók í burtu að væri hægt að sjá lykilorðið á profile
+Setti rating við product price
+Tók í burtu "buy", nóg að hafa bara add to cart
+
+MÖGULEGT:
+
+Fjarlæga hliðar images og minnka header og footer
+
+Þurfum að breyta:
+
+Eyða "Controllers" úr sidebar-inu
