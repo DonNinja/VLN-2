@@ -1,4 +1,4 @@
-Þurfum að breyta:
+Höfum breytt:
 
 Search bar
 Bættum við að hægt væri að breyta lykilorði
