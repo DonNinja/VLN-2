@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'captain.apps.AccountConfig',
     'captain.apps.HistoriesConfig',
-    'captain.apps.ManufacturerConfig'
+    'captain.apps.ManufacturerConfig',
+    'captain.apps.ProductConfig',
+    'captain.apps.FiltererConfig'
 ]
 
 MIDDLEWARE = [
