@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'captain.apps.AccountConfig',
     'captain.apps.HistoriesConfig',
     'captain.apps.ManufacturerConfig',
-    'captain.apps.ProductConfig'
+    'captain.apps.ProductConfig',
+    'captain.apps.FiltererConfig'
 ]
 
 MIDDLEWARE = [

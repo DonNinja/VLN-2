@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from filterer.apps import FiltererConfig
 
 
 class CaptainConfig(AppConfig):
@@ -15,6 +16,6 @@ class ManufacturerConfig(AppConfig):
 
 
 class ProductConfig(AppConfig):
-    name = 'Product'
+    name = 'product'
 
 # TODO: MAKE FILTER APP
