@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hello friend this is all manufacturer yes</h1>
+{% for manufacturer in manufacturer%}
+    <h3>{{manufacturer.name}}</h3>
+    <img class='img' src="{{manufacturer.image}}"/>
+    <p>{{manufacturer.description}}</p>
+{% endfor %}
+{% endblock %}
+
