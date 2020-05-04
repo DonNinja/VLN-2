@@ -66,6 +66,8 @@ body {
 
 .searchBtn {
     border-left: 1px solid black;
+    border-width: 0 0 0 1px;
+    /*border: none;*/
     background-color: white;
-    border-radius: 0;
+    border-radius: 0px;
 }
