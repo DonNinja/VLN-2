@@ -2,10 +2,18 @@ body {
     background-image: url("../images/bg_image.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
 }
 
 .captain {
     background-color: #64adfe;
     /*border: solid 2px #64adfe;*/
+}
+
+.navbar {
+    background-color: #64adfe;
+}
+
+.container {
+    background-color: grey;
 }
