@@ -12,8 +12,31 @@ body {
 
 .navbar {
     background-color: #64adfe;
+    border-bottom: solid 2px black;
 }
 
 .container {
-    background-color: grey;
+    background-color: whitesmoke;
+    border: solid 2px black;
+}
+
+.searchBox {
+    vertical-align: middle;
+    height: 100%;
+    border-radius: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.filterBox {
+    padding: 6px;
+}
+
+.dropSvg {
+    width: 1.25em;
+}
+
+.searchBar {
+    padding: 0;
 }
