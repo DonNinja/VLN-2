@@ -12,9 +12,9 @@ body {
 }
 
 .capImg {
-    height: 3em;
+    height: 3.5em;
     margin-right: 1em;
-    border: 2px solid black
+    border: 2px solid black;
 }
 
 .navbar {
@@ -25,6 +25,7 @@ body {
 .container {
     background-color: whitesmoke;
     border: solid 2px black;
+    border-top: none;
 }
 
 .searchBox {
@@ -61,13 +62,32 @@ body {
 .form-inline {
     /*width: 80%;*/
     margin: auto;
-    border: 1px solid grey;
+    border: 2px solid grey;
 }
 
 .searchBtn {
-    border-left: 1px solid black;
-    border-width: 0 0 0 1px;
+    border-left: 2px solid black;
+    border-width: 0 0 0 2px;
     /*border: none;*/
     background-color: white;
     border-radius: 0px;
+}
+
+.miscBtn {
+    margin-right: 1.5em;
+    vertical-align: middle;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    border: 2px solid black;
+    background: white;
+    border-radius: 5px;
+}
+
+.miscBtn:hover {
+    background: rgb(235, 235, 235);
+}
+
+.cart {
+    height: 1.5em;
 }
