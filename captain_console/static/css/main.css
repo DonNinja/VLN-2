@@ -8,6 +8,7 @@ body {
 .captain {
     background-color: #64adfe;
     /*border: solid 2px #64adfe;*/
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .capImg {
@@ -35,8 +36,17 @@ body {
     padding: 0;
 }
 
+.txtBox {
+    padding-left: .5em;
+    padding-right: .5em;
+    width: 85%;
+    height: 36px;
+}
+
 .filterBox {
     padding: 6px;
+    width: 15%;
+    background-color: white;
 }
 
 .dropSvg {
@@ -45,4 +55,17 @@ body {
 
 .searchBar {
     padding: 0;
+    width: 38.5em;
+}
+
+.form-inline {
+    /*width: 80%;*/
+    margin: auto;
+    border: 1px solid grey;
+}
+
+.searchBtn {
+    border-left: 1px solid black;
+    background-color: white;
+    border-radius: 0;
 }
