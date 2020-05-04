@@ -10,6 +10,12 @@ body {
     /*border: solid 2px #64adfe;*/
 }
 
+.capImg {
+    height: 3em;
+    margin-right: 1em;
+    border: 2px solid black
+}
+
 .navbar {
     background-color: #64adfe;
     border-bottom: solid 2px black;
