@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img src="{% static 'images/Annotation 2020-05-01 142523.png' %}" class="capImg">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,8 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0">
                 <div class="searchBar form-control mr-sm-2">
-                    <input class="searchBox" type="search" placeholder="Search" aria-label="Search">
-                    <button class="searchBox filterBox">Filter <img src="../static/images/multimedia-option.svg" class="dropSvg"></button>
+                    <input class="searchBox" type="search" placeholder="Search" aria-label="Search"><button class="searchBox filterBox">Filter <img src="{% static 'images/multimedia-option.svg' %}" class="dropSvg"></button>
                 </div>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
