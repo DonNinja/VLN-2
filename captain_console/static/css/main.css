@@ -30,6 +30,8 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-flow: wrap;
     background-color: whitesmoke;
     border: solid 2px black;
     border-width: 0 2px 0 2px;
@@ -100,7 +102,8 @@ body {
 }
 
 footer {
-    height: 100%;
+    position: relative;
+    bottom: 0;
     width: 100%;
     background-color: #64adfe;
     border-bottom: solid 2px black;
@@ -126,6 +129,11 @@ footer {
 
 iframe {
     margin: auto;
+}
+
+.noScroll {
+    position: fixed;
+    bottom: 0;
 }
 
 .well {
@@ -164,6 +172,7 @@ iframe {
 
 .contact {
     height: 25px;
+    margin-left: 6px;
     animation-name: fullCircleOut;
     animation-duration: .5s;
 }
@@ -172,6 +181,8 @@ iframe {
     cursor: pointer;
     animation-name: fullCircle;
     animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes fullCircle {
@@ -190,4 +201,18 @@ iframe {
     to {
         transform: rotate(0deg);
     }
+}
+
+#sidebar {
+    padding: 0;
+    margin-top: 1em;
+    width: 20%;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+li {
+    height: 50px;
+    border: 2px solid black;
 }
