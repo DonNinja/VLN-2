@@ -77,7 +77,7 @@ body {
     border-width: 0 0 0 2px;
     /*border: none;*/
     background-color: white;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .miscBtn {
