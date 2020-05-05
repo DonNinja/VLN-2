@@ -32,7 +32,7 @@ body {
 .container {
     padding: 0;
     display: flex;
-    flex-flow: nowrap;
+    flex-flow: wrap;
     background-color: whitesmoke;
     border: solid 2px black;
     border-width: 0 2px 0 2px;
