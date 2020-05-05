@@ -1,3 +1,10 @@
+/*margin: auto 0 auto 0;*/
+/*^^For vertically centering*/
+/*margin: 0 auto 0 auto;*/
+/*^^For horizontally centering*/
+/*margin: auto;*/
+/*^^For complete centering*/
+
 body {
     background-image: url("../images/bg_image.jpg");
     background-attachment: fixed;
@@ -25,7 +32,7 @@ body {
 .container {
     background-color: whitesmoke;
     border: solid 2px black;
-    border-top: none;
+    border-width: 0 2px 0 2px;
 }
 
 .searchBox {
@@ -90,6 +97,34 @@ body {
 
 .cart {
     height: 1.5em;
+}
+
+footer {
+    height: 100%;
+    width: 100%;
+    background-color: #64adfe;
+    border-bottom: solid 2px black;
+    border-top: solid 2px black;
+    padding: 1em 1em 2px 1em;
+}
+
+#info {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    padding-bottom: .5em;
+    margin: auto;
+}
+
+.inf {
+    height: 100%;
+    vertical-align: middle;
+    border: 2px solid black;
+    background-color: white;
+}
+
+iframe {
+    margin: auto;
 }
 
 .well {
