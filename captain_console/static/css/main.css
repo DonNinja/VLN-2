@@ -19,8 +19,8 @@ body {
 }
 
 .capImg {
-    height: 3.5em;
-    margin-right: 1em;
+    height: 3.5rem;
+    margin-right: 1rem;
     border: 2px solid black;
 }
 
@@ -45,8 +45,8 @@ body {
 }
 
 .txtBox {
-    padding-left: .5em;
-    padding-right: .5em;
+    padding-left: .5rem;
+    padding-right: .5rem;
     width: 85%;
     height: 36px;
 }
@@ -58,12 +58,12 @@ body {
 }
 
 .dropSvg {
-    width: 1.25em;
+    width: 1.25rem;
 }
 
 .searchBar {
     padding: 0;
-    width: 38.5em;
+    width: 38.5rem;
 }
 
 .form-inline {
@@ -81,7 +81,7 @@ body {
 }
 
 .miscBtn {
-    margin-right: 1.5em;
+    margin-right: 1.5rem;
     vertical-align: middle;
     display: flex;
     flex-flow: row;
@@ -96,7 +96,7 @@ body {
 }
 
 .cart {
-    height: 1.5em;
+    height: 1.5rem;
 }
 
 footer {
@@ -105,19 +105,20 @@ footer {
     background-color: #64adfe;
     border-bottom: solid 2px black;
     border-top: solid 2px black;
-    padding: 1em 1em 2px 1em;
+    padding: 1rem 1rem 2px 1rem;
 }
 
 #info {
     display: flex;
     flex-flow: row;
     flex-wrap: nowrap;
-    padding-bottom: .5em;
+    padding-bottom: .5rem;
     margin: auto;
 }
 
 .inf {
     height: 100%;
+    padding: .5rem;
     vertical-align: middle;
     border: 2px solid black;
     background-color: white;
@@ -159,4 +160,34 @@ iframe {
 
 .manufacturer{
     display: flex;
+}
+
+.contact {
+    height: 25px;
+    animation-name: fullCircleOut;
+    animation-duration: .5s;
+}
+
+.contact:hover {
+    cursor: pointer;
+    animation-name: fullCircle;
+    animation-duration: .5s;
+}
+
+@keyframes fullCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fullCircleOut {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
