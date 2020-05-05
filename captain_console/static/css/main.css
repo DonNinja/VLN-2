@@ -168,6 +168,8 @@ iframe {
 
 .flex_class{
     display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
 }
 
 .contact {
@@ -219,4 +221,9 @@ li {
 
 .price_tag {
     color: black;
+}
+.title{
+    display: inline;
+    align-self: center;
+    width: 100%;
 }
