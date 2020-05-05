@@ -30,11 +30,17 @@ body {
 }
 
 .container {
+    padding: 0;
     display: flex;
-    flex-flow: wrap;
+    flex-flow: nowrap;
     background-color: whitesmoke;
     border: solid 2px black;
     border-width: 0 2px 0 2px;
+}
+
+.content {
+    display: flex;
+    flex-flow: wrap;
 }
 
 .searchBox {
@@ -205,14 +211,26 @@ iframe {
 
 #sidebar {
     padding: 0;
-    margin-top: 1em;
+    margin: 0;
     width: 20%;
     list-style: none;
     text-align: center;
-    vertical-align: middle;
 }
 
 li {
+    background-color: white;
+    text-decoration: none;
+    font-size: 2rem;
     height: 50px;
+    width: 200px;
+    line-height: 50px;
+    vertical-align: middle;
     border: 2px solid black;
+    border-top: 0;
+    border-left: 0;
+    transition: background-color 1s ease;
+}
+
+li:hover {
+    background: red;
 }
