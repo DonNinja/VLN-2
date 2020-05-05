@@ -166,7 +166,7 @@ iframe {
     height: 100%;
 }
 
-.manufacturer{
+.flex_class{
     display: flex;
 }
 

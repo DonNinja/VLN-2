@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="well flex_class">
+        <div class="leftHalf">
+            <h4>{{manufacturer.name}}</h4>
+            <img class="manImg" src="{{manufacturer.image}}"/>
+        </div>
+        <div class="rightHalf">
+            <p>{{manufacturer.description}}</p>
+         </div>
+    </div>
+
+{% endblock %}
