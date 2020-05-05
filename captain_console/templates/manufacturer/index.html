@@ -1,10 +1,11 @@
+
 {% extends 'base.html' %}
 {% block content %}
-<h1>Hello friend this is all manufacturer yes</h1>
-{% for manufacturer in manufacturer%}
-    <h3>{{manufacturer.name}}</h3>
-    <img class='img' src="{{manufacturer.image}}"/>
-    <p>{{manufacturer.description}}</p>
-{% endfor %}
+<h1>Manufacturers</h1>
+<div class="manufacturer">
+    {% for manufacturer in manufacturer%}
+        {% include 'manufacturer/single_manufacturer.html' with manufacturer=manufacturer %}
+    {% endfor %}
+</div>
 {% endblock %}
 
