@@ -6,8 +6,8 @@ def index(request):
     context = {'product': Product.objects.all()}
     return render(request, 'product/product_index.html', context)
 
-def filter_product(request, cata_type):
-    context = {'product': Product.objects.all().filter(category=1)}
+def filter_product(request, id):
+    context = {'product': Product.objects.all().filter(category_id=id)}
     return render(request, 'product/product_index.html', context)
 
 def get_product_by_id(request, id):
