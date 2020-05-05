@@ -11,3 +11,7 @@ class Product(models.Model):
     price = models.FloatField()
     on_sale = models.BooleanField()
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
+    
