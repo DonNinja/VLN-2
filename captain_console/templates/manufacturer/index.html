@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class='title'>
-<h1>Manufacturers</h1>
-</div>
-<div class="well list_container">
-    {% for manufacturer in manufacturer%}
-        {% include 'manufacturer/single_manufacturer.html' with manufacturer=manufacturer %}
-    {% endfor %}
+    <h1>Manufacturers</h1>
+    <div class="well list_container">
+        {% for manufacturer in manufacturer%}
+            {% include 'manufacturer/single_manufacturer.html' with manufacturer=manufacturer %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
