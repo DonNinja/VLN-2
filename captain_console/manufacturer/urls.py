@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('<int:id>', views.index)
+    path('/<int:id>', views.get_manufacturer_by_id)
 ]
