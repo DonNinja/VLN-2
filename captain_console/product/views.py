@@ -6,6 +6,10 @@ def index(request):
     context = {'product': Product.objects.all()}
     return render(request, 'product/product_index.html', context)
 
+def filter_product(request, cata_type):
+    context = {'product': Product.objects.all().filter(category=1)}
+    return render(request, 'product/product_index.html', context)
+
 def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
