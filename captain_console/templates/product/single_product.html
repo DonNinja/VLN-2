@@ -1,10 +1,13 @@
 <div class="well flex_class">
     <div class="leftHalf">
         <h4>{{product.name}}</h4>
+        <a href="/product/{{product.id}}">
         <img class="manImg" src="{{product.image}}"/>
+        <h3 class="price_tag"><u>{{product.price}} Kr</u></h3>
+        </a>
     </div>
-    <div class="rightHalf">
+    {% comment %} <div class="rightHalf">
         <p>{{product.description}}</p>
-    </div>
+    </div> {% endcomment %}
 </div>
 
