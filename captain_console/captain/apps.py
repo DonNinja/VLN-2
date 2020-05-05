@@ -14,8 +14,9 @@ class HistoriesConfig(AppConfig):
 class ManufacturerConfig(AppConfig):
     name = 'manufacturer'
 
-
 class ProductConfig(AppConfig):
     name = 'product'
+
+
 
 # TODO: MAKE FILTER APP
