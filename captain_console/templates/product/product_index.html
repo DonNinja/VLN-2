@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class='title'>
 <h1>Products</h1>
-<div class="well">
-    {% for product in product%}
-        {% include 'product/single_product.html' with product=product %}
-    {% endfor %}
+    <div class="well list_container">
+        {% for product in product%}
+            {% include 'product/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
+
