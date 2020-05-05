@@ -168,6 +168,8 @@ iframe {
 
 .flex_class{
     display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
 }
 
 .contact {
@@ -215,4 +217,10 @@ iframe {
 li {
     height: 50px;
     border: 2px solid black;
+}
+
+.title{
+    display: inline;
+    align-self: center;
+    width: 100%;
 }
