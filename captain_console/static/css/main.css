@@ -12,12 +12,11 @@ body {
     background-position: center;
 }
 
-.captain {
+/*.captain {
     background-color: #64adfe;
-    /*border: solid 2px #64adfe;*/
+    !*border: solid 2px #64adfe;*!
     color: rgba(0, 0, 0, 0.5);
-}
-
+}*/
 .capImg {
     height: 3.5rem;
     margin-right: 1rem;
@@ -30,17 +29,19 @@ body {
 }
 
 .container {
+    background: #64adfe;
     padding: 0;
     display: flex;
     flex-flow: nowrap;
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
     border: solid 2px black;
     border-width: 0 2px 0 2px;
 }
 
 .content {
-    display: block;
-    /*flex-flow: wrap;*/
+    /*background: #64adfe;*/
+    display: flex;
+    flex-flow: wrap;
     width: 100%;
     padding: 20px;
 }
@@ -54,7 +55,7 @@ body {
     padding: 0;
 }
 
-.txtBox {
+.subBox {
     padding-left: .5rem;
     padding-right: .5rem;
     width: 85%;
@@ -222,32 +223,6 @@ iframe {
     }
 }
 
-#sidebar {
-    padding: 0;
-    margin: 0;
-    width: 20%;
-    list-style: none;
-    text-align: center;
-}
-
-.sidebarItem {
-    background-color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    height: 50px;
-    width: 200px;
-    line-height: 50px;
-    vertical-align: middle;
-    border: 2px solid black;
-    border-top: 0;
-    border-left: 0;
-    transition: background-color 1s ease;
-}
-
-.sidebarItem:hover {
-    background: red;
-}
-
 .price_tag {
     color: black;
 }
@@ -261,4 +236,50 @@ iframe {
 pre {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: medium;
+    white-space: inherit;
+}
+
+#goUp {
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    /*height: 20px;*/
+    height: 50px;
+    width: 50px;
+    background-color: #64adfe;
+    color: black;
+    text-align: center;
+    /*border-color: #64adfe!important;*/
+    animation-name: lightenUp;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+}
+
+@keyframes darkenUp {
+    from {
+        background-color: #64adfe;
+    }
+    to {
+        background-color: #3d89cd;
+    }
+}
+
+@keyframes lightenUp {
+    from {
+        background-color: #3d89cd;
+    }
+    to {
+        background-color: #64adfe;
+    }
+}
+
+#goUp:hover {
+    animation-name: darkenUp;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+}
+
+.upArr {
+    margin-top: 8px;
+    height: 30px;
 }

@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block sidebar %}
     <ul id="sidebar">
-        <a href="/manufacturer">
-            <li class="sidebarItem">This</li>
-        </a>
-        <a href="/manufacturer">
-            <li class="sidebarItem">is</li>
-        </a>
-        <a href="/manufacturer">
-            <li class="sidebarItem">a</li>
-        </a>
-        <a href="/manufacturer">
-            <li class="sidebarItem">test</li>
-        </a>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
+            This
+        </li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
+            is
+        </li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
+            a
+        </li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
+            test
+        </li>
     </ul>
 {% endblock %}
