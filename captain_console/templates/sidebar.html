@@ -2,16 +2,18 @@
 {% block sidebar %}
     <ul id="sidebar">
         <a href="/manufacturer">
-            <li>This</li>
+            <li class="sidebarItem">This</li>
         </a>
         <a href="/manufacturer">
-            <li>is</li>
+            <li class="sidebarItem">is</li>
         </a>
         <a href="/manufacturer">
-            <li>a</li>
+            <li class="sidebarItem">a</li>
         </a>
         <a href="/manufacturer">
-            <li>test</li>
+            <li class="sidebarItem">test</li>
         </a>
     </ul>
+    {% block content %}
+    {% endblock %}
 {% endblock %}
