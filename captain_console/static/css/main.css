@@ -18,8 +18,10 @@ body {
     !*border: solid 2px #64adfe;*!
     color: rgba(0, 0, 0, 0.5);
 }*/
+
 .capImg {
-    height: 3.5rem;
+    margin-left: 2em;
+    height: 4rem;
     margin-right: 1rem;
     border: 2px solid black;
 }

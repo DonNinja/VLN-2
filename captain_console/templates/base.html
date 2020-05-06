@@ -4,13 +4,13 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/footerFix.js' %}"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Captain Console</title>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
 </head>
 <body onload="fixPos()">
@@ -20,7 +20,7 @@
         </button>
 
         <header class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a href="/">
+            <a id="homeLink" href="/">
                 <img src="{% static 'images/icon.png' %}" alt="Captain Console" class="capImg">
             </a>
             <form class="form-inline my-2 my-lg-0">
@@ -76,13 +76,13 @@
             </div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1062.2220834299885!2d-21.92620931630355!3d64.12372702568355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d60b4e184b7e19%3A0xb87126c26f3d3420!2sReykjavik%20University!5e1!3m2!1sen!2sis!4v1588668406026!5m2!1sen!2sis" width="300" height="150" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             <div class="inf">
-                <p><b>Telephone: </b>8458409</p>
+                <p><b>Telephone: </b><a href="tel:+354845809">8458409</a></p>
                 <b>Contact us: </b> <a href="https://www.facebook.com/yl.th.99" target="_blank"><img src="{% static 'images/messenger.png' %}" class="contact" alt="messenger icon"></a><a href="mailto:yngvi19@ru.is" target="_blank"><img src="{% static 'images/Gmail_Icon.svg' %}" class="contact" alt="Gmail icon"></a>
             </div>
         </div>
         <span id="icoInfo">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" target="_blank">Dave Gandy</a>, <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons" target="_blank">Roundicons</a> & <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar" target="_blank">Gregor Cresnar</a> on <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></span>
     </footer>
-    <a id="goUp" class="border border-white rounded-circle" href="#header"><img src="{% static 'images/uploading.svg' %}" class="upArr"></a>
+    <a id="goUp" class="border border-white rounded-circle" href="#header"><img src="{% static 'images/uploading.svg' %}" class="upArr" alt="Go up"></a>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
