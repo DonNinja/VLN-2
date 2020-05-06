@@ -1,9 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> Sign up </h1>
-    <form class="form form-horizontal" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" class="brn btn-primary">
-    </form>
+    <div class="content formShit">
+        <h1 class="title"> Sign up </h1>
+        <form class="form form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="usern">
+                <label for="id_username">Username: </label>
+                <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
+            </div>
+            <span class="alert alert-primary helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+            <div class="pass">
+                <label for="id_password1">Password: </label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            </div>
+{#            <span class="helptext">#}
+            <ul class="alert alert-primary">
+                <li>Your password can’t be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can’t be a commonly used password.</li>
+                <li>Your password can’t be entirely numeric.</li>
+            </ul>
+{#        </span>#}
+            <div class="passCon">
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            </div>
+            <p class="alert alert-primary helptext">Enter the same password as before, for verification.</p>
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
 {% endblock %}

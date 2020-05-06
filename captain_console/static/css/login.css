@@ -1,0 +1,32 @@
+.formShit {
+    background: #f5f5f5;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin: auto;
+    height: auto;
+    /*width: 60%;*/
+    text-align: center;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.form {
+    margin: auto;
+}
+
+.alert li {
+    list-style: none;
+}
+
+.usern {
+    margin-bottom: 1.5em;
+}
+
+.pass {
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+}
+
+.passCon {
+    margin-bottom: .5em;
+}
