@@ -23,7 +23,7 @@
 }
 
 .sidebarItem:hover {
-    background: red;
+    background: rgb(235, 235, 235);
     cursor: pointer;
 }
 
