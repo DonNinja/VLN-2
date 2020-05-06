@@ -15,6 +15,6 @@ def register(request):
         })
 
 def get_profile(request):
-    return render(request, 'profile/profile.html', {
-        'profile'
-    })
+    current_user = request.user
+    print(current_user.id)
+    return render(request, 'profile/profile.html')
