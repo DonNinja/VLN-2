@@ -15,3 +15,43 @@ function fixPos() {
 function navigateTo(site) {
     location.href=site
 }
+
+$(document).ready(function(){
+    $("#buttonSearch").on("click",function(e){
+        e.preventDefault();
+        var search_req = $("#barSearch").val();
+        console.log(search_req)
+        $.ajax({
+            url: '/product?search_filter=' + search_req,
+            type: 'GET',
+            success: function(resp) {
+                var newHTML = resp.data.map(d => {
+                    return `<div class="flex_class">
+                    <div class="leftHalf">
+                    <h4>${d.name}</h4>
+                    <a href="/product/${d.id}">
+                    <img class="manImg" src="${d.image}"/>
+                    <h3 class="price_tag"><u>${d.price} Kr</u></h3>
+                    </a>
+                    </div>
+                    </div>`
+                });
+                $('.list_container').html(newHTML.join(''));
+                //$('#barSearch').val('')
+                
+            },
+            error: function(xhr, status, error) {
+                // TODO SHOW toastr??
+                console.log(error);
+            }
+        })
+    });
+});
+
+$(document).ready(function(){
+$("#barSearch").keydown(function(event) {
+    if (event.keyCode === 13) {
+        $("#buttonSearch").click();         // grrr this no workings
+    }
+});
+});
