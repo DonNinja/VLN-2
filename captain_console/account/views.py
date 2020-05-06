@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from account.models import Account
 
 # Create your views here.
@@ -34,3 +34,6 @@ def profile(request):
         return render(request, 'profile/profile.html', {
         'account': get_object_or_404(Account, acc_id=user_id)
 })
+
+def logout(request):
+    logout(request)
