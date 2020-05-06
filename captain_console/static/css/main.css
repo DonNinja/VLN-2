@@ -8,8 +8,9 @@
 body {
     background-image: url("../images/bg_image.jpg");
     background-attachment: fixed;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
 }
 
 /*.captain {
@@ -28,12 +29,11 @@ body {
     border-bottom: solid 2px black;
 }
 
-.container {
+#container {
     background: #64adfe;
     padding: 0;
     display: flex;
     flex-flow: nowrap;
-    /*background-color: whitesmoke;*/
     border: solid 2px black;
     border-width: 0 2px 0 2px;
 }
@@ -42,7 +42,7 @@ body {
     /*background: #64adfe;*/
     display: flex;
     flex-flow: wrap;
-    width: 100%;
+    /*width: 100%;*/
     padding: 20px;
 }
 
@@ -110,40 +110,6 @@ body {
     height: 1.5rem;
 }
 
-footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background-color: #64adfe;
-    border-top: solid 2px black;
-    padding: 1rem 1rem 2px 1rem;
-}
-
-#info {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: nowrap;
-    padding-bottom: .5rem;
-    margin: auto;
-}
-
-.inf {
-    height: 100%;
-    padding: .5rem;
-    vertical-align: middle;
-    border: 2px solid black;
-    background-color: white;
-}
-
-iframe {
-    margin: auto;
-}
-
-.noScroll {
-    position: fixed;
-    bottom: 0;
-}
-
 .well {
     min-height: 20px;
     padding: 19px;
@@ -190,39 +156,6 @@ iframe {
     white-space: nowrap;
 }
 
-.contact {
-    height: 25px;
-    margin-left: 6px;
-    animation-name: fullCircleOut;
-    animation-duration: .5s;
-}
-
-.contact:hover {
-    cursor: pointer;
-    animation-name: fullCircle;
-    animation-duration: .5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes fullCircle {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes fullCircleOut {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
-}
-
 .price_tag {
     color: black;
 }
@@ -250,33 +183,11 @@ pre {
     color: black;
     text-align: center;
     /*border-color: #64adfe!important;*/
-    animation-name: lightenUp;
-    animation-fill-mode: forwards;
-    animation-duration: .5s;
-}
-
-@keyframes darkenUp {
-    from {
-        background-color: #64adfe;
-    }
-    to {
-        background-color: #3d89cd;
-    }
-}
-
-@keyframes lightenUp {
-    from {
-        background-color: #3d89cd;
-    }
-    to {
-        background-color: #64adfe;
-    }
+    transition: background-color .5s ease;
 }
 
 #goUp:hover {
-    animation-name: darkenUp;
-    animation-fill-mode: forwards;
-    animation-duration: .5s;
+    background-color: #3d89cd;
 }
 
 .upArr {

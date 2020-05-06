@@ -1,17 +1,10 @@
 {% extends 'base.html' %}
 {% block sidebar %}
     <ul id="sidebar">
-        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
-            This
-        </li>
-        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
-            is
-        </li>
-        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
-            a
-        </li>
-        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">
-            test
-        </li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">This</li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">is</li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">a</li>
+        <li class="sidebarItem" onclick="navigateTo('/manufacturer')">test</li>
+        <li id="goBack" onclick="javascript:history.back() //Sends user back through their saved history" class="sidebarItem">Back</li>
     </ul>
 {% endblock %}
