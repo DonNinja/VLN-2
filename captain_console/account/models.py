@@ -10,3 +10,7 @@ class Account(models.Model):
     acc_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # search_h_id = models.ForeignKey(Search_history, on_delete=models.CASCADE)
     # purchase_h_id = models.ForeignKey(Purchase_history, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+    
