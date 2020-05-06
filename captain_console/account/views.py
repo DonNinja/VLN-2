@@ -13,3 +13,8 @@ def register(request):
         return render(request, 'user/register.html', {
             'form': UserCreationForm()
         })
+
+def get_profile(request):
+    return render(request, 'profile/profile.html', {
+        'profile'
+    })
