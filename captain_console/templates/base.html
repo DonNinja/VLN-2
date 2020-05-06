@@ -30,9 +30,14 @@
                 <button class="btn searchBtn my-2 my-sm-0" type="submit">Search</button>
             </form>
 
-            <button class="btn miscBtn">Sign in</button>
-
-            <button class="btn miscBtn">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart" class="cart"></button>
+            {% if user.is_authenticated %}
+                <button class="btn miscBtn" onclick="navigateTo('/account/profile')">My Profile</button>
+                <button class="btn miscBtn" onclick="navigateTo('/account/logout')">Sign out</button>
+                <button class="btn miscBtn">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart" class="cart"></button>
+            {% else %}
+                <button class="btn miscBtn" onclick="navigateTo('/account/login')">Sign in</button>
+                <button class="btn miscBtn" onclick="navigateTo('/account/register')">Register</button>
+            {% endif %}
             <!--
             <ul class="navbar-nav">
                 <li class="nav-item active">
