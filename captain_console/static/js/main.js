@@ -22,15 +22,11 @@ function navigateTo(site) {
 $(document).ready(function(){
     $("#buttonSearch").on("click", function(e){
         var search_req = $("#barSearch").val();
-        console.log(search_req)
         var loc = $(location).attr('pathname')
-        // console.log(das)
         e.preventDefault();
-        if (loc !== '/product/') {
-            
-            window.location.href = '/product/?search=' + search_req;
+        if (loc !== '/product/') {      // if user is not on products page
+            window.location.href = '/product/?search=' + search_req;    // go to products page before searching
             return
-            
         }
         // console.log(search_req)
         $.ajax({
@@ -69,7 +65,7 @@ $("#searchForm").submit(function(event) {
 
 $(document).ready(function(){
     var param_value = getParameterByName('search');     // get search parameter
-    if (param_value){       // only runs if user is attempting to search from another page
+    if (param_value){       // only runs if user is attempting to search from another page than product
         $("#barSearch").val(param_value);
         $("#buttonSearch").click()
     }
