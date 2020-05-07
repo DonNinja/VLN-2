@@ -251,16 +251,10 @@ pre {
 }
 
 #SHsearch {
-    float: left;
-    width: 50%;
-    /* border-top: 1px solid black; */
     border-bottom: 1px solid black;
 }
 
 #SHdate {
-    float: right;
-    width: 50%;
-    /* border-top: 1px solid black; */
     border-bottom: 1px solid black;
 }
 
