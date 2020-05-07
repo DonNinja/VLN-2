@@ -6,6 +6,5 @@ from account.models import Account
 
 def search_index(request):
     login_id = request.user.id
-    obj = get_object_or_404(Account, acc_id=login_id)
-    context = {'histories': Search_history.objects.all()}
+    context = {'histories': Search_history.objects.all().filter(acc_id=login_id)}
     return render(request, 'profile/histories/search_history.html', context)
