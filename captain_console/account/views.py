@@ -25,6 +25,16 @@ def register(request):
             'form': UserCreationForm()
         })
 
+def edit_profile(request):
+    if request == 'POST':
+        pass
+    else:
+        current_user = request.user
+        user_id = current_user.id
+        return render(request, 'profile/edit_profile.html', {
+        'account': get_object_or_404(Account, acc_id=user_id)
+})
+
 def profile(request):
     if request == 'POST':
         pass

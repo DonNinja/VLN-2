@@ -328,3 +328,7 @@ pre {
 #prodList .col {
     width: 25%;
 }
+
+.editText {
+    margin: 5px;
+}
