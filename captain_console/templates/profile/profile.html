@@ -1,10 +1,12 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-<div class="container">
+<div class="container well">
     <h1 class='title'>{{account.name}}</h1>
-    <img class="manImg" src="{{account.profile_image}}"/>
-    <button class="btn miscBtn" type="button">Change image</button>
-    <button class="btn miscBtn" type="button">Change name</button>
-    <button class="btn miscBtn" type="button">Change password</button>
+    <img class="proImg" src="{{account.profile_image}}"/>
+    <button class="btn miscBtn proButton SHbutton" type="button" onclick="navigateTo('../histories/search_history')">View search history</button>
+    <button class="btn miscBtn proButton SHbutton" type="button" >View purchase history</button>
+    <br/><button class="btn miscBtn proButton" type="button">Change name</button>
+    <button class="btn miscBtn proButton" type="button">Change image</button>
+    <button class="btn miscBtn proButton" type="button">Change password</button>
 </div>
 {% endblock %}
