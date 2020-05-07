@@ -9,16 +9,16 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
-            print("i got to is valid")
+
             form.save()
-            print("i saved")
+
             user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
-            print("i authed the user")
+
             login(request, user)
-            print("i logged the user in")
+
             profile = Account(name=request.POST['username'], acc_id=request.user)
-            print("profile")
             profile.save()
+            
             return redirect('profile')
     else:
         return render(request, 'user/register.html', {
