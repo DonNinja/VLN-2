@@ -75,3 +75,15 @@ function getParameterByName(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);    // use regex magic to get users search query
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
+
+function shortenDesc() {
+    let prod_descs = document.getElementsByClassName("card-text");
+    for (let i = 0; i < prod_descs.length; i++) {
+        // console.log(prodDescs[i].textContent);
+        let words = prod_descs[i].textContent.split(" ");
+        if (words.length > 9) {
+            let new_text = words.slice(0, 9).join(" ");
+            prod_descs[i].textContent = new_text + "...";
+        }
+    }
+}

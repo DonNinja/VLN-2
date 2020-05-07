@@ -8,10 +8,10 @@ from histories.models import Search_history
 def index(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        if request.user.is_authenticated():
-            
-            profile = get_object_or_404(Account, acc_id=request.user.id)
-            hist = Search_history(search_filter, profile)
+        if request.user.is_authenticated:
+            user_id = request.user.id
+            profile = get_object_or_404(Account, acc_id=user_id)
+            hist = Search_history(search=search_filter, profile_id=profile)
             hist.save()
 
         product = [ {

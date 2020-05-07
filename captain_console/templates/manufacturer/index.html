@@ -1,11 +1,13 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-<div>
-    <h1 class='title'>Manufacturers</h1>
-    <div class="well list_container">
-        {% for manufacturer in manufacturer%}
-            {% include 'manufacturer/single_manufacturer.html' with manufacturer=manufacturer %}
-        {% endfor %}
+    <div>
+        <div class="well list_container">
+            <h1 class='title'>Manufacturers</h1>
+        <div class="row row-cols-1 row-cols-md-4">
+            {% for manufacturer in manufacturer %}
+                {% include 'manufacturer/single_manufacturer.html' with manufacturer=manufacturer %}
+            {% endfor %}
+        </div>
+        </div>
     </div>
-</div>
 {% endblock %}

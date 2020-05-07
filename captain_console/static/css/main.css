@@ -126,7 +126,6 @@ body {
 .manImg {
     height: 10rem;
     width: 10rem;
-    margin-right: 1rem;
     border: 5px solid black;
 }
 
@@ -139,13 +138,15 @@ body {
 
 .rightHalf{
     display: inline-block;
-    width: 60%;
+    /*width: 60%;*/ /*Það er vesen í manufacturer/<id> með width sem 60%*/
     height: 100%;
 }
 
-/*.flex_class{
+.flex_class{
     display: flex;
-}*/
+    width: 25%;
+    text-align: center;
+}
 
 .max_size{
     width: 100%;
@@ -155,7 +156,6 @@ body {
 .list_container{
     display: flex;
     flex-wrap: wrap;
-    white-space: nowrap;
 }
 
 .price_tag {
@@ -195,4 +195,42 @@ pre {
 .upArr {
     margin-top: 8px;
     height: 30px;
+}
+
+.manLink {
+    margin: auto;
+}
+
+.cardTitle {
+    font-size: 2.5em;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.card-header {
+    text-align:center;
+    font-weight: bold!important;
+}
+
+.card-img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.card {
+    display: block!important;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card-text {
+    word-wrap: break-word!important;
 }
