@@ -130,15 +130,15 @@ body {
 }
 
 .leftHalf {
-    display: inline-block;
+    display: inline;
     text-align: center;
     width: 40%;
     height: 100%;
 }
 
 .rightHalf{
-    display: inline-block;
-    /*width: 60%;*/ /*Það er vesen í manufacturer/<id> með width sem 60%*/
+    display: inline;
+    width: 60%; /*Það er vesen í manufacturer/<id> með width sem 60%*/
     height: 100%;
 }
 
@@ -227,12 +227,26 @@ pre {
     display: block!important;
 }
 
-.card:hover {
+.point:hover {
     cursor: pointer;
 }
 
 .card-text {
     word-wrap: break-word!important;
+}
+
+.profileImg {
+    height: 10em;
+    width: 10em;
+    border: 2px solid black
+}
+
+.card-title {
+    margin-top: .75rem!important;
+}
+
+.changeBtn {
+    margin:auto;
 }
 
 #SHsearch {
@@ -265,5 +279,48 @@ pre {
 #SHtitleLeft {
     float: left;
     width: 50%;
+}
+
+.manHR {
+    margin-bottom: 0;
+}
+
+.rowCust {
+    display: flex;
+    /*-ms-flex-wrap: wrap;*/
+    flex-wrap: wrap;
+}
+
+.leftCol {
+    border-right: solid 1px rgb(223, 224, 225);
+    padding-top: 1rem;
+    width: 40%;
+}
+
+.leftCol img {
+    max-width: 313px;
+    max-height: available;
+}
+
+.rightCol {
+    width: 60%;
+    padding: 1rem;
+    padding-top: 2rem;
+    text-align: left;
     
+}
+
+.proButton {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.proImg {
+    height: 13rem;
+    width: 13rem;
+    border: 5px solid black;
+}
+
+.SHbutton {
+    float: right;
 }

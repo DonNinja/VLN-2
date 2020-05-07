@@ -1,10 +1,22 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-<div class="container">
-    <h1 class='title'>{{account.name}}</h1>
-    <img class="manImg" src="{{account.profile_image}}"/>
-    <button class="btn miscBtn" type="button">Change image</button>
-    <button class="btn miscBtn" type="button">Change name</button>
-    <button class="btn miscBtn" type="button">Change password</button>
-</div>
+    <div class="title">
+        <div class="card bg-light m-2 SHwell">
+            <h1 class="card-title title">{{ account.name }}</h1>
+            <hr>
+            <div class="card-body row">
+                <div class="d-flex m-auto">
+                    <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ account.name }}">
+                    {#            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+                    <div class="d-block ml-2 my-auto">
+                        <button class="btn miscBtn mb-3" type="button">Change image</button>
+                        <button class="btn miscBtn mb-3" type="button">Change name</button>
+                        <button class="btn miscBtn" type="button">Change password</button>
+                    </div>
+                </div>
+            </div>
+                <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('../histories/search_history')">View Search History</button>
+                <button class="btn miscBtn SHbutton" type="button">View Purchase History</button>
+        </div>
+    </div>
 {% endblock %}
