@@ -227,10 +227,28 @@ pre {
     display: block!important;
 }
 
-.card:hover {
+.point:hover {
     cursor: pointer;
 }
 
 .card-text {
     word-wrap: break-word!important;
+}
+
+.profileImg {
+    height: 10em;
+    width: 10em;
+    border: 2px solid black
+}
+
+.card-title {
+    margin-top: .75rem!important;
+}
+
+.changeBtn {
+    margin:auto;
+}
+
+.test  {
+    vertical-align: middle;
 }
