@@ -1,5 +1,8 @@
 {% extends 'sidebar.html' %}
+{% load static %}
+
 {% block content %}
+<script src="{% static 'js/add_to_cart.js' %}"></script>
     <div class="well flex_class max_size">
         <div class="leftHalf">
             <h4>{{ product.name }}</h4>
@@ -8,6 +11,7 @@
         </div>
         <div class="rightHalf">
             <p>{{ product.description }}</p>
+            <button id="{{ product.pk }}" type="button" class="buttonAddToCart">add to cart</button>
         </div>
     </div>
 

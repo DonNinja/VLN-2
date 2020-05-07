@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
 from cart.models import Cart
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -19,4 +20,6 @@ def add_to_cart(request, id):
     item = get_object_or_404(Product, pk=id)
     cart = Cart(product_id=item, acc_id=request.user)
     cart.save()
+    return JsonResponse({"status": "Item added to cart" })
+
     
