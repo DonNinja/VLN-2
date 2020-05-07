@@ -35,8 +35,7 @@
         {% if user.is_authenticated %}
             <button class="btn miscBtn" onclick="navigateTo('/account/profile')">My Profile</button>
             <button class="btn miscBtn" onclick="navigateTo('/account/logout')">Sign out</button>
-            <button class="btn miscBtn">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart"
-                                                  class="cart"></button>
+            <button class="btn miscBtn" onclick="navigateTo('/cart')">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart"class="cart" ></button>
         {% else %}
             <button class="btn miscBtn" onclick="navigateTo('/account/login')">Sign in</button>
             <button class="btn miscBtn" onclick="navigateTo('/account/register')">Register</button>

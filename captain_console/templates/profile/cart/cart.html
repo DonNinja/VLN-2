@@ -1,0 +1,12 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+<div class='title'>
+<h1>Cart</h1>
+    <div class="SHwell">
+    <b><div id="SHtitleLeft">Search</div><div id="SHtitleRight">Date</div></b>
+        {% for items in cart %}
+            {% include 'profile/cart/single_cart_item.html' with item=items%}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
