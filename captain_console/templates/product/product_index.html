@@ -3,9 +3,10 @@
 <script src="{% static 'js/product_search.js' %}"></script>
 {% block content %}
     <div class='title'>
-        <div class="well list_container">
-            <h1 class="title">Products</h1>
-            <div class="row row-cols-1 row-cols-md-4">
+        <div class="card m-2 list_container">
+            <h1 class="card-title">Products</h1>
+        <hr>
+            <div class="row row-cols-1 row-cols-md-4 m-3">
                 {% for product in product %}
                     {% include 'product/single_product.html' with product=product %}
                 {% endfor %}
@@ -15,6 +16,4 @@
             </script>
         </div>
     </div>
-    </div>
 {% endblock %}
-
