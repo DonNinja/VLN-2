@@ -307,4 +307,20 @@ pre {
     padding: 1rem;
     padding-top: 2rem;
     text-align: left;
+    
+}
+
+.proButton {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.proImg {
+    height: 13rem;
+    width: 13rem;
+    border: 5px solid black;
+}
+
+.SHbutton {
+    float: right;
 }

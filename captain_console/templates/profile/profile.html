@@ -1,7 +1,7 @@
 {% extends 'sidebar.html' %}
 {% block content %}
     <div class="title">
-        <div class="card bg-light m-2">
+        <div class="card bg-light m-2 SHwell">
             <h1 class="card-title title">{{ account.name }}</h1>
             <hr>
             <div class="card-body row">
@@ -15,6 +15,8 @@
                     </div>
                 </div>
             </div>
+                <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('../histories/search_history')">View Search History</button>
+                <button class="btn miscBtn SHbutton" type="button">View Purchase History</button>
         </div>
     </div>
 {% endblock %}
