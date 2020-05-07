@@ -20,15 +20,25 @@ function navigateTo(site) {
 }
 
 $(document).ready(function(){
-    $("#buttonSearch").on("click",function(e){
-        e.preventDefault();
+    $("#buttonSearch").on("click", function(e){
         var search_req = $("#barSearch").val();
         console.log(search_req)
+        var loc = $(location).attr('pathname')
+        // console.log(das)
+        e.preventDefault();
+        if (loc !== '/product/') {
+            
+            window.location.href = '/product/?search=' + search_req;
+            return
+            
+        }
+        // console.log(search_req)
         $.ajax({
             url: '/product?search_filter=' + search_req,
             type: 'GET',
             success: function(resp) {
                 var newHTML = resp.data.map(d => {
+                    // return html to inject into product page
                     return `<div class="flex_class">
                     <div class="leftHalf">
                     <h4>${d.name}</h4>
@@ -40,21 +50,32 @@ $(document).ready(function(){
                     </div>`
                 });
                 $('.list_container').html(newHTML.join(''));
-                //$('#barSearch').val('')
                 
             },
             error: function(xhr, status, error) {
-                // TODO SHOW toastr??
                 console.log(error);
             }
         })
     });
 });
 
+
 $(document).ready(function(){
-$("#barSearch").keydown(function(event) {
-    if (event.keyCode === 13) {
-        $("#buttonSearch").click();         // grrr this no workings
+$("#searchForm").submit(function(event) {
+    event.preventDefault();
+    $("#buttonSearch").click();
+})
+});
+
+$(document).ready(function(){
+    var param_value = getParameterByName('search');     // get search parameter
+    if (param_value){       // only runs if user is attempting to search from another page
+        $("#barSearch").val(param_value);
+        $("#buttonSearch").click()
     }
-});
-});
+})
+
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);    // use regex magic to get users search query
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
