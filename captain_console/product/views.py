@@ -10,8 +10,7 @@ def index(request):
         search_filter = request.GET['search_filter']
         if request.user.is_authenticated:
             user_id = request.user.id
-            profile = get_object_or_404(Account, acc_id=user_id)
-            hist = Search_history(search=search_filter, profile_id=profile)
+            hist = Search_history(search=search_filter, acc_id=request.user)
             hist.save()
 
         product = [ {
