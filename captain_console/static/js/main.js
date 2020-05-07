@@ -16,11 +16,11 @@ function fixPos() {
 // $('#container').height(): Height of the element with id 'container' from the bottom
 
 function navigateTo(site) {
-    location.href=site
+    location.href = site
 }
 
-$(document).ready(function(){
-    $("#buttonSearch").on("click", function(e){
+$(document).ready(function () {
+    $("#buttonSearch").on("click", function (e) {
         var search_req = $("#barSearch").val();
         var loc = $(location).attr('pathname')
         e.preventDefault();
@@ -29,26 +29,41 @@ $(document).ready(function(){
             return
         }
         // console.log(search_req)
+        let results = [];
+        let newHTML = [];
+        newHTML.push(`
+        <h1 class="card-title">Results for: '${search_req}'</h1>
+        <hr>
+        <div class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
+        `);
         $.ajax({
             url: '/product?search_filter=' + search_req,
             type: 'GET',
-            success: function(resp) {
-                var newHTML = resp.data.map(d => {
+            success: function (resp) {
+                results = resp.data.map(d => {
                     // return html to inject into product page
-                    return `<div class="flex_class">
-                    <div class="leftHalf">
-                    <h4>${d.name}</h4>
-                    <a href="/product/${d.id}">
-                    <img class="manImg" src="${d.image}"/>
-                    <h3 class="price_tag"><u>${d.price} Kr</u></h3>
-                    </a>
-                    </div>
-                    </div>`
+                    return `
+                        <div class="col mb-4">
+                            <div class="card point h-100" onclick="navigateTo(${d.id})">
+                            <img src="${d.image}" class="card-img-top manImg" alt="${d.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${d.name}</h5>
+                                    <p class="card-text">${d.description}</p>
+                                    <p>${d.price} Kr</p>
+                                </div>
+                            </div>
+                        </div>
+                    `
                 });
-                $('.list_container').html(newHTML.join(''));
-                
+                newHTML = newHTML.concat(results);
+                newHTML.push(`</div>
+                    <script>
+                        shortenDesc();
+                    </script>`);
+                $('#prodList').html(newHTML.join(''));
+
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.log(error);
             }
         })
@@ -56,16 +71,16 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
-$("#searchForm").submit(function(event) {
-    event.preventDefault();
-    $("#buttonSearch").click();
-})
+$(document).ready(function () {
+    $("#searchForm").submit(function (event) {
+        event.preventDefault();
+        $("#buttonSearch").click();
+    })
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     var param_value = getParameterByName('search');     // get search parameter
-    if (param_value){       // only runs if user is attempting to search from another page than product
+    if (param_value) {       // only runs if user is attempting to search from another page than product
         $("#barSearch").val(param_value);
         $("#buttonSearch").click()
     }
