@@ -2,13 +2,19 @@
 {% load static %}
 <script src="{% static 'js/product_search.js' %}"></script>
 {% block content %}
-<div class='title'>
-<h1>Products</h1>
-    <div class="well list_container">
-        {% for product in product%}
-            {% include 'product/single_product.html' with product=product %}
-        {% endfor %}
+    <div class='title'>
+        <div class="well list_container">
+            <h1 class="title">Products</h1>
+            <div class="row row-cols-1 row-cols-md-4">
+                {% for product in product %}
+                    {% include 'product/single_product.html' with product=product %}
+                {% endfor %}
+            </div>
+            <script>
+                shortenDesc();
+            </script>
+        </div>
     </div>
-</div>
+    </div>
 {% endblock %}
 

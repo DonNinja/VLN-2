@@ -156,7 +156,6 @@ body {
 .list_container{
     display: flex;
     flex-wrap: wrap;
-    white-space: nowrap;
 }
 
 .price_tag {
@@ -220,6 +219,18 @@ pre {
     width: 100%;
 }
 
+.card-img-top {
+    width: 100%;
+}
+
+.card {
+    display: block!important;
+}
+
 .card:hover {
     cursor: pointer;
+}
+
+.card-text {
+    word-wrap: break-word!important;
 }
