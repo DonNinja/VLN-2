@@ -55,7 +55,7 @@ $(document).ready(function () {
                         </div>
                     `
                 });
-                newHTML.push(results);
+                newHTML = newHTML.concat(results);
                 newHTML.push(`</div>
                     <script>
                         shortenDesc();
