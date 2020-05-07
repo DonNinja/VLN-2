@@ -1,14 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
 from django.http import JsonResponse
+from account.models import Account
+from histories.models import Search_history
 # Create your views here.
 
 def index(request):
-    print("IAMHEre")
     if 'search_filter' in request.GET:
-        print('did i even get here')
         search_filter = request.GET['search_filter']
-        print(search_filter)
+        if request.user.is_authenticated():
+            
+            profile = get_object_or_404(Account, acc_id=request.user.id)
+            hist = Search_history(search_filter, profile)
+            hist.save()
+
         product = [ {
         'id': x.id,
         'name': x.name,

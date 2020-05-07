@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from histories.models import Search_history, Purchase_history
+
 
 # Create your models here.
 class Account(models.Model):
