@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'sidebar.html' %}
 {% block content %}
-    <div class="well flex_class max_size">
+    {% comment %}<div class="well flex_class max_size">
         <div class="leftHalf">
             <h4>{{manufacturer.name}}</h4>
             <img class="manImg" src="{{manufacturer.image}}" alt="{{ manufacturer.name }}"/>
@@ -8,6 +8,19 @@
         <div class="rightHalf">
             <p>{{manufacturer.description}}</p>
          </div>
+    </div>{% endcomment %}
+    <div class="title">
+        <div class="card bg-light m-2">
+            <h1 class="card-title">{{ manufacturer.name }}</h1>
+            <hr class="manHR">
+            <div class="rowCust">
+                <div class="leftCol pb-3">
+                    <img src="{{ manufacturer.image }}">
+                </div>
+                <div class="rightCol pb-3">
+                    <span>{{ manufacturer.description }}</span>
+                </div>
+            </div>
+        </div>
     </div>
-
 {% endblock %}
