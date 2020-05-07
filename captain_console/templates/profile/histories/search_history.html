@@ -1,0 +1,12 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+<div class='title'>
+<h1>Search History</h1>
+    <div class="SHwell">
+    <b><div id="SHtitleLeft">Search</div><div id="SHtitleRight">Date</div></b>
+        {% for history in histories %}
+            {% include 'profile/histories/single_search_history.html' with histories=history %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
