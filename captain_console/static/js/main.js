@@ -115,6 +115,7 @@ $(document).ready(function () {
                 newHTML.push(`</div>
                     <script>
                         shortenDesc();
+                        searchButtons();
                     </script>`);
                 $('#prodList').html(newHTML.join(''));
 
@@ -159,25 +160,26 @@ function shortenDesc() {
     }
 }
 
-
-$(document).ready(function(){
-    $(".buttonAddToCart").on("click", function(e){
-        // console.log(search_req)
-        $.ajax({
-            url: '/cart/add_to_cart/' + this.id,
-            type: 'GET',
-            // TODO: REMOVE CONSOLE LOG
-            success: function(resp) {
-                console.log(resp)
-                // alert(resp.status)
-                theSuccessStory()
-            },
-            error: function(xhr, status, error) {
-                console.log(error);
-            }
-        })
+function searchButtons() {
+    $(document).ready(function () {
+        $(".buttonAddToCart").on("click", function (e) {
+            // console.log(search_req)
+            $.ajax({
+                url: '/cart/add_to_cart/' + this.id,
+                type: 'GET',
+                // TODO: REMOVE CONSOLE LOG
+                success: function (resp) {
+                    console.log(resp)
+                    // alert(resp.status)
+                    theSuccessStory()
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            })
+        });
     });
-});
+}
 
 
 $(document).ready(function(){
