@@ -13,5 +13,8 @@
                 {% include 'profile/cart/single_cart_item.html' with item=items %}
             {% endfor %}
         </div>
+        <div id="cartRemove" class="alert alert-danger m-auto" role="alert">
+            Product was removed from the cart.
+        </div>
     </div>
 {% endblock %}

@@ -367,6 +367,16 @@ pre {
     margin: auto;
 }
 
-.prodLink {
-    color: black;
+#cartConfirm {
+    position: absolute;
+    top: -6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#cartRemove {
+    position: absolute;
+    top: -6%;
+    left: 50%;
+    transform: translateX(-50%);
 }
