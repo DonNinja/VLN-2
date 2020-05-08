@@ -21,6 +21,8 @@ def register(request):
             profile.save()
             
             return redirect('profile')
+        else:
+            return redirect('register')
     else:
         return render(request, 'user/register.html', {
             'form': UserCreationForm()
