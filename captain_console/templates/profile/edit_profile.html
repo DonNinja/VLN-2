@@ -1,21 +1,20 @@
 {% extends 'sidebar.html' %}
 {% block content %}
     <div class="title">
-        <div class="card bg-light m-2 p-2">
-            <h1 class="card-title title">{{ account.name }}</h1>
+        <div class="card bg-light m-2 overflow-hidden p-2">
+            <h1 class="card-title title">{{ dj_name }}</h1>
             <hr>
-            <div class="card-body row">
-                <div class="d-flex m-auto">
-                    <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ account.name }}">
+            <div class="card-body row text-right">
+                <div class="m-auto col">
+                    <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ dj_name }}">
                     {#            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
-                    <div class="d-block ml-2 my-auto">
-                        <form action="" method="POST">
-                            {% csrf_token %}
-                            <input name="username" class="editText" id="id_username" type="text" placeholder="New username"><br>
-                            {% comment %} <input name="password1" class="editText" id="id_password1" type="Password" placeholder="New password"><br>
-                            <input name="password2" class="editText" id="id_password2" type="Password" placeholder="Confirm new password"> {% endcomment %}
-                        
-                    </div>
+                </div>
+                <div class="col text-left">
+                        <form>
+                            <input class="editText" type="text" placeholder="New username"><br>
+                            {% comment %} <input class="editText" type="Password" placeholder="New password"><br>
+                            <input class="editText" type="Password" placeholder="Confirm new password"> {% endcomment %}
+                        </form>
                 </div>
             </div>
                     
@@ -23,8 +22,10 @@
                         <input type="file" name="img" accept="image/*">
                         <input type="submit">
                     </form>
-                {% comment %} <button class="btn miscBtn SHbutton" type="button">Save Changes</button>
+            <div class="mt-4">
+                {% comment %} <button class="btn miscBtn SHbutton" type="button">Save changes</button>
                 <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel</button> {% endcomment %}
+            </div>
         </div>
     </div>
 {% endblock %}
