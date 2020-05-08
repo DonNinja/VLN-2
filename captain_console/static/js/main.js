@@ -93,12 +93,19 @@ $(document).ready(function () {
                     // return html to inject into product page
                     return `
                         <div class="col mb-4">
-                            <div class="card point h-100" onclick="navigateTo(${d.id})">
-                            <img src="${d.image}" class="card-img-top manImg" alt="${d.name}">
+                            <div class="card h-100">
+                                <a href="${ d.id }">
+                                    <img src="${ d.image }" class="card-img-top manImg" alt="${ d.name }">
+                                </a>
                                 <div class="card-body">
-                                    <h5 class="card-title">${d.name}</h5>
-                                    <p class="card-text">${d.description}</p>
-                                    <p>${d.price} Kr</p>
+                                    <a href="${ d.id }" class="text-dark">
+                                        <h5 class="card-title">${ d.name }</h5>
+                                    </a>
+                                    <p class="card-text">${ d.description }</p>
+                                    <p>${ d.price } Kr</p>
+                                    <div class="test">
+                                        <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -200,14 +207,14 @@ $(document).ready(function(){
 
 function theSuccessStory() {
     $("#cartConfirm")
-        .animate({top: '10%'}, 1000, "swing")
+        .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, 1000, "swing");
+        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
 function removeFromCart() {
     $("#cartRemove")
-        .animate({top: '10%'}, 1000, "swing")
+        .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, 1000, "swing");
+        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
 }

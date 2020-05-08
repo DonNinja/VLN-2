@@ -368,14 +368,14 @@ pre {
 }
 
 #cartConfirm {
-    position: absolute;
+    position: fixed;
     top: -6%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 #cartRemove {
-    position: absolute;
+    position: fixed;
     top: -6%;
     left: 50%;
     transform: translateX(-50%);
