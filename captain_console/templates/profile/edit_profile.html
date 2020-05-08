@@ -9,21 +9,22 @@
                     <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ account.name }}">
                     {#            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
                     <div class="d-block ml-2 my-auto">
-                        <form>
-                            <input class="editText" type="text" placeholder="New username"><br>
-                            <input class="editText" type="Password" placeholder="New password"><br>
-                            <input class="editText" type="Password" placeholder="Confirm new password">
-                        </form> 
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input name="username" class="editText" id="id_username" type="text" placeholder="New username"><br>
+                            <input name="password1" class="editText" id="id_password1" type="Password" placeholder="New password"><br>
+                            <input name="password2" class="editText" id="id_password2" type="Password" placeholder="Confirm new password">
+                        
                     </div>
                 </div>
             </div>
-                    <form>
-                        <label for="img">Select image:</label>
-                        <input type="file" name="img" accept="image/*">
+                    
+                        {% comment %} <label for="img">Select image:</label>
+                        <input type="file" name="img" accept="image/*"> {% endcomment %}
                         <input type="submit">
                     </form>
-                <button class="btn miscBtn SHbutton" type="button">Save Changes</button>
-                <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel</button>
+                {% comment %} <button class="btn miscBtn SHbutton" type="button">Save Changes</button>
+                <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel</button> {% endcomment %}
         </div>
     </div>
 {% endblock %}
