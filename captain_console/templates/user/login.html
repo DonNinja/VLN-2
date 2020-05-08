@@ -6,8 +6,7 @@
             {% csrf_token %}
             <div class="usern">
                 <label for="id_username">Username:</label>
-                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username"
-                       maxlength="150" required="" id="id_username">
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
             </div>
             <div class="pass">
                 <label for="id_password">Password:</label>
@@ -16,6 +15,4 @@
             <input type="submit" class="btn btn-primary" value="Login">
         </form>
     </div>
-
-
 {% endblock %}

@@ -12,20 +12,19 @@
                 <div class="col text-left">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                            <input name="username" class="editText" type="text" placeholder="New username"><br>
-                            {% comment %} <input class="editText" type="Password" placeholder="New password"><br>
+                        <input name="username" class="editText" type="text" placeholder="New username"
+                               maxlength="150"><br>
+                        {% comment %} <input class="editText" type="Password" placeholder="New password"><br>
                             <input class="editText" type="Password" placeholder="Confirm new password"> {% endcomment %}
                         <label for="img">Select image:</label>
                         <input type="file" name="img" accept="image/*">
-                        <input type="submit">
+                        <div class="mt-4">
+                            <input class="btn miscBtn SHbutton" type="submit" value="Save changes">
+                            <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel
+                            </button>
+                        </div>
                     </form>
-                        
                 </div>
-            </div>
-                    
-            <div class="mt-4">
-                {% comment %} <button class="btn miscBtn SHbutton" type="button">Save changes</button> {% endcomment %}
-                <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel</button>
             </div>
         </div>
     </div>

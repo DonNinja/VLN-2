@@ -1,5 +1,5 @@
 <div class="col mb-4" onclick="">
-    <div class="card point border-black" onclick="navigateTo({{ manufacturer.id }})">
+    <div class="card point border-black" onclick="navigateTo({{ manufacturer.id }})" onmouseover="style='text-decoration:underline'" onmouseout="style='text-decoration:none'">
         <div class="card-header">{{ manufacturer.name }}</div>
         <div class="card-body text-primary p-0">
             <img src="{{ manufacturer.image }}" class="card-img manImg" alt="{{ manufacturer.name }}">

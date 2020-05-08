@@ -330,8 +330,7 @@ pre {
 
 .rightCol {
     width: 60%;
-    padding: 1rem;
-    padding-top: 2rem;
+    padding: 2rem 1rem 1rem;
     text-align: left;
 
 }
@@ -362,4 +361,22 @@ pre {
 
 .editText {
     margin: 5px;
+}
+
+.buttonAddToCart {
+    margin: auto;
+}
+
+#cartConfirm {
+    position: absolute;
+    top: -6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#cartRemove {
+    position: absolute;
+    top: -6%;
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -162,8 +162,8 @@ $(document).ready(function(){
             // TODO: REMOVE CONSOLE LOG
             success: function(resp) {
                 console.log(resp)
-                alert(resp.status)
-            
+                // alert(resp.status)
+                theSuccessStory()
             },
             error: function(xhr, status, error) {
                 console.log(error);
@@ -189,7 +189,7 @@ $(document).ready(function(){
                 object = $(remove_id);
 
                 object.css("display", "none");
-            
+                removeFromCart();
             },
             error: function(xhr, status, error) {
                 console.log(error);
@@ -198,3 +198,16 @@ $(document).ready(function(){
     });
 });
 
+function theSuccessStory() {
+    $("#cartConfirm")
+        .animate({top: '10%'}, 1000, "swing")
+        .delay(1200)
+        .animate({top: '-6%'}, 1000, "swing");
+}
+
+function removeFromCart() {
+    $("#cartRemove")
+        .animate({top: '10%'}, 1000, "swing")
+        .delay(1200)
+        .animate({top: '-6%'}, 1000, "swing");
+}
