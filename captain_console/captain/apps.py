@@ -5,6 +5,7 @@ from account.apps import AccountConfig
 from histories.apps import HistoriesConfig
 from manufacturer.apps import ManufacturerConfig
 from product.apps import ProductConfig
+from reviews.apps import ReviewsConfig
 
 
 class CaptainConfig(AppConfig):
