@@ -16,7 +16,7 @@ def register(request):
 
             login(request, user)
 
-            profile = Account(name=request.POST['username'], acc_id=request.user)
+            profile = Account(acc_id=request.user)
             profile.save()
             
             return redirect('profile')
@@ -54,7 +54,8 @@ def edit_profile(request):
         current_user = request.user
         user_id = current_user.id
         return render(request, 'profile/edit_profile.html', {
-        'account': get_object_or_404(Account, acc_id=user_id)
+        'account': get_object_or_404(Account, acc_id=user_id),
+        'dj_name': current_user.username
 })
 
 def profile(request):
@@ -64,7 +65,8 @@ def profile(request):
         current_user = request.user
         user_id = current_user.id
         return render(request, 'profile/profile.html', {
-        'account': get_object_or_404(Account, acc_id=user_id)
+        'account': get_object_or_404(Account, acc_id=user_id),
+        'dj_name': current_user.username
 })
 
 def logout(request):
