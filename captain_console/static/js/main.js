@@ -1,3 +1,49 @@
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function fixPos() {
     let fix_to_bottom = $(document).height() - ($('#header').height()) - $('#footer').height() - 38
     // $(document).height(): Height of the start of the page from the bottom
@@ -102,3 +148,50 @@ function shortenDesc() {
         }
     }
 }
+
+
+$(document).ready(function(){
+    $(".buttonAddToCart").on("click", function(e){
+        // console.log(search_req)
+        $.ajax({
+            url: '/cart/add_to_cart/' + this.id,
+            type: 'GET',
+            // TODO: REMOVE CONSOLE LOG
+            success: function(resp) {
+                console.log(resp)
+                alert(resp.status)
+            
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        })
+    });
+});
+
+
+$(document).ready(function(){
+    $(".cartDelete").on("click", function(e){
+        var curr_id = this.id;
+        // console.log(search_req)
+        $.ajax({
+            url: '/cart/remove_from_cart',
+            type: 'DELETE',
+            data: {'remove': curr_id},
+            // TODO: REMOVE CONSOLE LOG
+            success: function(resp) {
+
+                var remove_id = "#" + curr_id + "mv";
+
+                object = $(remove_id);
+
+                object.css("display", "none");
+            
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        })
+    });
+});
+
