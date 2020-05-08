@@ -2,16 +2,27 @@
 {% load static %}
 
 {% block content %}
-<script src="{% static 'js/add_to_cart.js' %}"></script>
-    <div class="well flex_class max_size">
-        <div class="leftHalf">
-            <h4>{{ product.name }}</h4>
-            <img class="manImg" src="{{ product.image }}"/>
-            <h3><u>{{ product.price }} Kr</u></h3>
-        </div>
-        <div class="rightHalf">
-            <p>{{ product.description }}</p>
-            <button id="{{ product.pk }}" type="button" class="buttonAddToCart changeBtn miscBtn">add to cart</button>
+    <script src="{% static 'js/add_to_cart.js' %}"></script>
+    <div class="title">
+        <div class="card bg-light m-2 p-2">
+            <h1 class="card-title">{{ product.name }}</h1>
+            <hr class="manHR">
+            <div class="rowCust">
+                <div class="leftCol pb-3">
+                    <img src="{{ product.image }}"/>
+                </div>
+                <div class="rightCol pb-3">
+                    <p>{{ product.description }}</p>
+                    <div class="row">
+                        <div class="col text-right">
+                            <h3><u>{{ product.price }} Kr</u></h3>
+                        </div>
+                        <div class="col text-left my-auto">
+                            <button id="{{ product.pk }}" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
