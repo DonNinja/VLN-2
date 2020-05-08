@@ -1,12 +1,16 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-<div class='title'>
-<h1>Cart</h1>
-    <div class="SHwell">
-    <b><div id="SHtitleLeft">NAME</div><div id="SHtitleRight">PRICE</div></b>
-        {% for items in cart %}
-            {% include 'profile/cart/single_cart_item.html' with item=items%}
-        {% endfor %}
+    <div class='title'>
+        <div class="card bg-light m-2 p-2">
+            <h1>Cart</h1>
+            <hr>
+            <div class="row no-gutters border-bottom border-dark">
+                <div class="col col-sm-6 col-md-8"><b>Item</b></div>
+                <div class="col col-6 col-md-4"><b>Price</b></div>
+            </div>
+            {% for items in cart %}
+                {% include 'profile/cart/single_cart_item.html' with item=items %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}
