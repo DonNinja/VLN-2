@@ -21,6 +21,8 @@ def register(request):
             profile.save()
             
             return redirect('profile')
+        else:
+            return redirect('register')
     else:
         return render(request, 'user/register.html', {
             'form': UserCreationForm()
@@ -30,7 +32,7 @@ def edit_profile(request):
     if request.method == 'POST':
         userN = request.POST['username']
       
-        if len(userN) >= 1 and len(userN) <= 50:
+        if len(userN) >= 1 and len(userN) <= 150:
             request.user.username = userN
 
         if len(request.FILES) != 0:
