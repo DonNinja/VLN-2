@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from account.models import Account
+from django.core.files.storage import default_storage
 
 # Create your views here.
 
@@ -28,34 +29,21 @@ def register(request):
 def edit_profile(request):
     if request.method == 'POST':
         userN = request.POST['username']
-        # passW1 = request.POST['password1']
-        # passW2 = request.POST['password2']
+      
         if len(userN) >= 1 and len(userN) <= 50:
             request.user.username = userN
 
-        # if len(passW1) >= 8 and len(passW1) <= 100:
-        #     if passW1 == passW2:
-        #         request.user.password = passW1
-        #     else:
-        #         print("Passwords dont match")
+        if len(request.FILES) != 0:
+            new_img = request.FILES['img']
+
+            curr_user = get_object_or_404(Account, acc_id=request.user)
+            filename = default_storage.save(new_img.name, new_img)
+            curr_user.profile_image = new_img
+            curr_user.save()
         
         request.user.save()
 
         return redirect('profile')
-        # print("Chuckles, i'm in danger")
-        # form = UserForm(data=request.POST, instance=request.user)
-        # if form.is_valid():
-
-        #     form.save()
-
-        # user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
-
-        #     # login(request, user)
-
-        #     profile = Account(name=request.POST['username'], acc_id=request.user)
-        #     profile.save()
-            
-        #     return redirect('profile')
         
     else:
         current_user = request.user
