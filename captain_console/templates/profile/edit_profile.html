@@ -12,15 +12,15 @@
                         <form action="" method="POST">
                             {% csrf_token %}
                             <input name="username" class="editText" id="id_username" type="text" placeholder="New username"><br>
-                            <input name="password1" class="editText" id="id_password1" type="Password" placeholder="New password"><br>
-                            <input name="password2" class="editText" id="id_password2" type="Password" placeholder="Confirm new password">
+                            {% comment %} <input name="password1" class="editText" id="id_password1" type="Password" placeholder="New password"><br>
+                            <input name="password2" class="editText" id="id_password2" type="Password" placeholder="Confirm new password"> {% endcomment %}
                         
                     </div>
                 </div>
             </div>
                     
-                        {% comment %} <label for="img">Select image:</label>
-                        <input type="file" name="img" accept="image/*"> {% endcomment %}
+                        <label for="img">Select image:</label>
+                        <input type="file" name="img" accept="image/*">
                         <input type="submit">
                     </form>
                 {% comment %} <button class="btn miscBtn SHbutton" type="button">Save Changes</button>

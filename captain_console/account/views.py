@@ -28,13 +28,20 @@ def register(request):
 def edit_profile(request):
     if request.method == 'POST':
         userN = request.POST['username']
-        passW = request.POST['password1']
-        if len(userN) >= 1:
-            pass
+        # passW1 = request.POST['password1']
+        # passW2 = request.POST['password2']
+        if len(userN) >= 1 and len(userN) <= 50:
+            request.user.username = userN
 
-        if len(passW) >= 8:
-            pass
+        # if len(passW1) >= 8 and len(passW1) <= 100:
+        #     if passW1 == passW2:
+        #         request.user.password = passW1
+        #     else:
+        #         print("Passwords dont match")
+        
+        request.user.save()
 
+        return redirect('profile')
         # print("Chuckles, i'm in danger")
         # form = UserForm(data=request.POST, instance=request.user)
         # if form.is_valid():
