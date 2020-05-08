@@ -2,19 +2,19 @@
 {% block content %}
     <div class="title">
         <div class="card bg-light m-2 overflow-hidden p-2">
-            <h1 class="card-title title">{{ account.name }}</h1>
+            <h1 class="card-title title">{{ dj_name }}</h1>
             <hr>
-            <div class="card-body row">
-                <div class="d-flex m-auto">
-                    <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ account.name }}">
+            <div class="card-body row text-right">
+                <div class="m-auto col">
+                    <img src="{{ account.profile_image }}" class="profileImg card-img" alt="{{ dj_name }}">
                     {#            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
-                    <div class="d-block ml-2 my-auto">
+                </div>
+                <div class="col text-left">
                         <form>
                             <input class="editText" type="text" placeholder="New username"><br>
                             <input class="editText" type="Password" placeholder="New password"><br>
                             <input class="editText" type="Password" placeholder="Confirm new password">
-                        </form> 
-                    </div>
+                        </form>
                 </div>
             </div>
                     <form>
@@ -22,8 +22,10 @@
                         <input type="file" name="img" accept="image/*">
                         <input type="submit">
                     </form>
+            <div class="mt-4">
                 <button class="btn miscBtn SHbutton" type="button">Save Changes</button>
                 <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel</button>
+            </div>
         </div>
     </div>
 {% endblock %}
