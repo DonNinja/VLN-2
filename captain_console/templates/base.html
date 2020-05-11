@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
 </head>
 <body onload="fixPos()">
@@ -25,12 +26,18 @@
         <a id="homeLink" href="/">
             <img src="{% static 'images/icon.png' %}" alt="Captain Console" class="capImg">
         </a>
-        <form id="searchForm" class="form-inline my-2 my-lg-0">
-            <div class="searchBar">
-                <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search"><button class="searchBox filterBox">Filter <img src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></button>
+        <div class="searchAndFilter">
+            <form id="searchForm" class="form-inline my-2 my-lg-0">
+                <div class="searchBar">
+                    <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search"><div class="searchBox filterBox" id="filtButt" onclick="dropFilter()">Filter <img src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></div>
+                </div>
+                <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
+            </form>
+            <div id="filter" class="p-2">
+                {% block filter %}
+                {% endblock %}
             </div>
-            <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
-        </form>
+        </div>
         <!--    TODO: Fix drop down filter menu    -->
         {% if user.is_authenticated %}
             <button class="btn miscBtn" onclick="navigateTo('/account/profile')">My Profile</button>
