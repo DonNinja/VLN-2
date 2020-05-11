@@ -1,12 +1,11 @@
 {% extends 'sidebar.html' %}
 {% block content %}
     <div class="title">
-        <div class="card m-2 list_container">
+
             <h1 class='card-title'>Reviews</h1>
-            <hr>
-            <div class="row row-cols-1 row-cols-md-4 m-3">
                 {% for review in reviews %}
-                    {% include 'reviews/single_review.html' with review=review %}
+                    <img src="{{review.product.image}}"> <!--image only shown at top-->
+                    {% include 'reviews/review_details.html' with review=review %}
                 {% endfor %}
             </div>
         </div>
