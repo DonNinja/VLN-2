@@ -105,6 +105,7 @@ $(document).ready(function () {
                                     <p>${ d.price } Kr</p>
                                     <div class="test">
                                         <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
+                                        <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn">Reviews</button>
                                     </div>
                                 </div>
                             </div>
