@@ -10,7 +10,7 @@ def cart_index(request):
 
     # product_list = [(i.product_id, i.pk) for i in Cart.objects.all().filter(acc_id=login_id)]
     # context = {'cart':product_list}
-    context ={'cart': Cart.objects.all().filter(acc_id=login_id)}
+    context = {'cart': Cart.objects.all().filter(acc_id=login_id)}
     return render(request, 'profile/cart/cart.html', context)
 
 
