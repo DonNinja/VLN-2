@@ -52,12 +52,6 @@ function fixPos() {
     // 38: Additional height from padding, margin and border of footer
     // fix_to_bottom checks if the container and the footer are next to each other (meaning the footer is either at the bottom of the page or you need to scroll to see it) and if it isn't, it adds a padding to container to push the footer to the bottom
     $('#container').css('height', fix_to_bottom);
-    /*if (fix_to_bottom !== 0) {
-        $('#goUp').hide();
-    }
-    else {
-        $('#goUp').show();
-    }*/
 }
 
 
@@ -105,6 +99,7 @@ $(document).ready(function () {
                                     <p>${ d.price } Kr</p>
                                     <div class="test">
                                         <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
+                                        <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn">Reviews</button>
                                     </div>
                                 </div>
                             </div>
@@ -127,9 +122,8 @@ $(document).ready(function () {
     });
 });
 
-
 $(document).ready(function () {
-    $("#searchForm").submit(function (event) {
+    $("#barSearch").submit(function (event) {
         event.preventDefault();
         $("#buttonSearch").click();
     })
@@ -139,9 +133,9 @@ $(document).ready(function () {
     var param_value = getParameterByName('search');     // get search parameter
     if (param_value) {       // only runs if user is attempting to search from another page than product
         $("#barSearch").val(param_value);
-        $("#buttonSearch").click()
+        $("#buttonSearch").click();
     }
-})
+});
 
 function getParameterByName(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);    // use regex magic to get users search query
@@ -219,4 +213,18 @@ function removeFromCart() {
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
         .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+}
+
+function dropFilter() {
+    $("#filter")
+        .animate({top: '75%'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
+}
+
+function raiseFilter() {
+    $("#filter")
+        .animate({top: '-320px'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }

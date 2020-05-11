@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
 </head>
 <body onload="fixPos()">
@@ -25,12 +26,18 @@
         <a id="homeLink" href="/">
             <img src="{% static 'images/icon.png' %}" alt="Captain Console" class="capImg">
         </a>
-        <form id="searchForm" class="form-inline my-2 my-lg-0">
-            <div class="searchBar">
-                <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search"><button class="searchBox filterBox">Filter <img src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></button>
+        <div class="searchAndFilter">
+            <form id="searchForm" class="form-inline my-2 my-lg-0">
+                <div class="searchBar">
+                    <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search"><div class="searchBox filterBox" id="filtButt" onclick="dropFilter()">Filter <img src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></div>
+                </div>
+                <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
+            </form>
+            <div id="filter" class="p-2">
+                {% block filter %}
+                {% endblock %}
             </div>
-            <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
-        </form>
+        </div>
         <!--    TODO: Fix drop down filter menu    -->
         {% if user.is_authenticated %}
             <button class="btn miscBtn" onclick="navigateTo('/account/profile')">My Profile</button>
@@ -79,8 +86,7 @@
             <p>Weekdays: 10:00 - 17:00</p>
             <p>Weekends: 11:00 - 19:00</p>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1062.2220834299885!2d-21.92620931630355!3d64.12372702568355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d60b4e184b7e19%3A0xb87126c26f3d3420!2sReykjavik%20University!5e1!3m2!1sen!2sis!4v1588668406026!5m2!1sen!2sis"
-                width="300" height="150" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1062.2220834299885!2d-21.92620931630355!3d64.12372702568355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d60b4e184b7e19%3A0xb87126c26f3d3420!2sReykjavik%20University!5e1!3m2!1sen!2sis!4v1588668406026!5m2!1sen!2sis" width="300" height="150" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         <div class="inf">
             <p><b>Telephone: </b><a href="tel:+3548458409">8458409</a></p>
             <b>Contact us: </b> <a href="https://www.facebook.com/yl.th.99" target="_blank"><img
@@ -89,7 +95,7 @@
                                                                  class="contact" alt="Gmail icon"></a>
         </div>
     </div>
-    <span id="icoInfo">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" target="_blank">Dave Gandy</a>, <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons" target="_blank">Roundicons</a> & <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar" target="_blank">Gregor Cresnar</a> on <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></span></footer>
+    <span id="icoInfo">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" target="_blank">Dave Gandy</a>, <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons" target="_blank">Roundicons</a>, <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> & <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar" target="_blank">Gregor Cresnar</a> on <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></span></footer>
 <a id="goUp" class="border border-white rounded-circle" href="#header"><img src="{% static 'images/uploading.svg' %}" class="upArr" alt="Go up"></a>
 {% comment %} <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> {% endcomment %}
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

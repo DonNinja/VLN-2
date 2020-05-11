@@ -1,1 +1,15 @@
-<h1>REVIEWS FOR CERTAIN PRODUCT SHOULD GO HERE</h1>
+<div class="title">
+        <div class="card bg-light m-2 p-2">
+            <h2 class="card-title">{{ review.title }}</h2></br>
+            <h3>Grade: {{review.grade}}/10</h3>
+            <hr class="manHR">
+            <div class="rowCust">
+                <div class="leftCol pb-3">
+                    {% comment %} <img src="{{ review.product.image }}">{% endcomment %}
+                </div>
+                <div class="righttCol pb-3">
+                    Written by: {{review.acc_id}}</br> {{review.text}}
+                </div>
+            </div>
+        </div>
+    </div>
