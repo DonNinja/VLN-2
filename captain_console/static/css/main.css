@@ -53,7 +53,7 @@ body {
 }*/
 
 .capImg {
-    margin-left: 2em;
+    margin-left: 2rem;
     height: 4rem;
     margin-right: 1rem;
     border: 2px solid black;
@@ -278,8 +278,8 @@ pre {
 }
 
 .profileImg {
-    height: 10em;
-    width: 10em;
+    height: 10rem;
+    width: 10rem;
     border: 2px solid black
 }
 

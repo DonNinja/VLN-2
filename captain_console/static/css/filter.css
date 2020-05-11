@@ -3,8 +3,9 @@
     background: #fefefe;
     border: 2px solid black;
     border-radius: 10px;
-    top: -300px;
+    top: -320px;
     z-index: 1;
+    width: 400px;
 }
 
 .searchAndFilter {
@@ -13,4 +14,8 @@
 
 .inFilter .row {
     display: inline!important;
+}
+
+.exitIco {
+    width: 1.5rem;
 }
