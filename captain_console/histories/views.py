@@ -6,5 +6,5 @@ from account.models import Account
 
 def search_index(request):
     login_id = request.user.id
-    context = {'histories': Search_history.objects.all().filter(acc_id=login_id)}
+    context = {'histories': Search_history.objects.all().filter(acc_id=login_id).order_by('-date')}
     return render(request, 'profile/histories/search_history.html', context)
