@@ -238,3 +238,7 @@ function raiseFilter() {
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }
+
+function saveToLocal() {
+    console.log($("fullName").val())
+}
