@@ -407,3 +407,7 @@ pre {
 .reviewButton {
     display: block;
 }
+
+#prodList .dropdown {
+    text-align: left;
+}

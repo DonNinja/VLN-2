@@ -18,6 +18,7 @@
 
 .exitIco {
     width: 1.5rem;
+    float: right;
 }
 
 .exitIco:hover {
