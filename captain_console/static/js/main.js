@@ -123,13 +123,15 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $("#barSearch").submit(function (event) {
-        event.preventDefault();
-        $("#buttonSearch").click();
-    })
-});
+    var search = document.getElementById("barSearch");
 
-$(document).ready(function () {
+    search.addEventListener("keydown", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $("#buttonSearch").click();
+        }
+    });
+
     var param_value = getParameterByName('search');     // get search parameter
     if (param_value) {       // only runs if user is attempting to search from another page than product
         $("#barSearch").val(param_value);
