@@ -30,20 +30,6 @@ $.ajaxSetup({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function fixPos() {
     let fix_to_bottom = $(document).height() - ($('#header').height()) - $('#footer').height() - 38
     // $(document).height(): Height of the start of the page from the bottom
