@@ -7,10 +7,13 @@ from django.http import JsonResponse
 
 def cart_index(request):
     login_id = request.user.id
-
-    # product_list = [(i.product_id, i.pk) for i in Cart.objects.all().filter(acc_id=login_id)]
-    # context = {'cart':product_list}
-    context = {'cart': Cart.objects.all().filter(acc_id=login_id)}
+    cart_content = Cart.objects.all().filter(acc_id=login_id)
+    total_price = 0
+    for item in cart_content:
+        total_price += int(item.product_id.price)
+    total_price = '{:20,.2f}'.format(total_price)
+    context = {'cart': cart_content,
+                'total':total_price}
     return render(request, 'profile/cart/cart.html', context)
 
 
