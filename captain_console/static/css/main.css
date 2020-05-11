@@ -403,3 +403,7 @@ pre {
     object-fit: cover;
     width: 50%;
 }
+
+.reviewButton {
+    display: block;
+}
