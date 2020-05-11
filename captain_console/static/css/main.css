@@ -398,3 +398,8 @@ pre {
 #filtButt::selection {
     background-color: inherit;
 }
+
+.imgRev {
+    object-fit: cover;
+    width: 50%;
+}

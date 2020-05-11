@@ -1,10 +1,11 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-    <div class="title">
-
+    <div class="card bg-light m-2 p-2 title">
             <h1 class='card-title'>Reviews</h1>
                 {% for review in reviews %}
-                    <img src="{{review.product.image}}"> <!--image only shown at top-->
+                    {% if forloop.first %}
+                        <img src="{{review.product.image}}" class="imgRev">     <!-- Only show image at top-->
+                    {% endif %}
                     {% include 'reviews/review_details.html' with review=review %}
                 {% endfor %}
             </div>
