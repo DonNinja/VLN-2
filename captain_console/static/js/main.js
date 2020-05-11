@@ -32,18 +32,6 @@ $.ajaxSetup({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function fixPos() {
     let fix_to_bottom = $(document).height() - ($('#header').height()) - $('#footer').height() - 38
     // $(document).height(): Height of the start of the page from the bottom
@@ -192,8 +180,18 @@ $(document).ready(function(){
                 var remove_id = "#" + curr_id + "mv";
 
                 object = $(remove_id);
+                console.log(object)
+                
+                var price = $("#price" + curr_id).html()
+                console.log(price)
+                var total_price_obj = $('#cartPrice');
+                var total_price = total_price_obj.html()
 
+                var new_total_price = calcCart(Number(price), total_price)
+                total_price_obj.html(new_total_price)
                 object.css("display", "none");
+
+
                 removeFromCart();
             },
             error: function(xhr, status, error) {
@@ -202,6 +200,16 @@ $(document).ready(function(){
         })
     });
 });
+
+function calcCart(reduction, total_price) {
+    console.log(total_price)
+    total_price = total_price.replace(',', '');
+    total_price = total_price - reduction;
+    // Use regex magic to format out string
+    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');
+    return total_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
 
 function theSuccessStory() {
     $("#cartConfirm")
