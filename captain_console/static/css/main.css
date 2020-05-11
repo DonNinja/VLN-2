@@ -392,7 +392,7 @@ pre {
 }
 
 #filtButt:hover {
-    cursor: default;
+    cursor: pointer;
 }
 
 #filtButt::selection {
