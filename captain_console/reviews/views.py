@@ -32,7 +32,10 @@ def get_review_by_id(request, id):
 })
 
 def get_review_by_product(request, id):
-    context = {'reviews': Review.objects.all().filter(product_id=id)}
+    prod = get_object_or_404(Product, pk=id)
+    context = {'reviews': Review.objects.all().filter(product_id=id), 
+                "product_id": id,
+                "product_image": prod.image}
     # for rev in Review.objects.all():
     #     for item in Product.objects.all():
     #         if item.id == rev.product.id:

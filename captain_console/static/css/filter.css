@@ -19,3 +19,7 @@
 .exitIco {
     width: 1.5rem;
 }
+
+.exitIco:hover {
+    cursor: pointer;
+}

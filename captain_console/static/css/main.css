@@ -392,7 +392,7 @@ pre {
 }
 
 #filtButt:hover {
-    cursor: default;
+    cursor: pointer;
 }
 
 #filtButt::selection {
@@ -402,4 +402,8 @@ pre {
 .imgRev {
     object-fit: cover;
     width: 50%;
+}
+
+.reviewButton {
+    display: block;
 }
