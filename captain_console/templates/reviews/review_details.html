@@ -1,15 +1,16 @@
 <div class="title">
-        <div class="card bg-light m-2 p-2">
-            <h2 class="card-title">{{ review.title }}</h2></br>
-            <h3>Grade: {{review.grade}}/10</h3>
-            <hr class="manHR">
+    <div class="card bg-light m-2 p-2">
+        <h3 class="card-title">{{ review.title }}</h3>
+        <h4>Grade: {{review.grade}}/10</h4>
+        <hr class="manHR">
             <div class="rowCust">
-                <div class="leftCol pb-3">
-                    {% comment %} <img src="{{ review.product.image }}">{% endcomment %}
-                </div>
+                
+                {% comment %} <img src="{{ review.product.image }}">{% endcomment %}
+                
+                <b>{{review.acc_id}}</b>: 
                 <div class="righttCol pb-3">
-                    Written by: {{review.acc_id}}</br> {{review.text}}
+                </br>{{review.text}}
                 </div>
             </div>
-        </div>
     </div>
+</div>
