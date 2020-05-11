@@ -234,7 +234,7 @@ function dropFilter() {
 
 function raiseFilter() {
     $("#filter")
-        .animate({top: '-320px'}, 1000, "swing");
+        .animate({top: '-350px'}, 1000, "swing");
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }
