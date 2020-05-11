@@ -1,10 +1,10 @@
 <div class="col mb-4">
     <div class="card h-100">
-        <a href="{{ product.id }}">
+        <a href="/product/{{ product.id }}">
             <img src="{{ product.image }}" class="card-img-top manImg" alt="{{ product.name }}">
         </a>
         <div class="card-body">
-            <a href="{{ product.id }}" class="text-dark">
+            <a href="/product/{{ product.id }}" class="text-dark">
                 <h5 class="card-title">{{ product.name }}</h5>
             </a>
             <p class="card-text">{{ product.description }}</p>

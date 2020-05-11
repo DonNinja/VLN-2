@@ -129,9 +129,9 @@ body {
 .miscBtn {
     margin-right: 1.5rem;
     vertical-align: middle;
-    display: flex;
+/*    display: flex;
     flex-flow: row;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;*/
     border: 2px solid black;
     background: white;
     border-radius: 5px;
@@ -143,6 +143,14 @@ body {
 
 .cart {
     height: 1.5rem;
+}
+
+.dropdown-item {
+    transition: background-color .5s ease;
+}
+
+.dropdown-item:hover {
+    background: rgb(235, 235, 235);
 }
 
 .well {

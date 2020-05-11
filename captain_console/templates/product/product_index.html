@@ -6,14 +6,26 @@
         <div id="prodList" class="card m-2 list_container">
             <h1 class="card-title">Products</h1>
             <hr>
+            <div class="dropdown ml-3" align="left">
+                <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Order by:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+            </div>
+            <br>
             <div class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
                 {% for product in product %}
                     {% include 'product/single_product.html' with product=product %}
                 {% endfor %}
             </div>
         </div>
-    <script>
-        searchButtons();
-    </script>
+        <script>
+            searchButtons();
+            shortenDesc();
+        </script>
     </div>
 {% endblock %}
