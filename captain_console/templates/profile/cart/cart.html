@@ -1,7 +1,7 @@
 {% extends 'sidebar.html' %}
 {% block content %}
-{% load static %}
-<script src="{% static 'js/cart.js' %}"></script>
+    {% load static %}
+    <script src="{% static 'js/cart.js' %}"></script>
     {% csrf_token %}
     <div class='title'>
         <div class="card bg-light m-2 p-2">
@@ -14,8 +14,16 @@
             {% for items in cart %}
                 {% include 'profile/cart/single_cart_item.html' with item=items %}
             {% endfor %}
-        <div ><b>Total:</b> <u id='cartPrice'>{{ total }}</u> <button class="miscBtn" onclick="navigateTo('contact_info')">Continue</button> </div>
+            <div class="d-flex pt-2">
+                <div>
+                    <b>Total:</b>
+                    <u id='cartPrice'>{{ total }}</u>
+                </div>
+                <button class="btn miscBtn mr-0 ml-auto" onclick="navigateTo('contact_info')">Continue</button>
+            </div>
         </div>
-        <div id="cartRemove" class="alert alert-danger m-auto" role="alert">Product has been removed from the cart.</div>
+        <div id="cartRemove" class="alert alert-danger m-auto" role="alert">
+            Product has been removed from the cart.
+        </div>
     </div>
 {% endblock %}
