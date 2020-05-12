@@ -1,0 +1,9 @@
+<div id="{{item.pk}}mv" class="row border-bottom border-dark p-2 no-gutters">
+    <div class="leftCol p-0 col-sm-6 col-md-8">
+    <div class="col " style="display: flex;">
+        <img src="{{ item.product_id.image }}" class="manImg">
+        <div id="SHsearch">{{ item.product_id.name }}</div>
+    <div id="SHsearch" class="col col-6 col-md-4">
+        <p id="price{{item.pk}}"> {{ item.product_id.price }}</p>
+    </div>
+</div>

@@ -201,6 +201,20 @@ $(document).ready(function(){
     });
 });
 
+
+function fillTables() {
+    $(document).ready(function(){
+        console.log(localStorage.getItem("fullname"))
+        $("#tableName").html(localStorage.getItem("fullname"));
+        $("#tableCity").html(localStorage.getItem("city"));
+        $("#tableStreet").html(localStorage.getItem("streetname"));
+        $("#tableHouse").html(localStorage.getItem("housenumber"));
+        $("#tableCountry").html(localStorage.getItem("country"));
+        $("#tablePost").html(localStorage.getItem("postcode"));
+    });
+}
+
+
 function calcCart(reduction, total_price) {
     console.log(total_price)
     total_price = total_price.replace(',', '');
@@ -240,5 +254,11 @@ function raiseFilter() {
 }
 
 function saveToLocal() {
-    console.log($("fullName").val())
+    localStorage.setItem("fullname", $("#fullName").val())
+    localStorage.setItem("city", $("#city").val())
+    localStorage.setItem("streetname", $("#streetName").val())
+    localStorage.setItem("housenumber", $("#houseNum").val())
+    localStorage.setItem("country", $("#country").val())
+    localStorage.setItem("postcode", $("#postalCode").val())
+    navigateTo("../overview")
 }

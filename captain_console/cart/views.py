@@ -39,3 +39,17 @@ def remove_from_cart(request):
 
 def render_contact_info(request):
     return render(request, 'profile/cart/contact_info.html')
+
+def render_overview(request):
+    login_id = request.user.id
+    cart_content = Cart.objects.all().filter(acc_id=login_id)   # reusing code from cart_index TODO make one function for this
+    total_price = 0
+    for item in cart_content:
+        total_price += int(item.product_id.price)
+    total_price = '{:20,.2f}'.format(total_price)
+    context = {'cart': cart_content,
+                'total':total_price}
+    return render(request, 'profile/cart/overview.html', context)
+
+def render_payment(request):
+    return render(request, 'profile/cart/payment.html')
