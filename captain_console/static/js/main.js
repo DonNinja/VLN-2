@@ -64,7 +64,7 @@ function navigateTo(site) {
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
-    // TODO CREATE NONE OPTION FOR FILTER
+    // TODO CREATE NONE OPTION FOR FILTER and fix error at home page
 })
 
 function getTheJson(url, select_id) {
