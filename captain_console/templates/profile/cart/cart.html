@@ -12,7 +12,7 @@
             {% for items in cart %}
                 {% include 'profile/cart/single_cart_item.html' with item=items %}
             {% endfor %}
-        <p>Total: <div id='cartPrice'>{{ total }} </div></p>
+        <div id='cartPrice'><b>Total:</b> <u>{{ total }}</u> <button class="miscBtn" onclick="navigateTo('contact_info')">Continue</button> </div>
         </div>
         <div id="cartRemove" class="alert alert-danger m-auto" role="alert">
             Product has been removed from the cart.

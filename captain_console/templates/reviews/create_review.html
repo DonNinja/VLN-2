@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'sidebar.html' %}
 {% block content %}
-    <div class="content formShit">
-        <h1 class="title"> Create a review for {{ name }} </h1>
+    <div class="title">
+        <div class="card bg-light m-2 p-2">
+            <h1 class='card-title'>Create a review for {{ name }}</h1>
         <form method="POST" class="form form-horizontal">
             {% csrf_token %}
             {{ form }}
@@ -25,5 +26,6 @@
             </div> {% endcomment %}
             <input type="submit" class="btn btn-primary" value="submit">
         </form>
+    </div>
     </div>
 {% endblock %}

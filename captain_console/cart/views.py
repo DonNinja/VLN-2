@@ -36,3 +36,6 @@ def remove_from_cart(request):
         if cart:
             cart.delete()
         return JsonResponse({"status": "Item added to cart" })
+
+def render_contact_info(request):
+    return render(request, 'profile/cart/contact_info.html')
