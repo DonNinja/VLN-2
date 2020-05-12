@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
+from filterer.models import Category
+from manufacturer.models import Manufacturer
 from django.http import JsonResponse
 from account.models import Account
 from histories.models import Search_history
@@ -36,11 +38,13 @@ def get_product_by_id(request, id):
 
 def advanced_filter(request):
     products = Product.objects.all()
-    if "name_filter" in request.GET:
+    if request.GET["name_filter"]:
         products = products.filter(name__icontains=request.GET["name_filter"])
-    if "type_filter" in request.GET:
-        products = products.filter(category=request.GET["type_filter"])
-    if "company_filter" in request.GET:
-        products = products.filter(manufacturer=request.GET["company_filter"])
+    if request.GET["type_filter"]:
+        sel_type = get_object_or_404(Category, name=request.GET["type_filter"])
+        products = products.filter(category=sel_type.pk)
+    if request.GET["company_filter"]:
+        man_type = get_object_or_404(Manufacturer, name=request.GET["company_filter"])
+        products = products.filter(manufacturer=man_type)
 
     return render(request, "product/product_index.html", {"product": products})

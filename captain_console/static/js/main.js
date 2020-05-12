@@ -61,16 +61,35 @@ function showOrHide() {
 function navigateTo(site) {
     location.href = site
 }
+$(document).ready(function() {
+    getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
+    getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
+    // TODO CREATE NONE OPTION FOR FILTER
+})
+
+function getTheJson(url, select_id) {
+    var dropdown = $(select_id)
+    $.getJSON(url, function (data) {
+        
+        for (var i=0; i < data.data.length; i++) {
+            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))
+        }
+    })
+}
 
 $(document).ready(function () {
-    $("")
+    $("#filterSearch").on("click", function(event) {
+        event.preventDefault()
+        var name_filter = $("#prodName").val();
+        var type_filter = $("#prodType").val();
+        var company_filter = $("#prodComp").val();
+        window.location.href = location.origin + '/product/filtered/?name_filter=' + name_filter + '&type_filter=' + type_filter + '&company_filter=' + company_filter
+    })
 })
 
 $(document).ready(function () {
     $("#buttonSearch").on("click", function (e) {
         var search_req = $("#barSearch").val(); // get search from search bar
-        console.log(type_filter)
-        console.log(company_filter)
         var loc = $(location).attr('pathname')
         e.preventDefault();
         if (loc !== '/product/') {      // if user is not on products page
@@ -201,5 +220,5 @@ function saveToLocal() {
     localStorage.setItem("housenumber", $("#houseNum").val())
     localStorage.setItem("country", $("#country").val())
     localStorage.setItem("postcode", $("#postalCode").val())
-    navigateTo("../overview")
+    window.location.href = location.origin + "/cart/overview"
 }

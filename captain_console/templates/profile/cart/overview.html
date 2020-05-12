@@ -32,7 +32,7 @@
         {% for items in cart %}
                 {% include 'profile/cart/single_cart_overview.html' with item=items %}
             {% endfor %}
-        <div id='cartPrice'><b>Total:</b> <u>{{ total }}</u> <button class="miscBtn" onclick="navigateTo('../payment')">Proceed to checkout</button> </div>
+        <div id='cartPrice'><b>Total:</b> <u>{{ total }}</u> <button class="miscBtn" onclick="window.location.href = location.origin + '/cart/payment'">Proceed to checkout</button> </div>
         </div>
     </div>
     <script>
