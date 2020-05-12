@@ -1,0 +1,41 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+    {% comment %} {% csrf_token %} {% endcomment %}
+    <div class="card bg-light m-2 p-2">
+        <h1>Overview</h1>
+        <table>
+            <tr>
+                <th>Name: </th>
+                <th id="tableName"></th>
+            </tr>
+            <tr>
+                <th>City: </th>
+                <th id="tableCity"></th>
+            </tr>
+            <tr>
+                <th>Street name: </th>
+                <th id="tableStreet"></th>
+            </tr>
+            <tr>
+                <th>House number: </th>
+                <th id="tableHouse"></th>
+            </tr>
+            <tr>
+                <th>Country: </th>
+                <th id="tableCountry"></th>
+            </tr>
+            <tr>
+                <th>Postal code: </th>
+                <th id="tablePost"></th>
+            </tr>
+        </table>
+        {% for items in cart %}
+                {% include 'profile/cart/single_cart_overview.html' with item=items %}
+            {% endfor %}
+        <div id='cartPrice'><b>Total:</b> <u>{{ total }}</u> <button class="miscBtn" onclick="navigateTo('../payment')">Proceed to checkout</button> </div>
+        </div>
+    </div>
+    <script>
+        fillTables()
+    </script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+    <div class="card bg-light m-2 p-2">
+    <form>
+        <label for="cardName">Name of Cardholder:</label>
+        <input type="text" id="cardName" name="cardName"></br>
+        <label for="cardNumber">Card number:</label>
+        <input type="text" id="cardNumber" name="cardNumber"></br>
+        <label for="cardExp">Expiration date:</label>
+        <select id="cardExpMonth" name="cardExpMonth" >
+            <option id="01" value="01">01</option>
+            <option id="02" value="02">02</option>
+            <option id="03" value="03">03</option>
+            <option id="04" value="04">04</option>
+            <option id="05" value="05">05</option>
+            <option id="06" value="06">06</option>
+            <option id="07" value="07">07</option>
+            <option id="08" value="08">08</option>
+            <option id="09" value="09">09</option>
+            <option id="10" value="10">10</option>
+            <option id="11" value="11">11</option>
+            <option id="12" value="12">12</option>
+        </select>
+        <select id="cardExpYear" name="cardExpYear" >
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select></br>
+        <label for="cardCVC">CVC:</label>
+        <input type="number" id="cardCVC" name="cardCVC" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;" />
+    </form>
+</div>
+{% endblock  %}

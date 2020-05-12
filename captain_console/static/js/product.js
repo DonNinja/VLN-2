@@ -50,6 +50,44 @@ divSort = (sortType, reversed=false) =>{
     }
     console.log(product_true_list.length)
     console.log(product_true_list)
+    searchButtons()
 
 }
 
+
+function searchButtons() {
+    $(document).ready(function () {
+        $(".buttonAddToCart").on("click", function (e) {
+            // console.log(search_req)
+            $.ajax({
+                url: '/cart/add_to_cart/' + this.id,
+                type: 'GET',
+                // TODO: REMOVE CONSOLE LOG
+                success: function (resp) {
+                    console.log(resp)
+                    // alert(resp.status)
+                    theSuccessStory()
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            })
+        });
+    });
+}
+
+
+
+function dropFilter() {
+    $("#filter")
+        .animate({top: '75%'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
+}
+
+function raiseFilter() {
+    $("#filter")
+        .animate({top: '-350px'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
+}

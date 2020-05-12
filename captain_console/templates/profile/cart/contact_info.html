@@ -1,6 +1,7 @@
 {% extends 'sidebar.html' %}
 {% block content %}
 <div class="card bg-light m-2 p-2">
+    <h1>Contact info</h1>
     <form>
         <label for="fullName">Full name:</label>
         <input type="text" id="fullName" name="fullName"></br>
@@ -18,7 +19,7 @@
         </select></br>
         <label for="postalCode">Postal code:</label>
         <input type="text" id="postalCode" name="postalCode"></br>
-        <input onclick="saveToLocal()" type="submit" class="miscBtn" value="Save and continue">
+        <input onclick="saveToLocal()" type="button" class="miscBtn" value="Save and continue" >
     </form>
 </div>
 {% endblock  %}
