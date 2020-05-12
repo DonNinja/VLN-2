@@ -215,14 +215,14 @@ function theSuccessStory() {
     $("#cartConfirm")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
 function removeFromCart() {
     $("#cartRemove")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
 function dropFilter() {

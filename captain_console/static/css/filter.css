@@ -9,7 +9,7 @@
 }
 
 .searchAndFilter {
-    margin: auto;
+    /*flex: 0 0 66.6;*/
 }
 
 .inFilter .row {
