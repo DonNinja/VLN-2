@@ -1,7 +1,7 @@
 {% extends 'sidebar.html' %}
 {% load static %}
-<script src="{% static 'js/product_search.js' %}"></script>
 {% block content %}
+<script src="{% static 'js/product.js' %}"></script>
     <div class='title'>
         <div id="prodList" class="card m-2 list_container">
             <h1 class="card-title">Products</h1>
@@ -11,13 +11,14 @@
                         aria-haspopup="true" aria-expanded="false">Order by:
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">Name</button>
-                    <button class="dropdown-item" type="button">Price</button>
-                    <button class="dropdown-item" type="button">Something else here</button>
+                    <button class="dropdown-item" onclick="divSort('name')" type="button">[A-Z]</button>
+                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">[Z-A]</button>
+                    <button class="dropdown-item" onclick="divSort('price')" type="button">[0-inf]</button>
+                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">[inf-0]]</button>
                 </div>
             </div>
             <br>
-            <div class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
+            <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
                 {% for product in product %}
                     {% include 'product/single_product.html' with product=product %}
                 {% endfor %}

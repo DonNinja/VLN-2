@@ -1,4 +1,4 @@
-<div class="col mb-4">
+<div id='{{product.name}}-{{product.price}}' class="col mb-4 productObject">
     <div class="card h-100">
         <a href="/product/{{ product.id }}">
             <img src="{{ product.image }}" class="card-img-top manImg" alt="{{ product.name }}">
@@ -8,7 +8,7 @@
                 <h5 class="card-title">{{ product.name }}</h5>
             </a>
             <p class="card-text">{{ product.description }}</p>
-            <p>{{ product.price }} Kr</p>
+            <p id="">{{ product.price }} Kr</p>
             <div class="test">
                 <button id="{{ product.pk }}" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
                 <button onclick="window.location.href='../../reviews/product/{{product.id}}'" type="button" class="mt-2 miscBtn">Reviews</button>
