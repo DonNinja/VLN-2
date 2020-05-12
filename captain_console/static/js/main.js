@@ -29,7 +29,13 @@ $.ajaxSetup({
 });
 
 
-
+function initializePage() {
+    fixPos();
+    let sidebar = document.getElementById("sidebar");
+    if (sidebar != null) {
+        showOrHide();
+    }
+}
 
 
 function fixPos() {
@@ -45,6 +51,12 @@ function fixPos() {
 
 //  + $("#container").height()
 // $('#container').height(): Height of the element with id 'container' from the bottom
+
+function showOrHide() {
+    if (window.innerWidth < 1189) {
+        document.getElementById("sidebar").classList.remove("show");
+    }
+}
 
 function navigateTo(site) {
     location.href = site
@@ -155,7 +167,7 @@ function searchButtons() {
                 success: function (resp) {
                     console.log(resp)
                     // alert(resp.status)
-                    theSuccessStory()
+                    theSuccessStory();
                 },
                 error: function (xhr, status, error) {
                     console.log(error);

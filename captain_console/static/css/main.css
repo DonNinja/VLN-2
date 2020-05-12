@@ -13,18 +13,6 @@ body {
     background-position: left;
 }
 
-#searchIco {
-    width: 2rem;
-    filter: invert(1);
-}
-
-.searchToggler {
-    height: 40px;
-    width: 56px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, .3);
-}
-
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -391,7 +379,7 @@ pre {
 
 #cartConfirm {
     position: fixed;
-    top: -8%;
+    top: -40%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -424,17 +412,26 @@ pre {
     text-align: left;
 }
 
-@media screen and (min-width: 1199px) {
-    .searchToggler {
+#cartPrice {
+    margin-top: 1em;
+}
+
+@media screen and (min-width: 1181px) {
+
+    #searchButton {
         display: none;
     }
 
-    #navbarSupportedContent {
-        float: right;
+    #sidebarButton {
+        display: none;
+    }
+
+    #info {
+        flex-flow: row;
     }
 }
 
-@media screen and (max-width: 1198px) {
+@media screen and (max-width: 1180px) {
     #homeLink {
         margin:auto;
     }
@@ -444,7 +441,7 @@ pre {
     }
 
     #container {
-        display: block;
+        flex-flow: column;
     }
 
     .navbar-toggler {
@@ -459,7 +456,66 @@ pre {
         flex-wrap: wrap!important;
     }
 
-    .searchAndFilter {
-        display: none;
+    .navbar-collapse {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        display: block;
+    }
+
+    .show {
+        margin-top: 6px;
+    }
+
+    #navbarSupportedContent {
+        border-top: 2px solid black;
+    }
+
+    .navbarButtons {
+        text-align: center;
+        margin: .5em auto 0 auto;
+    }
+
+    #sidebarButton {
+        width: 100%;
+        background-color: #fff;
+        margin: 6px 0 6px 0;
+    }
+
+    #sidebar li {
+        border-right: none;
+    }
+
+    #sidebar li:first-child {
+        border-top: 2px solid black;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+    #info {
+        flex-flow: column;
+    }
+
+    .inf {
+        margin: 1em auto 1em auto;
+        width: 75%;
+        text-align: center;
+    }
+
+    .formShit {
+        max-width: 90%;
+        max-height: 98%;
+    }
+
+    .productObject {
+        flex: 0 0 33.3%!important;
+        max-width: 33.3%;
+    }
+}
+
+@media (max-width: 1180px) and (min-width: 991px) {
+    #header .row {
+        width: 100%;
     }
 }
