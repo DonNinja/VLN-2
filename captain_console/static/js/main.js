@@ -206,7 +206,7 @@ function calcCart(reduction, total_price) {
     total_price = total_price.replace(',', '');
     total_price = total_price - reduction;
     // Use regex magic to format out string
-    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');
+    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');o
     return total_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
 
