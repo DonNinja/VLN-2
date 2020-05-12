@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block filter %}
-    <form class="inFilter">
+    <form action="navigateTo()" class="inFilter">
         <img onclick="raiseFilter()" src="{% static 'images/cross.svg' %}" class="exitIco text-right" alt="Close">
         <div class="form-group row">
             <label for="prodName" class="col-sm-2 col-form-label">Name: </label>

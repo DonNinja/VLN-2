@@ -51,8 +51,14 @@ function navigateTo(site) {
 }
 
 $(document).ready(function () {
+    $("")
+})
+
+$(document).ready(function () {
     $("#buttonSearch").on("click", function (e) {
-        var search_req = $("#barSearch").val();
+        var search_req = $("#barSearch").val(); // get search from search bar
+        console.log(type_filter)
+        console.log(company_filter)
         var loc = $(location).attr('pathname')
         e.preventDefault();
         if (loc !== '/product/') {      // if user is not on products page
@@ -65,16 +71,16 @@ $(document).ready(function () {
         newHTML.push(`
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
-        <div class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
+        <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
         `);
         $.ajax({
-            url: '/product?search_filter=' + search_req,
+            url: '/product?search_filter=' + search_req + '&type_filter='  + type_filter + '&company_filter=' + company_filter,
             type: 'GET',
             success: function (resp) {
                 results = resp.data.map(d => {
                     // return html to inject into product page
                     return `
-                        <div class="col mb-4">
+                        <div id='${ d.name }-${ d.price }' class="col mb-4 productObject">
                             <div class="card h-100">
                                 <a href="${ d.id }">
                                     <img src="${ d.image }" class="card-img-top manImg" alt="${ d.name }">

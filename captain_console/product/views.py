@@ -7,6 +7,7 @@ from histories.models import Search_history
 
 def index(request):
     if 'search_filter' in request.GET:
+
         search_filter = request.GET['search_filter']
         if request.user.is_authenticated:
             user_id = request.user.id
@@ -32,3 +33,14 @@ def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
 })
+
+def advanced_filter(request):
+    products = Product.objects.all()
+    if "name_filter" in request.GET:
+        products = products.filter(name__icontains=request.GET["name_filter"])
+    if "type_filter" in request.GET:
+        products = products.filter(category=request.GET["type_filter"])
+    if "company_filter" in request.GET:
+        products = products.filter(manufacturer=request.GET["company_filter"])
+
+    return render(request, "product/product_index.html", {"product": products})
