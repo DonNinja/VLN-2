@@ -29,7 +29,13 @@ $.ajaxSetup({
 });
 
 
-
+function initializePage() {
+    fixPos();
+    let sidebar = document.getElementById("sidebar");
+    if (sidebar != null) {
+        showOrHide();
+    }
+}
 
 
 function fixPos() {
@@ -45,6 +51,12 @@ function fixPos() {
 
 //  + $("#container").height()
 // $('#container').height(): Height of the element with id 'container' from the bottom
+
+function showOrHide() {
+    if (window.innerWidth < 1189) {
+        document.getElementById("sidebar").classList.remove("show");
+    }
+}
 
 function navigateTo(site) {
     location.href = site
@@ -175,7 +187,7 @@ function theSuccessStory() {
     $("#cartConfirm")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
 
