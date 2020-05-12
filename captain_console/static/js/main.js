@@ -144,62 +144,8 @@ function shortenDesc() {
     }
 }
 
-function searchButtons() {
-    $(document).ready(function () {
-        $(".buttonAddToCart").on("click", function (e) {
-            // console.log(search_req)
-            $.ajax({
-                url: '/cart/add_to_cart/' + this.id,
-                type: 'GET',
-                // TODO: REMOVE CONSOLE LOG
-                success: function (resp) {
-                    console.log(resp)
-                    // alert(resp.status)
-                    theSuccessStory()
-                },
-                error: function (xhr, status, error) {
-                    console.log(error);
-                }
-            })
-        });
-    });
-}
 
 
-$(document).ready(function(){
-    $(".cartDelete").on("click", function(e){
-        var curr_id = this.id;
-        // console.log(search_req)
-        $.ajax({
-            url: '/cart/remove_from_cart',
-            type: 'DELETE',
-            data: {'remove': curr_id},
-            // TODO: REMOVE CONSOLE LOG
-            success: function(resp) {
-
-                var remove_id = "#" + curr_id + "mv";
-
-                object = $(remove_id);
-                console.log(object)
-                
-                var price = $("#price" + curr_id).html()
-                console.log(price)
-                var total_price_obj = $('#cartPrice');
-                var total_price = total_price_obj.html()
-
-                var new_total_price = calcCart(Number(price), total_price)
-                total_price_obj.html(new_total_price)
-                object.css("display", "none");
-
-
-                removeFromCart();
-            },
-            error: function(xhr, status, error) {
-                console.log(error);
-            }
-        })
-    });
-});
 
 
 function fillTables() {
@@ -215,14 +161,8 @@ function fillTables() {
 }
 
 
-function calcCart(reduction, total_price) {
-    console.log(total_price)
-    total_price = total_price.replace(',', '');
-    total_price = total_price - reduction;
-    // Use regex magic to format out string
-    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');o
-    return total_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-}
+
+
 
 
 function theSuccessStory() {
@@ -232,26 +172,9 @@ function theSuccessStory() {
         .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
-function removeFromCart() {
-    $("#cartRemove")
-        .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
-        .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
-}
 
-function dropFilter() {
-    $("#filter")
-        .animate({top: '75%'}, 1000, "swing");
-    let filtButt = document.getElementById("filtButt");
-    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
-}
 
-function raiseFilter() {
-    $("#filter")
-        .animate({top: '-350px'}, 1000, "swing");
-    let filtButt = document.getElementById("filtButt");
-    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
-}
+
 
 function saveToLocal() {
     localStorage.setItem("fullname", $("#fullName").val())
