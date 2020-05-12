@@ -1,0 +1,24 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+<div class="card bg-light m-2 p-2">
+    <form>
+        <label for="fullName">Full name:</label>
+        <input type="text" id="fullName" name="fullName"></br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"></br>
+        <label for="streetName">Street name:</label>
+        <input type="text" id="streetName" name="streetName"></br>
+        <label for="houseNum">House number:</label>
+        <input type="text" id="houseNum" name="houseNum"></br>
+        <label for="country">Country:</label>
+        <select id="country" name="country" >
+            <option value="Iceland">Iceland</option>
+            <option value="Great Britain">Great Britain</option>
+            <option value="Denmark">Denmark</option>
+        </select></br>
+        <label for="postalCode">Postal code:</label>
+        <input type="text" id="postalCode" name="postalCode"></br>
+        <input onclick="saveToLocal()" type="submit" class="miscBtn" value="Save and continue">
+    </form>
+</div>
+{% endblock  %}

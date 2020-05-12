@@ -206,7 +206,7 @@ function calcCart(reduction, total_price) {
     total_price = total_price.replace(',', '');
     total_price = total_price - reduction;
     // Use regex magic to format out string
-    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');
+    // total_price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$1,');o
     return total_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
 
@@ -237,4 +237,8 @@ function raiseFilter() {
         .animate({top: '-350px'}, 1000, "swing");
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
+}
+
+function saveToLocal() {
+    console.log($("fullName").val())
 }
