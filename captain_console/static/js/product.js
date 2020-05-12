@@ -50,6 +50,7 @@ divSort = (sortType, reversed=false) =>{
     }
     console.log(product_true_list.length)
     console.log(product_true_list)
+    searchButtons()
 
 }
 
