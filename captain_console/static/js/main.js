@@ -44,8 +44,8 @@ function fixPos() {
     // $('#header').height(): Height of the element with id 'header' from the bottom
     // $('#footer').height(): Height of the element with id 'footer' from the bottom
     // 38: Additional height from padding, margin and border of footer
-    // fix_to_bottom checks if the container and the footer are next to each other (meaning the footer is either at the bottom of the page or you need to scroll to see it) and if it isn't, it adds a padding to container to push the footer to the bottom
-    $('#container').css('height', fix_to_bottom);
+    // fix_to_bottom sets the height of container to fix the footer to the bottom, while also keeping his background going all the way there
+    $('#container').css('min-height', fix_to_bottom);
 }
 
 
@@ -64,16 +64,17 @@ function navigateTo(site) {
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
-    shortenDesc()
-    // TODO CREATE NONE OPTION FOR FILTER and fix error at home page
+    shortenDesc();
+    // TODO CREATE ANY OPTION FOR FILTER and fix error at home page
 })
 
-function getTheJson(url, select_id) {
+function getTheJson(url, select_id) {       // fills the filter for type and manufacturer
     var dropdown = $(select_id)
+    dropdown.append($('<option></option>').attr('value','').text('Any'))    // add any options
     $.getJSON(url, function (data) {
         
         for (var i=0; i < data.data.length; i++) {
-            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))
+            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))  // add options from database
         }
     })
 }
@@ -104,13 +105,13 @@ $(document).ready(function () {
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
         <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
-                <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by:
+                <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by: Name (Ascending)
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" onclick="divSort('name')" type="button">[A-Z]</button>
-                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">[Z-A]</button>
-                    <button class="dropdown-item" onclick="divSort('price')" type="button">[0-inf]</button>
-                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">[inf-0]</button>
+                    <button class="dropdown-item" onclick="divSort('name')" type="button">Name (Ascending)</button>
+                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">Name (Descending)</button>
+                    <button class="dropdown-item" onclick="divSort('price')" type="button">Price (Ascending)</button>
+                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">Price (Descending)</button>
                 </div>
             </div>
         <br>
@@ -134,7 +135,7 @@ $(document).ready(function () {
                                     </a>
                                     <p class="card-text">${ d.description }</p>
                                     <p>${ d.price } Kr</p>
-                                    <div class="test">
+                                    <div>
                                         <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
                                         <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn">Reviews</button>
                                     </div>
