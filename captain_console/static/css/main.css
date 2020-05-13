@@ -427,8 +427,42 @@ pre {
     padding: 0 6px 0 6px;
 }
 
-@media screen and (min-width: 1181px) {
+.dFixed {
+    position: absolute;
+}
 
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+}
+
+#confirmCard {
+    display: none;
+    z-index: 10000;
+}
+
+.confirmCard {
+    width: 25rem;
+    border-radius: 5px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+@media screen and (min-width: 1181px) {
     #searchButton {
         display: none;
     }

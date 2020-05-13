@@ -182,10 +182,12 @@ function shortenDesc() {
     let prod_descs = document.getElementsByClassName("card-text");
     for (let i = 0; i < prod_descs.length; i++) {
         // console.log(prodDescs[i].textContent);
-        let words = prod_descs[i].textContent.split(" ");
-        if (words.length > 9) {
-            let new_text = words.slice(0, 9).join(" ");
-            prod_descs[i].textContent = new_text + "...";
+        if (!prod_descs[i].classList.contains("overwriteDesc")) { // Check if we want to overwrite this order
+            let words = prod_descs[i].textContent.split(" ");
+            if (words.length > 9) {
+                let new_text = words.slice(0, 9).join(" ");
+                prod_descs[i].textContent = new_text + "...";
+            }
         }
     }
 }
@@ -229,4 +231,11 @@ function raiseFilter() {
         .animate({top: '-350px'}, 1000, "swing");
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
+}
+
+function cardConfirmation() {
+    let overlay = jQuery('<div id="overlay"></div>');
+    overlay.appendTo($("#cardMain"));
+    $("#overlay").fadeIn(1200);
+    $("#confirmCard").fadeIn(1200);
 }
