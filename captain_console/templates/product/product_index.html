@@ -3,9 +3,6 @@
 {% block content %}
 <script src="{% static 'js/product.js' %}"></script>
     <div class='title'>
-        <div id="prodList" class="card m-2 list_container">
-            <h1 class="card-title">Products</h1>
-            <hr>
             <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
                 <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Order by:
@@ -17,6 +14,9 @@
                     <button class="dropdown-item" onclick="divSort('price', true)" type="button">[inf-0]]</button>
                 </div>
             </div>
+        <div id="prodList" class="card m-2 list_container">
+            <h1 class="card-title">Products</h1>
+            <hr>
             <br>
             <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
                 {% for product in product %}
@@ -26,7 +26,7 @@
         </div>
         <script>
             searchButtons();
-            shortenDesc();
+            shortenDesc();      {# TODO move to js #}
         </script>
     </div>
 {% endblock %}

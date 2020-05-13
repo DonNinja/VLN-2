@@ -27,6 +27,10 @@
     cursor: pointer;
 }
 
-#goBack {
-    /*height: 30px;*/
+.interfaceIco {
+    height: 25px;
+}
+
+#sidebarButton {
+    width: 98%;
 }

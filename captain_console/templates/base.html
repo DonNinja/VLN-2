@@ -15,37 +15,39 @@
     <link rel="stylesheet" href="{% static 'css/filter.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
 </head>
-<body onload="fixPos()">
+<body onload="initializePage()">
 <nav id="header" class="navbar navbar-expand-lg navbar-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+    <button class="navbar-toggler miscBtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <header class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a id="homeLink" href="/">
-            <img src="{% static 'images/icon.png' %}" alt="Captain Console" class="capImg">
-        </a>
-        <div class="searchAndFilter">
-            <form id="searchForm" class="form-inline my-2 my-lg-0">
-                <div class="searchBar">
-                    <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search"><div class="searchBox filterBox" id="filtButt" onclick="dropFilter()">Filter <img src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></div>
-                </div>
-                <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
-            </form>
-            <div id="filter" class="p-2">
-                {% block filter %}
-                {% endblock %}
+    <a id="homeLink" href="/">
+        <img src="{% static 'images/icon.png' %}" alt="Captain Console" class="capImg">
+    </a>
+    <header class="collapse navbar-collapse row" id="navbarSupportedContent">
+    <div id="searchBarToggle" class="searchAndFilter row">
+        <form id="searchForm" class="form-inline my-2 my-lg-0">
+            <div class="searchBar">
+                <input class="subBox searchBox" id="barSearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="searchBox filterBox" id="filtButt" onclick="dropFilter()">Filter <img
+                        src="{% static 'images/multimedia-option.svg' %}" alt="downward arrow" class="dropSvg"></div>
             </div>
+            <button id="buttonSearch" class="btn searchBtn my-2 my-sm-0" type="button">Search</button>
+        </form>
+        <div id="filter" class="p-2">
+            {% block filter %}
+            {% endblock %}
         </div>
+    </div>
+    <div class="navbarButtons">
         {% if user.is_authenticated %}
             <button class="btn miscBtn" onclick="navigateTo('/account/profile')">My Profile</button>
             <button class="btn miscBtn" onclick="navigateTo('/account/logout')">Sign out</button>
-            <button class="btn miscBtn" onclick="navigateTo('/cart')">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart"class="cart" ></button>
+            <button class="btn miscBtn" onclick="navigateTo('/cart')">Cart <img src="{% static 'images/shopping-cart.svg' %}" alt="shopping cart" class="cart" ></button>
         {% else %}
             <button class="btn miscBtn" onclick="navigateTo('/account/login')">Sign in</button>
             <button class="btn miscBtn" onclick="navigateTo('/account/register')">Register</button>
         {% endif %}
+    </div>
     </header>
 </nav>
 <div id="container" class="container">
@@ -73,7 +75,7 @@
                                                                  class="contact" alt="Gmail icon"></a>
         </div>
     </div>
-    <span id="icoInfo">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" target="_blank">Dave Gandy</a>, <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons" target="_blank">Roundicons</a>, <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> & <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar" target="_blank">Gregor Cresnar</a> on <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></span></footer>
+    <span id="credit">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" target="_blank">Dave Gandy</a>, <a href="https://www.flaticon.com/authors/balraj-chana" title="Balraj Chana">Balraj Chana</a>, <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons" target="_blank">Roundicons</a>, <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a>, <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware" target="_blank">Good Ware</a> & <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar" target="_blank">Gregor Cresnar</a> on <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></span></footer>
 <a id="goUp" class="border border-white rounded-circle" href="#header"><img src="{% static 'images/uploading.svg' %}" class="upArr" alt="Go up"></a>
 {% comment %} <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> {% endcomment %}
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

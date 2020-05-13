@@ -379,14 +379,14 @@ pre {
 
 #cartConfirm {
     position: fixed;
-    top: -6%;
+    top: -40%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 #cartRemove {
     position: fixed;
-    top: -6%;
+    top: -8%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -410,4 +410,118 @@ pre {
 
 #prodList .dropdown {
     text-align: left;
+}
+
+#cartPrice {
+    margin-top: 1em;
+}
+
+#overviewTb {
+    margin: auto;
+    border: 2px solid black;
+    padding: 0 6px 0 6px;
+}
+
+@media screen and (min-width: 1181px) {
+
+    #searchButton {
+        display: none;
+    }
+
+    #sidebarButton {
+        display: none;
+    }
+
+    #info {
+        flex-flow: row;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    #homeLink {
+        margin:auto;
+    }
+
+    .capImg {
+        height: 6rem;
+    }
+
+    #container {
+        flex-flow: column;
+    }
+
+    .navbar-toggler {
+        display: block!important;
+    }
+
+    .collapse:not(.show) {
+        display: none!important;
+    }
+
+    .navbar {
+        flex-wrap: wrap!important;
+    }
+
+    .navbar-collapse {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        display: block;
+    }
+
+    .show {
+        margin-top: 6px;
+    }
+
+    #navbarSupportedContent {
+        border-top: 2px solid black;
+    }
+
+    .navbarButtons {
+        text-align: center;
+        margin: .5em auto 0 auto;
+    }
+
+    #sidebarButton {
+        width: 100%;
+        background-color: #fff;
+        margin: 6px 0 6px 0;
+    }
+
+    #sidebar li {
+        border-right: none;
+    }
+
+    #sidebar li:first-child {
+        border-top: 2px solid black;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+    #info {
+        flex-flow: column;
+    }
+
+    .inf {
+        margin: 1em auto 1em auto;
+        width: 75%;
+        text-align: center;
+    }
+
+    .formShit {
+        max-width: 90%;
+        max-height: 98%;
+    }
+
+    .productObject {
+        flex: 0 0 33.3%!important;
+        max-width: 33.3%;
+    }
+}
+
+@media (max-width: 1180px) and (min-width: 991px) {
+    #header .row {
+        width: 100%;
+    }
 }

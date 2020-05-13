@@ -34,6 +34,20 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $("#cardCVC").keypress(preventMore3)
+    $("#cardCVC").keydown(preventE)
+})
+
+function preventE (event) {
+    console.log(event.which)
+    if (event.which == 69) return false;
+}
+
+function preventMore3() {
+    if (this.value.length==3) return false;
+}
+
 
 function calcCart(reduction, total_price) {
 
@@ -50,5 +64,5 @@ function removeFromCart() {
     $("#cartRemove")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }

@@ -1,6 +1,12 @@
 {% extends 'filter.html' %}
+{% load static %}
 {% block sidebar %}
-    <ul id="sidebar">
+    <div class="text-center">
+      <button id="sidebarButton" class="btn mx-auto" type="button" data-toggle="collapse" data-target="#sidebar" aria-expanded="true" aria-controls="sidebar">
+        <img src="{% static 'images/interface.svg' %}" class="interfaceIco">
+    </div>
+  </button>
+    <ul id="sidebar" class="collapse show">
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/1')">CONSOLES</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/4')">PORTABLES</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/3')">GAMES</li>

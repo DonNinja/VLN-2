@@ -80,16 +80,3 @@ function addToCartButtons() {
 
 
 
-function dropFilter() {
-    $("#filter")
-        .animate({top: '75%'}, 1000, "swing");
-    let filtButt = document.getElementById("filtButt");
-    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
-}
-
-function raiseFilter() {
-    $("#filter")
-        .animate({top: '-350px'}, 1000, "swing");
-    let filtButt = document.getElementById("filtButt");
-    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
-}

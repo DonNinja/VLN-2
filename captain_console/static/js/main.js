@@ -29,7 +29,13 @@ $.ajaxSetup({
 });
 
 
-
+function initializePage() {
+    fixPos();
+    let sidebar = document.getElementById("sidebar");
+    if (sidebar != null) {
+        showOrHide();
+    }
+}
 
 
 function fixPos() {
@@ -46,13 +52,44 @@ function fixPos() {
 //  + $("#container").height()
 // $('#container').height(): Height of the element with id 'container' from the bottom
 
+function showOrHide() {
+    if (window.innerWidth < 1189) {
+        document.getElementById("sidebar").classList.remove("show");
+    }
+}
+
 function navigateTo(site) {
     location.href = site
 }
+$(document).ready(function() {
+    getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
+    getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
+    // TODO CREATE NONE OPTION FOR FILTER and fix error at home page
+})
+
+function getTheJson(url, select_id) {
+    var dropdown = $(select_id)
+    $.getJSON(url, function (data) {
+        
+        for (var i=0; i < data.data.length; i++) {
+            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))
+        }
+    })
+}
+
+$(document).ready(function () {
+    $("#filterSearch").on("click", function(event) {
+        event.preventDefault()
+        var name_filter = $("#prodName").val();
+        var type_filter = $("#prodType").val();
+        var company_filter = $("#prodComp").val();
+        window.location.href = location.origin + '/product/filtered/?name_filter=' + name_filter + '&type_filter=' + type_filter + '&company_filter=' + company_filter
+    })
+})
 
 $(document).ready(function () {
     $("#buttonSearch").on("click", function (e) {
-        var search_req = $("#barSearch").val();
+        var search_req = $("#barSearch").val(); // get search from search bar
         var loc = $(location).attr('pathname')
         e.preventDefault();
         if (loc !== '/product/') {      // if user is not on products page
@@ -65,7 +102,7 @@ $(document).ready(function () {
         newHTML.push(`
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
-        <div class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
+        <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
         `);
         $.ajax({
             url: '/product?search_filter=' + search_req,
@@ -74,7 +111,7 @@ $(document).ready(function () {
                 results = resp.data.map(d => {
                     // return html to inject into product page
                     return `
-                        <div class="col mb-4">
+                        <div id='${ d.name }-${ d.price }' class="col mb-4 productObject">
                             <div class="card h-100">
                                 <a href="${ d.id }">
                                     <img src="${ d.image }" class="card-img-top manImg" alt="${ d.name }">
@@ -169,7 +206,7 @@ function theSuccessStory() {
     $("#cartConfirm")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
-        .animate({top: '-6%'}, /*Seconds*/1000, /*Easing*/"swing");
+        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
 
@@ -183,7 +220,19 @@ function saveToLocal() {
     localStorage.setItem("housenumber", $("#houseNum").val())
     localStorage.setItem("country", $("#country").val())
     localStorage.setItem("postcode", $("#postalCode").val())
-    navigateTo("../overview")
+    window.location.href = location.origin + "/cart/overview"
 }
 
+function dropFilter() {
+    $("#filter")
+        .animate({top: '75%'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
+}
 
+function raiseFilter() {
+    $("#filter")
+        .animate({top: '-350px'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
+}

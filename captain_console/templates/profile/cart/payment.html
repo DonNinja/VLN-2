@@ -1,11 +1,22 @@
 {% extends 'sidebar.html' %}
 {% block content %}
+{% load static %}
+    <script src="{% static 'js/cart.js' %}"></script>
+    <div class="title m-auto w-auto">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/cart/contact_info">Contact info</a></li>
+                <li class="breadcrumb-item"><a href="/cart/overview">Overview</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><i>Payment</i></li>
+            </ol>
+        </nav>
     <div class="card bg-light m-2 p-2">
+        <h1 class="card-title">Payment</h1>
     <form>
         <label for="cardName">Name of Cardholder:</label>
         <input type="text" id="cardName" name="cardName"></br>
         <label for="cardNumber">Card number:</label>
-        <input type="text" id="cardNumber" name="cardNumber"></br>
+        <input type="number" id="cardNumber" name="cardNumber"></br>
         <label for="cardExp">Expiration date:</label>
         <select id="cardExpMonth" name="cardExpMonth" >
             <option id="01" value="01">01</option>
@@ -27,9 +38,10 @@
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
-        </select></br>
+        </select>
         <label for="cardCVC">CVC:</label>
-        <input type="number" id="cardCVC" name="cardCVC" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;" />
+        <input type="number" id="cardCVC" name="cardCVC" min="000" max="999" /><br>
     </form>
 </div>
-{% endblock  %}
+    </div>
+{% endblock %}
