@@ -233,3 +233,7 @@ function raiseFilter() {
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }
 
+function resetCSS(el) {
+    console.log(el);
+    $(el).removeAttr("style");
+}

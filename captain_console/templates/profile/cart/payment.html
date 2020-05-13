@@ -13,10 +13,11 @@
         </nav>
     <div class="card bg-light m-2 p-2">
         <h1 class="card-title">Payment</h1>
+        <hr>
     <form>
         <label for="cardName">Name of Cardholder:</label>
-        <input type="text" id="cardName" name="cardName"></br>
-        <select tabindex="11" id="CardType" style="margin-left: 10px;">
+        <input type="text" id="cardName" name="cardName" onfocus="resetCSS(this)"></br>
+        <select tabindex="11" id="CardType" style="margin-left: 10px;" onfocus="resetCSS(this)">
             <option value="AmEx">American Express</option>
             <option value="CarteBlanche">Carte Blanche</option>
             <option value="DinersClub">Diners Club</option>
@@ -32,10 +33,10 @@
             <option value="LaserCard">Laser</option>
         </select>
         <label for="cardNumber">Card number:</label>
-        <input type="number" id="cardNumber" name="cardNumber"></br>
+        <input type="number" id="cardNumber" name="cardNumber" onfocus="resetCSS(this)"></br>
         <button id="cardCheckButton" type="button">Recheck card</button>
         <label for="cardExp">Expiration date:</label>
-        <select id="cardExpMonth" name="cardExpMonth" >
+        <select id="cardExpMonth" name="cardExpMonth" onfocus="resetCSS(this)">
             <option id="01" value="01">01</option>
             <option id="02" value="02">02</option>
             <option id="03" value="03">03</option>
@@ -49,7 +50,7 @@
             <option id="11" value="11">11</option>
             <option id="12" value="12">12</option>
         </select>
-        <select id="cardExpYear" name="cardExpYear" >
+        <select id="cardExpYear" name="cardExpYear" onfocus="resetCSS(this)">
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
@@ -57,8 +58,11 @@
             <option value="2024">2024</option>
         </select>
         <label for="cardCVC">CVC:</label>
-        <input type="number" id="cardCVC" name="cardCVC" min="000" max="999"/><br>
-        <input type="button" class="miscBtn" id="submitCard" name="submitCard" value="Order"/>  {# make confirmation page #}
+        <input type="number" id="cardCVC" name="cardCVC" min="000" max="999" onfocus="resetCSS(this)"/><br>
+            <div id="paymentAlert" class="alert alert-danger mt-2" role="alert">
+                Your card is invalid. Error fields have been marked.
+            </div>
+        <input type="button" class="miscBtn" id="submitCard" name="submitCard" value="Order" onfocus="resetCSS(this)"/>  {# make confirmation page #}
     </form>
     </div>
 </div>

@@ -9,7 +9,6 @@ $(document).ready(function(){
             data: {'remove': curr_id},
             // TODO: REMOVE CONSOLE LOG
             success: function(resp) {
-
                 var remove_id = "#" + curr_id + "mv";
 
                 object = $(remove_id);
@@ -23,7 +22,6 @@ $(document).ready(function(){
                 var new_total_price = calcCart(Number(price), total_price)
                 total_price_obj.html(new_total_price)
                 object.css("display", "none");
-
 
                 removeFromCart();
             },
@@ -44,31 +42,46 @@ $(document).ready(function(){
 })
 
 function cardValidation() {
+    let invalidForms = [];
     var isValid = true;
     var cardName = $("#cardName").val()
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     var cardCVC = $("#cardCVC").val()
     if (cardName.length == 0) {
+        invalidForms.push("cardName")
         isValid = false;
     }
     if (!(checkCreditCard(card, type))) {
+        invalidForms.push("CardType")
+        invalidForms.push("cardNumber")
+        invalidForms.push("cardExpMonth")
+        invalidForms.push("cardExpYear")
         isValid = false
     }
     if ((cardCVC.length != 3)) {
+        invalidForms.push("cardCVC")
         isValid = false
     }
     if (isValid) {
         cardConfirmation()
     }
     else {
-        alert("Please enter correct card details")  // TODO change from alert to message
+        document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked.";
+        $("#paymentAlert").show();
+        for (let i = 0; i < invalidForms.length; i++) {
+            // This outlines all error forms
+            $("#" + invalidForms[i]).css('outline', 'none');
+            $("#" + invalidForms[i]).css('border-color', 'red');
+            $("#" + invalidForms[i]).css('box-shadow', '0 0 .25rem red');
+        }
         // TODO empty cart afterwards
     }
 }
 
 function cartContinueCheck() {
-    if ($("#cartPrice").html() == 0) {      // TODO Yngvi need make message to display you cant continue with empty cart
+    if ($("#cartPrice").html() == 0) {
+        $("#cartAlert").show();
         return
     }
     else {
@@ -80,12 +93,11 @@ function creditCheck(){
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     if (!checkCreditCard(card, type)){
-        // TODO: Make alert for this
-        alert("Please input a valid card number and type!")
-        $("#cardNumber").css("border-color", "red")
+        document.getElementById("paymentAlert").innerHTML = "Your card is invalid.";
+        $("#paymentAlert").show();
     }
     else{
-        $("#cardNumber").css("border-color", "green")
+        $("#cardNumber").css("border-color", "green");
     }
     
 }
