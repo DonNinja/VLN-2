@@ -18,6 +18,7 @@ divSort = (sortType, reversed=false) =>{
 
     if (sortType == "price"){
         // sorts the list by price
+        $("#orderDrop").html("Order by: Price (Ascending)");
         product_true_list.sort((a,b) =>{
             return a[1]-b[1]
         })
@@ -26,6 +27,7 @@ divSort = (sortType, reversed=false) =>{
     if (sortType == "name"){
         product_true_list.sort((a,b) =>{
             // sorts the list by name
+            $("#orderDrop").html("Order by: Name (Ascending)");
             var nameA = a[0].toUpperCase(); // ignore upper and lowercase
             var nameB = b[0].toUpperCase(); // ignore upper and lowercase
             if (nameA < nameB) {
@@ -43,6 +45,12 @@ divSort = (sortType, reversed=false) =>{
 
     if (reversed){
         // if the user requested a reverse sort, reverse it
+        if (sortType == "name") {
+            $("#orderDrop").html("Order by: Name (Descending)");
+        }
+        else if (sortType == "price") {
+            $("#orderDrop").html("Order by: Price (Descending)");
+        }
         product_true_list.reverse()
     }
 

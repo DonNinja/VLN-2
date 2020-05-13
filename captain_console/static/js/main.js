@@ -103,13 +103,13 @@ $(document).ready(function () {
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
         <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
-                <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by:
+                <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by: Name (Ascending)
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" onclick="divSort('name')" type="button">[A-Z]</button>
-                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">[Z-A]</button>
-                    <button class="dropdown-item" onclick="divSort('price')" type="button">[0-inf]</button>
-                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">[inf-0]</button>
+                    <button class="dropdown-item" onclick="divSort('name')" type="button">Name (Ascending)</button>
+                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">Name (Descending)</button>
+                    <button class="dropdown-item" onclick="divSort('price')" type="button">Price (Ascending)</button>
+                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">Price (Descending)</button>
                 </div>
             </div>
         <br>
@@ -133,7 +133,7 @@ $(document).ready(function () {
                                     </a>
                                     <p class="card-text">${ d.description }</p>
                                     <p>${ d.price } Kr</p>
-                                    <div class="test">
+                                    <div>
                                         <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
                                         <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn">Reviews</button>
                                     </div>
