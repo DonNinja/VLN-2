@@ -7,8 +7,8 @@
             <h1 class="card-title">Products</h1>
             <hr>
             <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
-                <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Order by:
+                <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Order by: Name (Ascending)
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <button class="dropdown-item" onclick="divSort('name')" type="button">Name (Ascending)</button>
@@ -24,9 +24,17 @@
                 {% endfor %}
             </div>
         </div>
+<<<<<<< HEAD
+        <script>
+            shortenDesc();
+            searchButtons();
+            {# TODO move to js #}
+        </script>
+=======
         {% comment %} <script>
             searchButtons();
             shortenDesc();      {# TODO move to js #}
         </script> {% endcomment %}
+>>>>>>> d26dae1b33ebdb83d4eb1c8d0685e3207959aa8a
     </div>
 {% endblock %}
