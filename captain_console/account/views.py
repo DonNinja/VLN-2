@@ -17,7 +17,7 @@ def register(request):
 
             login(request, user)
 
-            profile = Account(acc_id=request.user)
+            profile = Account(acc_id=request.user, first_name=request.POST['id_firstname'], last_name=request.POST['id_lastname'])
             profile.save()
             
             return redirect('profile')

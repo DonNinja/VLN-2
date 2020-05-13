@@ -64,8 +64,7 @@ function navigateTo(site) {
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
-    shortenDesc();
-    // TODO CREATE ANY OPTION FOR FILTER and fix error at home page
+    shortenDesc()
 })
 
 function getTheJson(url, select_id) {       // fills the filter for type and manufacturer
@@ -192,9 +191,6 @@ function shortenDesc() {
 }
 
 
-
-
-
 function fillTables() {
     $(document).ready(function(){
         console.log(localStorage.getItem("fullname"))
@@ -208,25 +204,11 @@ function fillTables() {
 }
 
 
-
-
-
-
 function theSuccessStory() {
     $("#cartConfirm")
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
         .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
-}
-
-function saveToLocal() {
-    localStorage.setItem("fullname", $("#fullName").val())
-    localStorage.setItem("city", $("#city").val())
-    localStorage.setItem("streetname", $("#streetName").val())
-    localStorage.setItem("housenumber", $("#houseNum").val())
-    localStorage.setItem("country", $("#country").val())
-    localStorage.setItem("postcode", $("#postalCode").val())
-    window.location.href = location.origin + "/cart/overview"
 }
 
 function dropFilter() {

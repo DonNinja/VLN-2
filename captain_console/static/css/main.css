@@ -244,7 +244,7 @@ pre {
 }
 
 .cardTitle {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     color: black;
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 2px;
@@ -408,12 +408,17 @@ pre {
     display: block;
 }
 
+.reviewImg {
+    object-fit: cover;
+    height: 4rem;
+}
+
 #prodList .dropdown {
     text-align: left;
 }
 
 #cartPrice {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 #overviewTb {
@@ -463,8 +468,8 @@ pre {
     }
 
     .navbar-collapse {
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         display: block;
     }
 
@@ -478,7 +483,7 @@ pre {
 
     .navbarButtons {
         text-align: center;
-        margin: .5em auto 0 auto;
+        margin: .5rem auto 0 auto;
     }
 
     #sidebarButton {
@@ -504,7 +509,7 @@ pre {
     }
 
     .inf {
-        margin: 1em auto 1em auto;
+        margin: 1rem auto 1rem auto;
         width: 75%;
         text-align: center;
     }
