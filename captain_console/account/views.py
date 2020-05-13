@@ -31,14 +31,23 @@ def register(request):
 def edit_profile(request):
     if request.method == 'POST':
         userN = request.POST['username']
+        firstN = request.POST['firstName']
+        lastN = request.POST['lastName']
+        curr_user = get_object_or_404(Account, acc_id=request.user)
       
         if len(userN) >= 1 and len(userN) <= 150:
             request.user.username = userN
 
+        if len(firstN) >=1 and len(firstN) <= 150:
+            curr_user.first_name = firstN
+            curr_user.save()
+
+        if len(lastN) >=1 and len(lastN) <= 150:
+            curr_user.last_name = lastN
+            curr_user.save()
+
         if len(request.FILES) != 0:
             new_img = request.FILES['img']
-
-            curr_user = get_object_or_404(Account, acc_id=request.user)
             filename = default_storage.save(new_img.name, new_img)
             curr_user.profile_image = new_img
             curr_user.save()
