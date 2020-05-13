@@ -102,6 +102,17 @@ $(document).ready(function () {
         newHTML.push(`
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
+        <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
+                <button class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" onclick="divSort('name')" type="button">[A-Z]</button>
+                    <button class="dropdown-item" onclick="divSort('name', true)" type="button">[Z-A]</button>
+                    <button class="dropdown-item" onclick="divSort('price')" type="button">[0-inf]</button>
+                    <button class="dropdown-item" onclick="divSort('price', true)" type="button">[inf-0]</button>
+                </div>
+            </div>
+        <br>
         <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
         `);
         $.ajax({
