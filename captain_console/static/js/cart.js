@@ -40,7 +40,32 @@ $(document).ready(function(){
     $("#cardNumber").change(creditCheck)
     $("#cardCheckButton").click(creditCheck)
     $("#cartContinue").click(cartContinueCheck)
+    $("#submitCard").click(cardValidation)
 })
+
+function cardValidation() {
+    var isValid = true;
+    var cardName = $("#cardName").val()
+    var card = $("#cardNumber").val()
+    var type = $("#CardType").val()
+    var cardCVC = $("#cardCVC").val()
+    if (cardName.length == 0) {
+        isValid = false;
+    }
+    if (!(checkCreditCard(card, type))) {
+        isValid = false
+    }
+    if ((cardCVC.length != 3)) {
+        isValid = false
+    }
+    if (isValid) {
+        cardConfirmation()
+    }
+    else {
+        alert("Please enter correct card details")  // TODO change from alert to message
+        // TODO empty cart afterwards
+    }
+}
 
 function cartContinueCheck() {
     if ($("#cartPrice").html() == 0) {      // TODO Yngvi need make message to display you cant continue with empty cart
@@ -91,4 +116,11 @@ function removeFromCart() {
         .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
         .delay(1200)
         .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+}
+
+function cardConfirmation() {
+    let overlay = jQuery('<div id="overlay"></div>');
+    overlay.appendTo($("#cardMain"));
+    $("#overlay").fadeIn(1200);
+    $("#confirmCard").fadeIn(1200);
 }
