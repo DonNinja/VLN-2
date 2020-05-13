@@ -65,15 +65,16 @@ $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
     shortenDesc()
-    // TODO CREATE NONE OPTION FOR FILTER and fix error at home page
+    // TODO CREATE ANY OPTION FOR FILTER and fix error at home page
 })
 
-function getTheJson(url, select_id) {
+function getTheJson(url, select_id) {       // fills the filter for type and manufacturer
     var dropdown = $(select_id)
+    dropdown.append($('<option></option>').attr('value','').text('Any'))    // add any options
     $.getJSON(url, function (data) {
         
         for (var i=0; i < data.data.length; i++) {
-            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))
+            dropdown.append($('<option></option>').attr('value', data.data[i]).text(data.data[i]))  // add options from database
         }
     })
 }
