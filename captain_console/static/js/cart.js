@@ -37,7 +37,24 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#cardCVC").keypress(preventMore3)
     $("#cardCVC").keydown(preventE)
+    $("#cardNumber").change(creditCheck)
+    $("#cardCheckButton").click(creditCheck)
 })
+
+function creditCheck(){
+
+    var card = $("#cardNumber").val()
+    var type = $("#CardType").val()
+    if (!checkCreditCard(card, type)){
+        // TODO: Change this
+        alert("Please input a valid card number and type!")
+        $("#cardNumber").css("border-color", "red")
+    }
+    else{
+        $("#cardNumber").css("border-color", "green")
+    }
+    
+}
 
 function preventE (event) {
     console.log(event.which)
