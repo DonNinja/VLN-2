@@ -47,7 +47,8 @@ divSort = (sortType, reversed=false) =>{
     }
 
     var product_list = $('#product_list')
-    product_list.html("") // clear the product list
+    product_list.empty() // clear the product list
+
     for (var i=0; i<product_true_list.length; i++){
         // add the sorted products
         product_list.append(product_true_list[i][2])
