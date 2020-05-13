@@ -105,7 +105,7 @@ $(document).ready(function () {
         <div id="product_list" class="row row-cols-3 row-cols-sm-2 row-cols-md-4">
         `);
         $.ajax({
-            url: '/product?search_filter=' + search_req + '&type_filter='  + type_filter + '&company_filter=' + company_filter,
+            url: '/product?search_filter=' + search_req,
             type: 'GET',
             success: function (resp) {
                 results = resp.data.map(d => {
@@ -221,4 +221,18 @@ function saveToLocal() {
     localStorage.setItem("country", $("#country").val())
     localStorage.setItem("postcode", $("#postalCode").val())
     window.location.href = location.origin + "/cart/overview"
+}
+
+function dropFilter() {
+    $("#filter")
+        .animate({top: '75%'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
+}
+
+function raiseFilter() {
+    $("#filter")
+        .animate({top: '-350px'}, 1000, "swing");
+    let filtButt = document.getElementById("filtButt");
+    filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }

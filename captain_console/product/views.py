@@ -7,9 +7,9 @@ from account.models import Account
 from histories.models import Search_history
 # Create your views here.
 
+
 def index(request):
     if 'search_filter' in request.GET:
-
         search_filter = request.GET['search_filter']
         if request.user.is_authenticated:
             user_id = request.user.id
