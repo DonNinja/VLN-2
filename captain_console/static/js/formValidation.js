@@ -1,5 +1,6 @@
 
 function validateForm() {
+    let invalidForms = [];
     var isValid = true;
     var contactName = document.forms["contactInfo"]["fullName"].value;
     var contactCity = document.forms["contactInfo"]["city"].value;
@@ -31,6 +32,7 @@ function validateForm() {
         return true
     }
     else {
+        // TODO: Make alert for this
         alert("Please fill all fields in the form before continuing.")
         return false
     }

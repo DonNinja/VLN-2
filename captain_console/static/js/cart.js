@@ -55,7 +55,7 @@ function creditCheck(){
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     if (!checkCreditCard(card, type)){
-        // TODO: Change this
+        // TODO: Make alert for this
         alert("Please input a valid card number and type!")
         $("#cardNumber").css("border-color", "red")
     }
