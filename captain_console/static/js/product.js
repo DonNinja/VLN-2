@@ -68,24 +68,24 @@ divSort = (sortType, reversed=false) =>{
 
 
 function addToCartButtons() {
-    $(document).ready(function () {
-        $(".buttonAddToCart").on("click", function (e) {
-            // console.log(search_req)
-            $.ajax({
-                url: '/cart/add_to_cart/' + this.id,
-                type: 'GET',
-                // TODO: REMOVE CONSOLE LOG
-                success: function (resp) {
-                    // alert(resp.status)
-                    theSuccessStory();
-                },
-                error: function (xhr, status, error) {
-                    console.log(error);
-                }
-            })
-        });
+    $(".buttonAddToCart").on("click", function (e) {
+        // console.log(search_req)
+        $.ajax({
+            url: '/cart/add_to_cart/' + this.id,
+            type: 'GET',
+            // TODO: REMOVE CONSOLE LOG
+            success: function (resp) {
+                // alert(resp.status)
+                theSuccessStory();
+            },
+            error: function (xhr, status, error) {
+                window.location.href = location.origin + "/account/login";  // user is not logged in redirect him
+            }
+        })
     });
 }
 
-
+$(document).ready(function() {
+    addToCartButtons()
+})
 
