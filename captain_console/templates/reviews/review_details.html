@@ -4,9 +4,12 @@
         <h4>Grade: {{review.grade}}/10</h4>
         <hr class="manHR">
             <div class="rowCust">
-                <b>{{review.acc_id}}</b>: 
-                <div class="righttCol pb-3">
-                <br>{{review.text}}
+                <img src="{{ account.profile_image.url }}">
+{#                <img src="{{ review.acc_id.profile_image.url }}" class="imgRev">#}
+                <b>{{review.acc_id}}</b>:
+                <div class="righttCol p-2">
+                <br>
+                    {{review.text}}
                 </div>
             </div>
     </div>
