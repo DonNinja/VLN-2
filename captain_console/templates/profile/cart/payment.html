@@ -1,5 +1,7 @@
 {% extends 'sidebar.html' %}
 {% block content %}
+{% load static %}
+    <script src="{% static 'js/cart.js' %}"></script>
     <div class="title m-auto w-auto">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -38,7 +40,7 @@
             <option value="2024">2024</option>
         </select>
         <label for="cardCVC">CVC:</label>
-        <input type="number" id="cardCVC" name="cardCVC" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;" /><br>
+        <input type="number" id="cardCVC" name="cardCVC" min="000" max="999" /><br>
     </form>
 </div>
     </div>
