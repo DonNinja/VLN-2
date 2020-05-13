@@ -1,13 +1,14 @@
-product_true_list = []
+let product_true_list = [];
 
 
 loadList = () => {
     // Gets all products on the current page
-    var product_list = $('#product_list');
+    product_true_list = [];
+    let product_list = $('#product_list');
 
     product_list.find(".productObject").each(function(){
         // saves the objects to a list, also saves the name and price
-        var namePrice = this.id.split("-")
+        let namePrice = this.id.split("-")
         product_true_list.push([namePrice[0], Number(namePrice[1]), this])
     })
     
@@ -16,7 +17,7 @@ loadList = () => {
 divSort = (sortType, reversed=false) =>{
     loadList()
 
-    if (sortType == "price"){
+    if (sortType === "price"){
         // sorts the list by price
         $("#orderDrop").html("Order by: Price (Ascending)");
         product_true_list.sort((a,b) =>{
@@ -24,12 +25,12 @@ divSort = (sortType, reversed=false) =>{
         })
     }
 
-    if (sortType == "name"){
+    if (sortType === "name"){
         product_true_list.sort((a,b) =>{
             // sorts the list by name
             $("#orderDrop").html("Order by: Name (Ascending)");
-            var nameA = a[0].toUpperCase(); // ignore upper and lowercase
-            var nameB = b[0].toUpperCase(); // ignore upper and lowercase
+            let nameA = a[0].toUpperCase(); // ignore upper and lowercase
+            let nameB = b[0].toUpperCase(); // ignore upper and lowercase
             if (nameA < nameB) {
               return -1;
             }
@@ -45,18 +46,18 @@ divSort = (sortType, reversed=false) =>{
 
     if (reversed){
         // if the user requested a reverse sort, reverse it
-        if (sortType == "name") {
+        if (sortType === "name") {
             $("#orderDrop").html("Order by: Name (Descending)");
         }
-        else if (sortType == "price") {
+        else if (sortType === "price") {
             $("#orderDrop").html("Order by: Price (Descending)");
         }
         product_true_list.reverse()
     }
 
-    var product_list = $('#product_list')
+    let product_list = $('#product_list')
     product_list.html("") // clear the product list
-    for (var i=0; i<product_true_list.length; i++){
+    for (let i=0; i<product_true_list.length; i++){
         // add the sorted products
         product_list.append(product_true_list[i][2])
     }
@@ -76,7 +77,7 @@ function addToCartButtons() {
                 // TODO: REMOVE CONSOLE LOG
                 success: function (resp) {
                     // alert(resp.status)
-                    theSuccessStory()
+                    theSuccessStory();
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
