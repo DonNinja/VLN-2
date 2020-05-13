@@ -64,8 +64,7 @@ function navigateTo(site) {
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
-    shortenDesc();
-    // TODO CREATE ANY OPTION FOR FILTER and fix error at home page
+    shortenDesc()
 })
 
 function getTheJson(url, select_id) {       // fills the filter for type and manufacturer
@@ -223,15 +222,7 @@ function theSuccessStory() {
 
 
 
-function saveToLocal() {
-    localStorage.setItem("fullname", $("#fullName").val())
-    localStorage.setItem("city", $("#city").val())
-    localStorage.setItem("streetname", $("#streetName").val())
-    localStorage.setItem("housenumber", $("#houseNum").val())
-    localStorage.setItem("country", $("#country").val())
-    localStorage.setItem("postcode", $("#postalCode").val())
-    window.location.href = location.origin + "/cart/overview"
-}
+
 
 function dropFilter() {
     $("#filter")
