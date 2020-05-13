@@ -2,10 +2,11 @@ product_true_list = []
 
 
 loadList = () => {
+    // Gets all products on the current page
     var product_list = $('#product_list');
 
     product_list.find(".productObject").each(function(){
-
+        // saves the objects to a list, also saves the name and price
         var namePrice = this.id.split("-")
         product_true_list.push([namePrice[0], Number(namePrice[1]), this])
     })
@@ -16,6 +17,7 @@ divSort = (sortType, reversed=false) =>{
     loadList()
 
     if (sortType == "price"){
+        // sorts the list by price
         product_true_list.sort((a,b) =>{
             return a[1]-b[1]
         })
@@ -23,6 +25,7 @@ divSort = (sortType, reversed=false) =>{
 
     if (sortType == "name"){
         product_true_list.sort((a,b) =>{
+            // sorts the list by name
             var nameA = a[0].toUpperCase(); // ignore upper and lowercase
             var nameB = b[0].toUpperCase(); // ignore upper and lowercase
             if (nameA < nameB) {
@@ -39,23 +42,23 @@ divSort = (sortType, reversed=false) =>{
     }
 
     if (reversed){
+        // if the user requested a reverse sort, reverse it
         product_true_list.reverse()
     }
 
     var product_list = $('#product_list')
-    product_list.html("")
+    product_list.html("") // clear the product list
     for (var i=0; i<product_true_list.length; i++){
-        console.log("what")
+        // add the sorted products
         product_list.append(product_true_list[i][2])
     }
-    console.log(product_true_list.length)
-    console.log(product_true_list)
-    searchButtons()
+
+    addToCartButtons()
 
 }
 
 
-function searchButtons() {
+function addToCartButtons() {
     $(document).ready(function () {
         $(".buttonAddToCart").on("click", function (e) {
             // console.log(search_req)
@@ -64,7 +67,6 @@ function searchButtons() {
                 type: 'GET',
                 // TODO: REMOVE CONSOLE LOG
                 success: function (resp) {
-                    console.log(resp)
                     // alert(resp.status)
                     theSuccessStory()
                 },

@@ -185,3 +185,5 @@ function saveToLocal() {
     localStorage.setItem("postcode", $("#postalCode").val())
     navigateTo("../overview")
 }
+
+
