@@ -7,12 +7,12 @@
             <hr>
             <img src="{{ product_image }}" class="imgRev">
             <!-- Only show image at top but sadly only shows if review already exists :(-->
-            {% for review in reviews %}
+            {% for review in review_connected %}
                 {% if forloop.first %}
                     <div class="reviewButton">
                     </div>
                 {% endif %}
-                {% include 'reviews/review_details.html' with review=review %}
+                {% include 'reviews/review_details.html' with everything=review %}
             {% endfor %}
         </div>
     </div>

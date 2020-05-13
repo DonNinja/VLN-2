@@ -1,14 +1,14 @@
 <div class="title">
     <div class="card bg-light m-2 p-2">
-        <h3 class="card-title">{{ review.title }}</h3>
-        <h4>Grade: {{review.grade}}/10</h4>
+        <h3 class="card-title">{{ everything.review_id.title }}</h3>
+        <h4>Grade: {{everything.review_id.grade}}/10</h4>
         <hr class="manHR">
             <div class="rowCust">
-{#                <img src="{{ review.acc_id.profile_image.url }}" class="imgRev">#}
-                <b>{{review.acc_id}}</b>:
+                <img src="{{ everything.profile_id.profile_image.url }}" class="imgRev">
+                <b>{{everything.profile_id.first_name}} {{everything.profile_id.last_name}}</b>:
                 <div class="righttCol p-2">
                 <br>
-                    {{review.text}}
+                    {{everything.review_id.text}}
                 </div>
             </div>
     </div>
