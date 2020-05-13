@@ -6,9 +6,8 @@
         <div id="prodList" class="card m-2 list_container">
             <h1 class="card-title">Products</h1>
             <hr>
-            <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
-                <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Order by:</button>
+            <div class="dropdown ml-3"}>
+                <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by:</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <button class="dropdown-item" onclick="divSort('name')" type="button">Name (Ascending)</button>
                     <button class="dropdown-item" onclick="divSort('name', true)" type="button">Name (Descending)</button>
@@ -23,10 +22,10 @@
                 {% endfor %}
             </div>
         </div>
-        <script>
+{#        <script>#}
             {#shortenDesc();#}
-            searchButtons();
+{#            searchButtons();#}
             {# TODO move to js #}
-        </script>
+{#        </script>#}
     </div>
 {% endblock %}
