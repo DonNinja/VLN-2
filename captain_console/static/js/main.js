@@ -64,6 +64,7 @@ function navigateTo(site) {
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
+    shortenDesc()
     // TODO CREATE NONE OPTION FOR FILTER and fix error at home page
 })
 
@@ -132,12 +133,9 @@ $(document).ready(function () {
                     `
                 });
                 newHTML = newHTML.concat(results);
-                newHTML.push(`</div>
-                    <script>
-                        shortenDesc();
-                        searchButtons();
-                    </script>`);
+
                 $('#prodList').html(newHTML.join(''));
+                shortenDesc()
 
             },
             error: function (xhr, status, error) {
