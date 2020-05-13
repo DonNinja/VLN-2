@@ -4,9 +4,11 @@ from account.models import Account
 from reviews.Forms import ReviewForm
 from product.models import Product
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required()
 def create_review(request, id):
     if request.method == "POST":
         form = ReviewForm(request.POST)

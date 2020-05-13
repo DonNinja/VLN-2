@@ -3,10 +3,10 @@
         <h3 class="card-title">{{ everything.review_id.title }}</h3>
         <h4>Grade: {{everything.review_id.grade}}/10</h4>
         <hr class="manHR">
-            <div class="rowCust">
-                <img src="{{ everything.profile_id.profile_image.url }}" class="imgRev">
-                <b>{{everything.profile_id.first_name}} {{everything.profile_id.last_name}}</b>:
-                <div class="righttCol p-2">
+            <div class="rowCust d-block text-left mt-2">
+                <img src="{{ everything.profile_id.profile_image.url }}" class="reviewImg">
+                <b>{{everything.profile_id.first_name}} {{everything.profile_id.last_name}} ({{ review.acc_id }})</b>:
+                <div class="rightCol p-2">
                 <br>
                     {{everything.review_id.text}}
                 </div>

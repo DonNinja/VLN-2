@@ -39,10 +39,19 @@ $(document).ready(function(){
     $("#cardCVC").keydown(preventE)
     $("#cardNumber").change(creditCheck)
     $("#cardCheckButton").click(creditCheck)
+    $("#cartContinue").click(cartContinueCheck)
 })
 
-function creditCheck(){
+function cartContinueCheck() {
+    if ($("#cartPrice").html() == 0) {      // TODO Yngvi need make message to display you cant continue with empty cart
+        return
+    }
+    else {
+        navigateTo('contact_info')
+    }
+}
 
+function creditCheck(){
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     if (!checkCreditCard(card, type)){

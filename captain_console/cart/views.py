@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
 from cart.models import Cart
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required()
 def cart_index(request):
     login_id = request.user.id
     cart_content = Cart.objects.all().filter(acc_id=login_id)
@@ -16,19 +17,20 @@ def cart_index(request):
                 'total':total_price}
     return render(request, 'profile/cart/cart.html', context)
 
-
 def add_to_cart(request, id):
     ''' Takes in an id and adds that item to the users cart'''
     # TODO: MAKE THIS INTO A POST REQUEST
-    login_id = request.user.id 
-    item = get_object_or_404(Product, pk=id)
-    cart = Cart(product_id=item, acc_id=request.user)
-    cart.save()
-    return JsonResponse({"status": "Item added to cart" })
+    if request.user.is_authenticated:
+        login_id = request.user.id 
+        item = get_object_or_404(Product, pk=id)
+        cart = Cart(product_id=item, acc_id=request.user)
+        cart.save()
+        return JsonResponse({"status": "Item added to cart" })
+    else:
+        raise Http404("User not logged in")
 
 def remove_from_cart(request):
     ''' Takes in an id and adds that item to the users cart'''
-    # TODO: MAKE THIS INTO A DELETE REQUEST
     if request.method == "DELETE":
         login_id = request.user.id 
         cart_id = request.body.decode('ascii').split('=')[1]

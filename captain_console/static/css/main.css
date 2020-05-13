@@ -244,7 +244,7 @@ pre {
 }
 
 .cardTitle {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     color: black;
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 2px;
@@ -408,12 +408,17 @@ pre {
     display: block;
 }
 
+.reviewImg {
+    object-fit: cover;
+    height: 4rem;
+}
+
 #prodList .dropdown {
     text-align: left;
 }
 
 #cartPrice {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 #overviewTb {
@@ -422,8 +427,42 @@ pre {
     padding: 0 6px 0 6px;
 }
 
-@media screen and (min-width: 1181px) {
+.dFixed {
+    position: absolute;
+}
 
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+}
+
+#confirmCard {
+    display: none;
+    z-index: 10000;
+}
+
+.confirmCard {
+    width: 25rem;
+    border-radius: 5px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+@media screen and (min-width: 1181px) {
     #searchButton {
         display: none;
     }
@@ -463,8 +502,8 @@ pre {
     }
 
     .navbar-collapse {
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         display: block;
     }
 
@@ -478,7 +517,7 @@ pre {
 
     .navbarButtons {
         text-align: center;
-        margin: .5em auto 0 auto;
+        margin: .5rem auto 0 auto;
     }
 
     #sidebarButton {
@@ -504,7 +543,7 @@ pre {
     }
 
     .inf {
-        margin: 1em auto 1em auto;
+        margin: 1rem auto 1rem auto;
         width: 75%;
         text-align: center;
     }
@@ -517,6 +556,14 @@ pre {
     .productObject {
         flex: 0 0 33.3%!important;
         max-width: 33.3%;
+    }
+
+    .margSmAuto {
+        margin: auto;
+    }
+
+    #filter {
+        margin-left: 16%;
     }
 }
 
