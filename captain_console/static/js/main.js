@@ -219,10 +219,6 @@ function theSuccessStory() {
         .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
-
-
-
-
 function saveToLocal() {
     localStorage.setItem("fullname", $("#fullName").val())
     localStorage.setItem("city", $("#city").val())
@@ -234,8 +230,14 @@ function saveToLocal() {
 }
 
 function dropFilter() {
-    $("#filter")
-        .animate({top: '75%'}, 1000, "swing");
+    if (window.innerWidth > 1180) {
+        $("#filter")
+            .animate({top: '75%'}, 1000, "swing");
+    }
+    else {
+        $("#filter")
+            .animate({top: '69%'}, 1000, "swing");
+    }
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
 }
