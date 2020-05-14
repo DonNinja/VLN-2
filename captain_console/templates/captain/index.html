@@ -2,14 +2,33 @@
 {% block content %}
     <div class="title">
     <div class="card m-2">
+    <h1>On Sale</h1>
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                {% for i in loop_times %}
+                    {% if forloop.first%}
+                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"></li>
+                    {% else %}
+                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}"></li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+                {% comment %} <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
+            </ol> {% endcomment %}
             <div class="carousel-inner rotateImg">
-                <div class="carousel-item active">
+                {% for item in product %}
+                    {% if forloop.first %}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+
+                        {% include "captain/carousel_item.html" with item=item %}
+                        </div>
+                {% endfor %}
+                {% comment %} <div class="carousel-item active">
                     <img src="https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png" class="d-block w-100" alt="Placeholder image">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>First slide label</h5>
@@ -29,7 +48,7 @@
                         <h5>Third slide label</h5>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
