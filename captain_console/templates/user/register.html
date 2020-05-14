@@ -1,9 +1,14 @@
 {% extends 'filter.html' %}
 {% block content %}
+{% load static %}
+    <script src="{% static 'js/register.js' %}"></script>
     <div class="content formShit my-4">
         <h1 class="title"> Sign up </h1>
         <form class="form form-horizontal" method="post">
             {% csrf_token %}
+            {% for msg in errors %}
+            <p>{{ msg.message }}</p>
+            {% endfor %}
             <div class="usern mb-2">
                 <label for="id_username">Username: </label>
                 <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
