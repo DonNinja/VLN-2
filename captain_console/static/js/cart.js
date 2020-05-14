@@ -11,7 +11,7 @@ $(document).ready(function(){
             success: function(resp) {
                 var remove_id = "#" + curr_id + "mv";
 
-                object = $(remove_id);
+                let prod = $(remove_id);
 
                 
                 var price = $("#price" + curr_id).html()
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
                 var new_total_price = calcCart(Number(price), total_price)
                 total_price_obj.html(new_total_price)
-                object.css("display", "none");
+                prod.css("display", "none");
 
                 removeFromCart();
             },
@@ -48,7 +48,7 @@ function cardValidation() {
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     var cardCVC = $("#cardCVC").val()
-    if (cardName.length == 0) {
+    if (cardName.length === 0) {
         invalidForms.push("cardName")
         isValid = false;
     }
@@ -59,7 +59,7 @@ function cardValidation() {
         invalidForms.push("cardExpYear")
         isValid = false
     }
-    if ((cardCVC.length != 3)) {
+    if ((cardCVC.length !== 3)) {
         invalidForms.push("cardCVC")
         isValid = false
     }

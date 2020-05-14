@@ -61,6 +61,8 @@ function showOrHide() {
 function navigateTo(site) {
     location.href = site
 }
+
+
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
@@ -207,10 +209,18 @@ function fillTables() {
 
 
 function theSuccessStory() {
-    $("#cartConfirm")
-        .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
-        .delay(1200)
-        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    if (window.innerWidth > 1180) {
+        $("#cartConfirm")
+            .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
+            .delay(1200)
+            .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    }
+    else {
+        $("#cartConfirm")
+            .animate({top: '7%'}, /*Seconds*/1000, /*Easing*/"swing")
+            .delay(1200)
+            .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    }
 }
 
 function dropFilter() {
