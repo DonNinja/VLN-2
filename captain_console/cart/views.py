@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
 from cart.models import Cart
+from histories.models import Purchase_history
 from django.http import JsonResponse, Http404
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required()
 def cart_index(request):
+
     login_id = request.user.id
     cart_content = Cart.objects.all().filter(acc_id=login_id)
     total_price = 0
@@ -30,7 +32,7 @@ def add_to_cart(request, id):
         raise Http404("User not logged in")
 
 def remove_from_cart(request):
-    ''' Takes in an id and adds that item to the users cart'''
+    ''' Takes in an id and removes that item from the users cart'''
     if request.method == "DELETE":
         login_id = request.user.id 
         cart_id = request.body.decode('ascii').split('=')[1]
@@ -38,6 +40,17 @@ def remove_from_cart(request):
         if cart:
             cart.delete()
         return JsonResponse({"status": "Item added to cart" })
+
+
+def empty_cart(request):
+    if request.method == "DELETE":
+        login_id = request.user.id
+        cart_content = Cart.objects.all().filter(acc_id=login_id)
+        for item in cart_content.items():
+            print(items)
+            Purchase_history(pruchase=item, acc_id=login_id)
+        cart_content.delete()
+        return 
 
 def render_contact_info(request):
     return render(request, 'profile/cart/contact_info.html')
