@@ -254,6 +254,7 @@ pre {
 .card-header {
     text-align: center;
     font-weight: bold!important;
+    text-decoration: underline;
 }
 
 .card-img {
@@ -285,6 +286,10 @@ pre {
 
 .card-title {
     margin-top: .75rem !important;
+}
+
+a .card-title {
+    text-decoration: underline;
 }
 
 .changeBtn {
@@ -577,10 +582,55 @@ pre {
     #filter {
         margin-left: 16%;
     }
+
+    .leftCol {
+        width: 100%;
+        margin: auto;
+        border-right: none;
+    }
+
+    .rightCol {
+        width: 100%;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+
+    .rightCol .row {
+        display: block;
+    }
+
+    .rightCol button {
+        height: 50px;
+        width: 100px;
+        margin-right: 0!important;
+    }
+
+    .text-right {
+        text-align: center!important;
+    }
+
+    .rightCol p {
+        text-align: center;
+    }
+
+    .text-left {
+        text-align: center!important;
+    }
+
+    .row-cols-md-4 > * {
+        -ms-flex: 0 0 33.3%;
+        flex: 0 0 33.3%;
+        max-width: 33.3%;
+    }
 }
 
 @media (max-width: 1180px) and (min-width: 991px) {
     #header .row {
         width: 100%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1180px) {
+    .manImg {
+        height: 15em;
     }
 }
