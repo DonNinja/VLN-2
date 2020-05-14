@@ -224,6 +224,7 @@ function theSuccessStory() {
 }
 
 function dropFilter() {
+    // This drops the filter down to the appropriate height from off-screen
     if (window.innerWidth > 1180) {
         $("#filter")
             .animate({top: '75%'}, 1000, "swing");
@@ -237,6 +238,7 @@ function dropFilter() {
 }
 
 function raiseFilter() {
+    // This raises the filter off-screen
     $("#filter")
         .animate({top: '-350px'}, 1000, "swing");
     let filtButt = document.getElementById("filtButt");
@@ -244,5 +246,6 @@ function raiseFilter() {
 }
 
 function resetCSS(el) {
+    // This removes the inline css we put in for error fields in payment stage
     $(el).removeAttr("style");
 }
