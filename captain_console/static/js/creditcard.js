@@ -149,7 +149,7 @@ function checkCreditCard (cardnumber, cardname) {
   var cardexp = /^[0-9]{13,19}$/;
   if (!cardexp.exec(cardNo))  {
      ccErrorNo = 2;
-     return false; 
+     return false;
   }
        
   // Now check the modulus 10 check digit - if required
@@ -187,7 +187,7 @@ function checkCreditCard (cardnumber, cardname) {
   }  
   
   // Check it's not a spam number
-  if (cardNo == '5490997771092064') { 
+  if (cardNo == '5490997771092064') {
     ccErrorNo = 5;
     return false; 
   }
@@ -227,7 +227,7 @@ function checkCreditCard (cardnumber, cardname) {
   if (!LengthValid) {
      ccErrorNo = 4;
      return false; 
-  };   
+  };
   
   // The credit card is in the required format.
   return true;

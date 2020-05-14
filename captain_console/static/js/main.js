@@ -45,7 +45,7 @@ function fixPos() {
     // $('#footer').height(): Height of the element with id 'footer' from the bottom
     // 38: Additional height from padding, margin and border of footer
     // fix_to_bottom sets the height of container to fix the footer to the bottom, while also keeping his background going all the way there
-    $('#container').css('min-height', fix_to_bottom);
+    $('#container').css('max-height', fix_to_bottom);
 }
 
 
@@ -61,6 +61,8 @@ function showOrHide() {
 function navigateTo(site) {
     location.href = site
 }
+
+
 $(document).ready(function() {
     getTheJson(location.origin + "/manufacturer/get_manufacturer_json", "#prodComp")
     getTheJson(location.origin + "/filterer/get_categories_json", "#prodType")
@@ -207,10 +209,18 @@ function fillTables() {
 
 
 function theSuccessStory() {
-    $("#cartConfirm")
-        .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
-        .delay(1200)
-        .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    if (window.innerWidth > 1180) {
+        $("#cartConfirm")
+            .animate({top: '5%'}, /*Seconds*/1000, /*Easing*/"swing")
+            .delay(1200)
+            .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    }
+    else {
+        $("#cartConfirm")
+            .animate({top: '7%'}, /*Seconds*/1000, /*Easing*/"swing")
+            .delay(1200)
+            .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
+    }
 }
 
 function dropFilter() {
@@ -234,6 +244,5 @@ function raiseFilter() {
 }
 
 function resetCSS(el) {
-    console.log(el);
     $(el).removeAttr("style");
 }

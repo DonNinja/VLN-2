@@ -5,6 +5,7 @@ from django.http import JsonResponse
 # Create your views here.
 
 def get_json_categories(request):
-    categories = Category.objects.all()
-    cat_list = [i.name for i in categories]
-    return JsonResponse({"data": cat_list})
+    """returns json response for all categories"""
+    categories = Category.objects.all()         # get all categories
+    cat_list = [i.name for i in categories]     # get all names
+    return JsonResponse({"data": cat_list})     # return json

@@ -4,7 +4,7 @@
     border-radius: 5px;
     margin: auto;
     height: auto;
-    /*width: 60%;*/
+    max-width: 80%;
     text-align: center;
     display: flex;
     flex-flow: wrap;
@@ -18,12 +18,8 @@
     list-style: none;
 }
 
-.usern {
-    margin-bottom: 1.5rem;
-}
-
 .pass {
-    margin-top: 1.5rem;
+    /*margin-top: 1.5rem;*/
     margin-bottom: .5rem;
 }
 
