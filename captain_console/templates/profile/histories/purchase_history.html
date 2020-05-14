@@ -1,0 +1,20 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+    <div class='title'>
+        <div class="card bg-light m-2 p-2 overflow-hidden">
+            <h1>Purchase History</h1>
+            <hr>
+        <div class="row">
+                <button class="btn miscBtn SHbutton m-auto" type="button" onclick="navigateTo('../account/profile')">Back to profile</button>
+        </div>
+            <div class="row border-bottom border-dark">
+                <div id="SHtitleLeft" class="col leftCol"><b>Purchase</b></div>
+                <div id="SHtitleRight" class="col leftCol"><b>Price</b></div>
+                <div id="SHtitleRight" class="col leftCol"><b>Date, time</b></div>
+            </div>
+            {% for history in histories %}
+                {% include 'profile/histories/single_purchase_history.html' with histories=history %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
