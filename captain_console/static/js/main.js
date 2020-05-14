@@ -45,7 +45,7 @@ function fixPos() {
     // $('#footer').height(): Height of the element with id 'footer' from the bottom
     // 38: Additional height from padding, margin and border of footer
     // fix_to_bottom sets the height of container to fix the footer to the bottom, while also keeping his background going all the way there
-    $('#container').css('max-height', fix_to_bottom);
+    $('#container').css('min-height', fix_to_bottom);
 }
 
 
