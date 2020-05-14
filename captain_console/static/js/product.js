@@ -8,18 +8,22 @@ loadList = () => {
 
     product_list.find(".productObject").each(function(){
         // saves the objects to a list, also saves the name and price
-        let namePrice = this.id.split("-")
+        let namePrice = this.id.split(";")
         product_true_list.push([namePrice[0], Number(namePrice[1]), this])
     })
+
+    return product_true_list
+    
 }
 
 divSort = (sortType, reversed=false) =>{
-    loadList()
+    product_true_list = loadList()
 
     if (sortType === "price"){
         // sorts the list by price
         $("#orderDrop").html("Order by: Price (Ascending)");
         product_true_list.sort((a,b) =>{
+
             return a[1]-b[1]
         })
     }
@@ -56,6 +60,7 @@ divSort = (sortType, reversed=false) =>{
 
     let product_list = $('#product_list')
     product_list.html("") // clear the product list
+
     for (let i=0; i<product_true_list.length; i++){
         // add the sorted products
         product_list.append(product_true_list[i][2])
@@ -72,7 +77,7 @@ function addToCartButtons() {
         $.ajax({
             url: '/cart/add_to_cart/' + this.id,
             type: 'GET',
-            // TODO: REMOVE CONSOLE LOG
+
             success: function (resp) {
                 theSuccessStory();
             },
