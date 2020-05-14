@@ -134,8 +134,8 @@ function removeFromCart() {
 function cardConfirmation() {
     let overlay = jQuery('<div id="overlay"></div>');
     overlay.appendTo($("#cardMain"));
-    $("#overlay").fadeIn(1200);
-    $("#confirmCard").fadeIn(1200);
+    $("#overlay").fadeIn(300);
+    $("#confirmCard").fadeIn(300);
 }
 
 
