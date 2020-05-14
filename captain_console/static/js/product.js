@@ -11,7 +11,6 @@ loadList = () => {
         let namePrice = this.id.split("-")
         product_true_list.push([namePrice[0], Number(namePrice[1]), this])
     })
-    
 }
 
 divSort = (sortType, reversed=false) =>{

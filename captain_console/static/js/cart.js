@@ -64,8 +64,8 @@ function cardValidation() {
         isValid = false
     }
     if (isValid) {
-        emptyCart()
-        cardConfirmation()
+        emptyCart();
+        cardConfirmation();
     }
     else {
         document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked.";

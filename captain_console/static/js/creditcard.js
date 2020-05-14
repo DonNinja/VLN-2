@@ -123,26 +123,26 @@ function checkCreditCard (cardnumber, cardname) {
   for (var i=0; i<cards.length; i++) {
 
     // See if it is this card (ignoring the case of the string)
-    if (cardname.toLowerCase() === cards[i].name.toLowerCase()) {
+    if (cardname.toLowerCase() == cards[i].name.toLowerCase()) {
       cardType = i;
       break;
     }
   }
   
   // If card type not found, report an error
-  if (cardType === -1) {
+  if (cardType == -1) {
      ccErrorNo = 0;
      return false; 
   }
    
   // Ensure that the user has provided a credit card number
-  if (cardnumber.length === 0)  {
+  if (cardnumber.length == 0)  {
      ccErrorNo = 1;
      return false; 
   }
     
   // Now remove any spaces from the credit card number
-  cardnumber = cardnumber.replace(/\s/g, "");
+  cardnumber = cardnumber.replace (/\s/g, "");
   
   // Check that the number is numeric
   var cardNo = cardnumber
@@ -175,19 +175,19 @@ function checkCreditCard (cardnumber, cardname) {
       checksum = checksum + calc;
     
       // Switch the value of j
-      if (j ==1) {j = 2} else {j = 1}
+      if (j ==1) {j = 2} else {j = 1};
     } 
   
     // All done - if checksum is divisible by 10, it is a valid modulus 10.
     // If not, report an error.
-    if (checksum % 10 !== 0)  {
+    if (checksum % 10 != 0)  {
      ccErrorNo = 3;
      return false; 
     }
   }  
   
   // Check it's not a spam number
-  if (cardNo === '5490997771092064') {
+  if (cardNo == '5490997771092064') {
     ccErrorNo = 5;
     return false; 
   }
@@ -219,7 +219,7 @@ function checkCreditCard (cardnumber, cardname) {
   // See if the length is valid for this card
   lengths = cards[cardType].length.split(",");
   for (j=0; j<lengths.length; j++) {
-    if (cardNo.length === lengths[j]) LengthValid = true;
+    if (cardNo.length == lengths[j]) LengthValid = true;
   }
   
   // See if all is OK by seeing if the length was valid. We only check the length if all else was 
@@ -227,7 +227,7 @@ function checkCreditCard (cardnumber, cardname) {
   if (!LengthValid) {
      ccErrorNo = 4;
      return false; 
-  }
+  };
   
   // The credit card is in the required format.
   return true;

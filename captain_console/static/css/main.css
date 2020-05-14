@@ -462,7 +462,6 @@ a .card-title {
     background-color: #000;
     filter:alpha(opacity=50);
     -moz-opacity:0.5;
-    -khtml-opacity: 0.5;
     opacity: 0.5;
     z-index: 9999;
 }
@@ -486,6 +485,18 @@ a .card-title {
 
 .w-80 {
     width: 80%;
+}
+
+.rotateImg {
+    height: 28rem;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height:100%;
 }
 
 @media screen and (min-width: 1181px) {

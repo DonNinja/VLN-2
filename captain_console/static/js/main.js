@@ -45,7 +45,7 @@ function fixPos() {
     // $('#footer').height(): Height of the element with id 'footer' from the bottom
     // 38: Additional height from padding, margin and border of footer
     // fix_to_bottom sets the height of container to fix the footer to the bottom, while also keeping his background going all the way there
-    $('#container').css('min-height', fix_to_bottom);
+    $('#container').css('max-height', fix_to_bottom);
 }
 
 
@@ -53,8 +53,8 @@ function fixPos() {
 // $('#container').height(): Height of the element with id 'container' from the bottom
 
 function showOrHide() {
-    if (window.innerWidth > 1189) {
-        document.getElementById("sidebar").classList.add("show");
+    if (window.innerWidth < 1189) {
+        document.getElementById("sidebar").classList.remove("show");
     }
 }
 
@@ -244,6 +244,5 @@ function raiseFilter() {
 }
 
 function resetCSS(el) {
-    console.log(el);
     $(el).removeAttr("style");
 }
