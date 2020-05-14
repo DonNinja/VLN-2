@@ -479,6 +479,11 @@ a .card-title {
     display: none;
 }
 
+.helptext {
+    max-width: 80%;
+    margin: auto;
+}
+
 @media screen and (min-width: 1181px) {
     #searchButton {
         display: none;
