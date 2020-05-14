@@ -5,6 +5,7 @@ from account.models import Account
 # Create your views here.
 
 def search_index(request):
+    """displays users search history"""
     login_id = request.user.id
-    context = {'histories': Search_history.objects.all().filter(acc_id=login_id).order_by('-date')}
+    context = {'histories': Search_history.objects.all().filter(acc_id=login_id).order_by('-date')}     # get users search history
     return render(request, 'profile/histories/search_history.html', context)

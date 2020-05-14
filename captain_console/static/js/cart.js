@@ -64,6 +64,7 @@ function cardValidation() {
         isValid = false
     }
     if (isValid) {
+        emptyCart()
         cardConfirmation()
     }
     else {
@@ -136,3 +137,19 @@ function cardConfirmation() {
     $("#overlay").fadeIn(1200);
     $("#confirmCard").fadeIn(1200);
 }
+
+
+function emptyCart(){
+    
+    $.ajax({
+        url: '/cart/empty_cart',
+        type: 'DELETE',
+        // TODO: REMOVE CONSOLE LOG
+        success: function(resp) {
+            console.log(resp)
+        },
+        error: function(xhr, status, error) {
+            console.log(error);
+        }
+    })
+};
