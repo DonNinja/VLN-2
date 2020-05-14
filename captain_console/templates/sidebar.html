@@ -2,11 +2,12 @@
 {% load static %}
 {% block sidebar %}
     <div class="text-center">
-      <button id="sidebarButton" class="btn mx-auto" type="button" data-toggle="collapse" data-target="#sidebar" aria-expanded="true" aria-controls="sidebar">
-        <img src="{% static 'images/interface.svg' %}" class="interfaceIco">
+        <button id="sidebarButton" class="btn mx-auto" type="button" data-toggle="collapse" data-target="#sidebar"
+                aria-expanded="false" aria-controls="sidebar">
+            <img src="{% static 'images/interface.svg' %}" class="interfaceIco">
+        </button>
     </div>
-  </button>
-    <ul id="sidebar" class="collapse show">
+    <ul id="sidebar" class="collapse">
         <li class="sidebarItem p-1" onclick="navigateTo('/product/')">ALL PRODUCTS</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/1')">CONSOLES</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/4')">PORTABLES</li>
@@ -14,6 +15,9 @@
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/2')">ACCESSORIES</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/product/type_filter/5')">MISCELLANEOUS</li>
         <li class="sidebarItem p-1" onclick="navigateTo('/manufacturer')">MANUFACTURERS</li>
-        <li id="goBack" onclick="javascript:history.back() //Sends user back through their browser history (could lead to the user getting sent out of the page entirely.)" class="sidebarItem p-1">BACK</li>
+        <li id="goBack"
+            onclick="javascript:history.back() //Sends user back through their browser history (could lead to the user getting sent out of the page entirely.)"
+            class="sidebarItem p-1">BACK
+        </li>
     </ul>
 {% endblock %}

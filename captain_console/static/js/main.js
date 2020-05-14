@@ -53,8 +53,8 @@ function fixPos() {
 // $('#container').height(): Height of the element with id 'container' from the bottom
 
 function showOrHide() {
-    if (window.innerWidth < 1189) {
-        document.getElementById("sidebar").classList.remove("show");
+    if (window.innerWidth > 1189) {
+        document.getElementById("sidebar").classList.add("show");
     }
 }
 

@@ -484,6 +484,10 @@ a .card-title {
     margin: auto;
 }
 
+.w-80 {
+    width: 80%;
+}
+
 @media screen and (min-width: 1181px) {
     #searchButton {
         display: none;
@@ -594,6 +598,10 @@ a .card-title {
         border-right: none;
     }
 
+    .rBorder {
+        border-right: solid 1px rgba(0, 0, 0, .1)!important;
+    }
+
     .rightCol {
         width: 100%;
         border-top: 1px solid rgba(0,0,0,.1);
@@ -617,9 +625,9 @@ a .card-title {
         text-align: center;
     }
 
-    .text-left {
+/*    .text-left {
         text-align: center!important;
-    }
+    }*/
 
     .row-cols-md-4 > * {
         -ms-flex: 0 0 33.3%;
