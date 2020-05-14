@@ -13,19 +13,20 @@
         </nav>
         <div class="card bg-light m-2 p-2">
             <h1 class="card-title text-center">Contact info</h1>
+            <hr>
             <form action="../overview" name="contactInfo" class="d-flex flex-column text-left" onsubmit="return validateForm()">
                 <div>
                     <label for="fullName">Full name:</label>
-                    <input type="text" class="form-control" id="fullName" name="fullName"></br>
+                    <input type="text" class="form-control" id="fullName" name="fullName" onfocus="resetCSS(this)"></br>
                 </div>
                 <label for="city">City:</label>
-                <input type="text" class="form-control" id="city" name="city"></br>
+                <input type="text" class="form-control" id="city" name="city" onfocus="resetCSS(this)"></br>
                 <label for="streetName">Street name:</label>
-                <input type="text" class="form-control" id="streetName" name="streetName"></br>
+                <input type="text" class="form-control" id="streetName" name="streetName" onfocus="resetCSS(this)"></br>
                 <label for="houseNum">House number:</label>
-                <input type="text" class="form-control" id="houseNum" name="houseNum"></br>
+                <input type="text" class="form-control" id="houseNum" name="houseNum" onfocus="resetCSS(this)"></br>
                 <label for="country">Country:</label>
-                <select class="form-control" id="country" name="country">
+                <select class="form-control" id="country" name="country" onfocus="resetCSS(this)">
                     <option value="Afganistan">Afghanistan</option> 
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -274,7 +275,10 @@
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select></br>
                 <label for="postalCode">Postal code:</label>
-                <input type="text" class="form-control" id="postalCode" name="postalCode"></br>
+                <input type="text" class="form-control" id="postalCode" name="postalCode" onfocus="resetCSS(this)"></br>
+                <div id="contactAlert" class="alert alert-danger" role="alert">
+                  All fields have to be filled out. Unfilled forms have been marked.
+                </div>
                 <input id="contactContinue" type="submit" class="btn miscBtn ml-auto mr-0" value="Save and continue">
             </form>
         </div>

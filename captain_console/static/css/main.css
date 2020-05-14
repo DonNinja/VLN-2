@@ -462,6 +462,18 @@ pre {
     z-index: 9999;
 }
 
+#contactAlert {
+    display: none;
+}
+
+#cartAlert {
+    display: none;
+}
+
+#paymentAlert {
+    display: none;
+}
+
 @media screen and (min-width: 1181px) {
     #searchButton {
         display: none;

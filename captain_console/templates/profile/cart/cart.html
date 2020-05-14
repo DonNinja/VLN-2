@@ -14,12 +14,15 @@
             {% for items in cart %}
                 {% include 'profile/cart/single_cart_item.html' with item=items %}
             {% endfor %}
+            <div id="cartAlert" class="alert alert-danger mt-2" role="alert">
+                You can't continue with nothing in your cart.
+            </div>
             <div class="d-flex pt-2">
                 <div>
                     <b>Total:</b>
                     <u id='cartPrice'>{{ total }}</u>
                 </div>
-                <button id="cartContinue" class="btn miscBtn mr-0 ml-auto" >Continue</button>
+                <button id="cartContinue" class="btn miscBtn mr-0 ml-auto">Continue</button>
             </div>
         </div>
         <div id="cartRemove" class="alert alert-danger m-auto" role="alert">

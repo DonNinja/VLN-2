@@ -233,9 +233,7 @@ function raiseFilter() {
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }
 
-function cardConfirmation() {
-    let overlay = jQuery('<div id="overlay"></div>');
-    overlay.appendTo($("#cardMain"));
-    $("#overlay").fadeIn(1200);
-    $("#confirmCard").fadeIn(1200);
+function resetCSS(el) {
+    console.log(el);
+    $(el).removeAttr("style");
 }

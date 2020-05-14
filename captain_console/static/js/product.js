@@ -75,7 +75,6 @@ function addToCartButtons() {
             type: 'GET',
             // TODO: REMOVE CONSOLE LOG
             success: function (resp) {
-                // alert(resp.status)
                 theSuccessStory();
             },
             error: function (xhr, status, error) {

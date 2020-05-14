@@ -1,5 +1,8 @@
 
+
+
 function validateForm() {
+    let invalidForms = [];
     var isValid = true;
     var contactName = document.forms["contactInfo"]["fullName"].value;
     var contactCity = document.forms["contactInfo"]["city"].value;
@@ -10,28 +13,40 @@ function validateForm() {
 
     if (contactName=="") {
         isValid = false
+        invalidForms.push("fullName")
     }
     if (contactCity=="") {
         isValid = false
+        invalidForms.push("city")
     }
     if (contactStreet=="") {
         isValid = false
+        invalidForms.push("streetName")
     }
     if (contactHouse=="") {
         isValid = false
+        invalidForms.push("houseNum")
     }
     if (contactCountry=="") {
         isValid = false
+        invalidForms.push("country")
     }
     if (contactPost=="") {
         isValid = false
+        invalidForms.push("postalCode")
     }
     if (isValid) {
         saveToLocal()
         return true
     }
     else {
-        alert("Please fill all fields in the form before continuing.")
+        $("#contactAlert").show(); // Shows the alert telling the user that not all forms have been filled out
+        for (let i = 0; i < invalidForms.length; i++) {
+            // This outlines all error forms
+            $("#" + invalidForms[i]).css('outline', 'none');
+            $("#" + invalidForms[i]).css('border-color', 'red');
+            $("#" + invalidForms[i]).css('box-shadow', '0 0 .25rem red');
+        }
         return false
     }
 }
