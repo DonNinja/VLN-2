@@ -491,20 +491,33 @@ a .card-title {
     height: 28rem;
 }
 
+.rotateImg img {
+}
+
 .carousel-item {
     height: 100%;
 }
 
 .carousel-item img {
+    width: 80%!important;
+    margin: auto;
     height:100%;
 }
 
 .carousel-control-next {
-    background-color: rgba(82, 82, 82, .5);
+    background-color: rgba(82, 82, 82, .75);
+    width: 10%;
 }
 
 .carousel-control-prev {
-    background-color: rgba(82, 82, 82, .5);
+    background-color: rgba(82, 82, 82, .75);
+    width: 10%;
+}
+
+.carousel-caption {
+    background-color: rgba(82, 82, 82, .75);
+    width: 80%;
+    margin-left: -5%;
 }
 
 @media screen and (min-width: 1181px) {
