@@ -39,18 +39,23 @@ def remove_from_cart(request):
         cart = get_object_or_404(Cart, pk=cart_id)
         if cart:
             cart.delete()
-        return JsonResponse({"status": "Item added to cart" })
+        return JsonResponse({"status": "Item removed from cart" })
 
 
 def empty_cart(request):
+    ''' Empties the current users cart and saves it to purchase history'''
+
     if request.method == "DELETE":
+
         login_id = request.user.id
+
         cart_content = Cart.objects.all().filter(acc_id=login_id)
-        for item in cart_content.items():
-            print(items)
-            Purchase_history(pruchase=item, acc_id=login_id)
+        
+        for item in cart_content:
+            Purchase_history(purchase=item.product_id, acc_id=request.user).save()
+
         cart_content.delete()
-        return 
+        return JsonResponse({"status": "All items have been removed from cart" })
 
 def render_contact_info(request):
     return render(request, 'profile/cart/contact_info.html')
