@@ -150,6 +150,7 @@ function cartConfirmation() {
     $("#overlay").fadeIn(300);
     $("#confirmCard").fadeIn(300);
     emptyCart();
+    localStorage.clear()
 }
 
 
