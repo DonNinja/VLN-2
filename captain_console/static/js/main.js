@@ -35,6 +35,9 @@ function initializePage() {
     if (sidebar != null) {
         showOrHide();
     }
+    if ($(window).height() >= $(document).height()) {
+        $("#goUp").hide();
+    }
 }
 
 
@@ -239,6 +242,6 @@ function raiseFilter() {
 }
 
 function resetCSS(el) {
-    // This removes the inline css we put in for error fields in payment stage
+    // This removes the inline css we put in for error fields
     $(el).removeAttr("style");
 }
