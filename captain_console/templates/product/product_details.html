@@ -7,17 +7,16 @@
             <h1 class="card-title">{{ product.name }}</h1>
             <hr class="manHR">
             <div class="rowCust">
-                <div class="leftCol pb-5">
+                <div class="leftCol pb-5 prodImgs">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            {% comment %} <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"><img src="{{ product.image }}" class="smolImg"></li> {% endcomment %}
-                            {% comment %} {% for i in loop_times %}
-                                {% for pic in pictures %}
-                                <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}">
+                            <li data-target="#carouselExampleCaptions" class="active"><img src="{{ product.image }}" class="smolImg"></li>
+{#                                        {{ }}#}
+                            {% for pic in pictures %}
+                                <li data-target="#carouselExampleCaptions" class="cursorDef">
                                     <img src="{{ pic.product_pic }}" class="smolImg">
                                 </li>
-                                {% endfor %}
-                            {% endfor %} {% endcomment %}
+                            {% endfor %}
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">

@@ -16,6 +16,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
+    height: 3px;
 }
 
 /* Track */
@@ -538,14 +539,15 @@ a .card-title {
     width: 5rem;
 }
 
-.carousel-indicators {
-    bottom: -40px;
+.prodImgs .carousel-indicators {
+    bottom: -60px;
+    overflow: hidden;
+    /*-webkit-overflow-scrolling: touch;*/
 }
 
 .carousel-indicators li {
     text-indent: 0px;
-    /*background: rgba(0, 0, 0, .5);*/
-    margin-right: 2em;
+    height: 100%;
 }
 
 .carousel-inner {
@@ -566,6 +568,10 @@ a .card-title {
 
 #registerError {
     display: inline-block;
+}
+
+.cursorDef {
+    cursor: default!important;
 }
 
 @media screen and (min-width: 1181px) {
