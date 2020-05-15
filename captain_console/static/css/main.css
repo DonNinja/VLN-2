@@ -480,15 +480,7 @@ a .card-title {
     z-index: 9999;
 }
 
-#contactAlert {
-    display: none;
-}
-
-#cartAlert {
-    display: none;
-}
-
-#paymentAlert {
+.alert-danger {
     display: none;
 }
 

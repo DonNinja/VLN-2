@@ -81,6 +81,7 @@
             {% for items in cart %}
                 {% include 'profile/cart/single_cart_overview.html' with item=items %}
             {% endfor %}
+        <div id="overviewAlert" class="alert alert-danger mt-2"></div>
             <div id='cartPrice' class="d-flex">
                 <b>Total: </b>
                 <u id="priceTotal">{{ total }}</u>
