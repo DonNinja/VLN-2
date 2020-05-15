@@ -62,9 +62,9 @@ function saveToLocal() {
     // window.location.href = location.origin + "/cart/overview"
 }
 
-function goToOverview () {
+function goToPayment () {
     // window.location.href = location.origin + "/cart/overview"
-    return location.origin + "/cart/overview"
+    return location.origin + "/cart/payment"
 }
 
 // // Wait for the DOM to be ready
