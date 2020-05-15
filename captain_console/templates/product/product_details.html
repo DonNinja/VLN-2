@@ -16,9 +16,9 @@
                         <div class="col text-right">
                             <h3><u>{{ product.price }} Kr</u></h3>
                         </div>
-                        <div class="col text-left my-auto">
-                            <button id="{{ product.pk }}" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
-                            <button onclick="window.location.href= location.origin + '/reviews/product/{{product.id}}'" type="button" class="miscBtn">Reviews</button>
+                        <div class="col text-left m-auto prodBtns">
+                            <button id="{{ product.pk }}" type="button" class="buttonAddToCart btn miscBtn">Add to cart</button>
+                            <button onclick="window.location.href= location.origin + '/reviews/product/{{product.id}}'" type="button" class="btn miscBtn">Reviews</button>
                         </div>
                     </div>
                 </div>

@@ -75,7 +75,6 @@ function cardValidation() {
             $("#" + invalidForms[i]).css('border-color', 'red');
             $("#" + invalidForms[i]).css('box-shadow', '0 0 .25rem red');
         }
-        // TODO empty cart afterwards
     }
 }
 

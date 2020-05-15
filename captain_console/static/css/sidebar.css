@@ -11,10 +11,11 @@
     background-color: white;
     text-decoration: none;
     font-variant: all-small-caps;
-    font-size: 2rem;
-    /*height: 50px;*/
+    --font-size: 2rem;
+    font-size: var(--font-size);
+    --height: 5rem;
+    height: var(--height);
     /*width: 225px;*/
-    /*line-height: 130%;*/
     vertical-align: middle;
     border: 2px solid black;
     border-top: 0;
@@ -33,4 +34,9 @@
 
 #sidebarButton {
     width: 98%;
+    background-color: #b8b8b8;
+}
+
+.collapsed {
+    background-color: white!important;
 }
