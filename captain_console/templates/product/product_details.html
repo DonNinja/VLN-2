@@ -10,14 +10,14 @@
                 <div class="leftCol pb-5">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"><img src="{{ product.image }}" class="smolImg"></li>
-                            {% for i in loop_times %}
+                            {% comment %} <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"><img src="{{ product.image }}" class="smolImg"></li> {% endcomment %}
+                            {% comment %} {% for i in loop_times %}
                                 {% for pic in pictures %}
                                 <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}">
                                     <img src="{{ pic.product_pic }}" class="smolImg">
                                 </li>
                                 {% endfor %}
-                            {% endfor %}
+                            {% endfor %} {% endcomment %}
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
