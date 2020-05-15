@@ -64,8 +64,7 @@ function cardValidation() {
         isValid = false
     }
     if (isValid) {
-        emptyCart();
-        cardConfirmation();
+        navigateTo('');
     }
     else {
         document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked.";
@@ -133,14 +132,14 @@ function removeFromCart() {
 
 function cardConfirmation() {
     let overlay = jQuery('<div id="overlay"></div>');
-    overlay.appendTo($("#cardMain"));
+    overlay.appendTo($("#overviewMain"));
     $("#overlay").fadeIn(300);
     $("#confirmCard").fadeIn(300);
+    emptyCart();
 }
 
 
 function emptyCart(){
-    
     $.ajax({
         url: '/cart/empty_cart',
         type: 'DELETE',

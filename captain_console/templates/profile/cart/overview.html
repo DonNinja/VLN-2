@@ -1,7 +1,9 @@
 {% extends 'sidebar.html' %}
 {% block content %}
+{% load static %}
+    <script src="{% static 'js/cart.js' %}"></script>
     {% comment %} {% csrf_token %} {% endcomment %}
-    <div class="title">
+    <div class="title" id="overviewMain">
         <nav aria-label="breadcrumb" class="m-2">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/cart/contact_info">Contact info</a></li>
@@ -34,6 +36,27 @@
                 </tbody>
             </table>
             <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name of card holder</th>
+                    <th scope="col">Type of card</th>
+                    <th scope="col">Card number</th>
+                    <th scope="col">Expiration Date</th>
+                    <th scope="col">CVC</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td scope="col" id="tableCardName"></td>
+                    <td scope="col" id="tableCardType"></td>
+                    <td scope="col" id="tableCardNumber"></td>
+                    <td scope="col" id="tableCardExpDate"></td>
+                    <td scope="col" id="tableCardCVC"></td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
             {% comment %}        <table class="table">
             <thead>
             <tr>
@@ -61,9 +84,21 @@
             <div id='cartPrice' class="d-flex">
                 <b>Total: </b>
                 <u>{{ total }}</u>
-                <button class="btn miscBtn mr-0 ml-auto" onclick="navigateTo('../payment')">Proceed to checkout
+                <button class="btn miscBtn mr-0 ml-auto" onclick="cardConfirmation()">Confirm
                 </button>
             </div>
+        </div>
+    </div>
+    <div id="confirmCard" class="dFixed center">
+        <div class="title card confirmCard p-2">
+            <div class="card-title">
+                <b>Congratulations!</b>
+            </div>
+            <hr>
+            <div class="card-text overwriteDesc">
+                Your purchase has been finalized and will be processed within 2 - 10000 business days.
+            </div>
+            <button class="btn miscBtn mt-2" onclick="navigateTo('/')">Back to home page</button>
         </div>
     </div>
     <script>
