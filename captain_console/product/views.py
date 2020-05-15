@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from product.models import Product
+from product.models import Product, Product_images
 from filterer.models import Category
 from manufacturer.models import Manufacturer
 from django.http import JsonResponse
@@ -35,9 +35,10 @@ def filter_product(request, id):
 
 def get_product_by_id(request, id):
     """gets individual products to be displayed in a more details page"""
-    return render(request, 'product/product_details.html', {
-        'product': get_object_or_404(Product, pk=id)
-})
+    context = {'product': get_object_or_404(Product, pk=id)}
+    context["pictures"] = Product_images.objects.all().filter(product=id)
+    context["loop_times"] = range(0, len(context['pictures']))
+    return render(request, 'product/product_details.html', context)
 
 def advanced_filter(request):
     """Used to filter out products that have a certain manufacturer or of a certain category"""

@@ -175,16 +175,8 @@ function fillTables() {
         $("#tablePost").html(localStorage.getItem("postcode"));
         $("#tableCardName").html(localStorage.getItem("cardname"));
         $("#tableCardType").html(localStorage.getItem("cardtype"));
-        var card = localStorage.getItem("cardnum")
-        var last4 = card.slice(-4)
-        // var cardStr = "*" * (card.length - 4)
-        var cardStr = ""
-        for (var i=0; i < (card.length - 4); i++) {
-            cardStr += "*"
-        }
-        console.log(cardStr)
-        $("#tableCardNumber").html(cardStr + last4);
+        $("#tableCardNumber").html(localStorage.getItem("cardnum"));
         $("#tableCardExpDate").html(localStorage.getItem("cardexp"));
-        $("#tableCardCVC").html("***");
+        $("#tableCardCVC").html(localStorage.getItem("cardcvc"));
     });
 }
