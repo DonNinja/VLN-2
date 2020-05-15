@@ -12,8 +12,8 @@
                 <div class="col text-left">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <input name="username" class="editText" type="text" placeholder="New username"
-                               maxlength="150"><br>
+                        {% comment %} <input name="username" class="editText" type="text" placeholder="New username"
+                               maxlength="150"><br>  THIS {% endcomment %}
                         <input name="firstName" class="editText" type="text" placeholder="First name"
                                maxlength="150"><br>
                         <input name="lastName" class="editText" type="text" placeholder="Last name"
