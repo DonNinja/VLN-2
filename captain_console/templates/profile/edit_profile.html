@@ -7,7 +7,6 @@
             <div class="card-body row text-right">
                 <div class="m-auto col">
                     <img src="{{ account.profile_image.url }}" class="profileImg card-img" alt="{{ dj_name }}">
-                    {#            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
                 </div>
                 <div class="col text-left">
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -18,12 +17,10 @@
                                maxlength="150"><br>
                         <input name="lastName" class="editText" type="text" placeholder="Last name"
                                maxlength="150"><br>
-                        {% comment %} <input class="editText" type="Password" placeholder="New password"><br>
-                            <input class="editText" type="Password" placeholder="Confirm new password"> {% endcomment %}
                         <label for="img">Select image:</label>
                         <input type="file" name="img" accept="image/*">
                         <div class="mt-4">
-                            <input class="btn miscBtn SHbutton" type="submit" value="Save changes">
+                            <button class="btn miscBtn SHbutton" type="submit">Save changes</button>
                             <button class="btn miscBtn SHbutton" type="button" onclick="navigateTo('profile')">Cancel
                             </button>
                         </div>
