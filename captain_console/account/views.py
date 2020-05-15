@@ -25,13 +25,11 @@ def register(request):
             
             return redirect('profile')      # redirect user to their profile page
         else:
-            # TODO display error messages
-            x = form.errors.get_json_data()
-            for key, item in x.items():
-                print(key, item[0])
+            
+            errors = form.errors.get_json_data()
             return render(request, 'user/register.html', {
             'form': UserCreationForm(),
-            'errors': x
+            'errors': errors
             })# else if inputs were not valid (i.e. username) stay on the register page
     
     else:       # if not post request render page with form
