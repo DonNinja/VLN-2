@@ -8,21 +8,17 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required()
 def cart_index(request):
-
+    '''Gets all items that the current user has added
+    to his cart, displays them for him'''
     login_id = request.user.id
-    cart_content = Cart.objects.all().filter(acc_id=login_id)
-    total_price = 0
-    for item in cart_content:
-        total_price += int(item.product_id.price)
-    total_price = '{:20,.2f}'.format(total_price)
+    total_price, cart_content = calc_cart_items(login_id)
     context = {'cart': cart_content,
                 'total':total_price}
     return render(request, 'profile/cart/cart.html', context)
 
 def add_to_cart(request, id):
     ''' Takes in an id and adds that item to the users cart'''
-    # TODO: MAKE THIS INTO A POST REQUEST
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.method == "POST":
         login_id = request.user.id 
         item = get_object_or_404(Product, pk=id)
         cart = Cart(product_id=item, acc_id=request.user)
@@ -52,6 +48,7 @@ def empty_cart(request):
         cart_content = Cart.objects.all().filter(acc_id=login_id)
         
         for item in cart_content:
+            # saves all the object that the user baught to his historie
             Purchase_history(purchase=item.product_id, acc_id=request.user).save()
 
         cart_content.delete()
@@ -63,15 +60,21 @@ def render_contact_info(request):
     return render(request, 'profile/cart/contact_info.html')
 
 def render_overview(request):
+    '''Gets all products in cart and renders them to the user'''
     login_id = request.user.id
-    cart_content = Cart.objects.all().filter(acc_id=login_id)   
-    total_price = 0
-    for item in cart_content:
-        total_price += int(item.product_id.price)
-    total_price = '{:20,.2f}'.format(total_price)
+    total_price, cart_content = calc_cart_items(login_id)
     context = {'cart': cart_content,
                 'total':total_price}
     return render(request, 'profile/cart/overview.html', context)
 
 def render_payment(request):
     return render(request, 'profile/cart/payment.html')
+
+def calc_cart_items(user_id):
+    '''Function to calculate and format the ammount of money in a cart'''
+    cart_content = Cart.objects.all().filter(acc_id=user_id)
+    total_price = 0
+    for item in cart_content:
+        total_price += int(item.product_id.price)  # getting all of the amounts
+    total_price = '{:20,.2f}'.format(total_price)  # moneyZ
+    return total_price, cart_content

@@ -75,7 +75,7 @@ function addToCartButtons() {
         // console.log(search_req)
         $.ajax({
             url: '/cart/add_to_cart/' + this.id,
-            type: 'GET',
+            type: 'POST',
 
             success: function (resp) {
                 theSuccessStory();
