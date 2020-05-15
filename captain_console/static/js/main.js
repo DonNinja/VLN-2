@@ -231,7 +231,7 @@ function dropFilter() {
     }
     else {
         $("#filter")
-            .animate({top: '69%'}, 1000, "swing");
+            .animate({top: '65%'}, 1000, "swing");
     }
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { raiseFilter() }; // Changes the onclick function to raiseFilter
@@ -240,7 +240,7 @@ function dropFilter() {
 function raiseFilter() {
     // This raises the filter off-screen
     $("#filter")
-        .animate({top: '-350px'}, 1000, "swing");
+        .animate({top: '-400px'}, 1000, "swing");
     let filtButt = document.getElementById("filtButt");
     filtButt.onclick = function () { dropFilter() }; // Changes the onclick function to dropFilter
 }
