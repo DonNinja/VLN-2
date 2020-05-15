@@ -19,7 +19,7 @@ def purchase_index(request):
     context = {'histories': Purchase_history.objects.all().filter(acc_id=login_id).order_by('-date')}     # get users purchase history
     return render(request, 'profile/histories/purchase_history.html', context)
 
-
+@login_required()
 def empty_search_history(request):
     ''' Empties the current users cart and saves it to purchase history'''
 
