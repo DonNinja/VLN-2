@@ -138,7 +138,7 @@ function checkCreditCard (cardnumber, cardname) {
   // Ensure that the user has provided a credit card number
   if (cardnumber.length == 0)  {
      ccErrorNo = 1;
-     return false; 
+     return false;
   }
     
   // Now remove any spaces from the credit card number

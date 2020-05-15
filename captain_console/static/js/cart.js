@@ -67,7 +67,7 @@ function cardValidation() {
         navigateTo('');
     }
     else {
-        document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked.";
+        document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked. <p class='mb-0'>" + ccErrors[ccErrorNo] + "</p>";
         $("#paymentAlert").show();
         for (let i = 0; i < invalidForms.length; i++) {
             // This outlines all error forms
@@ -99,7 +99,6 @@ function creditCheck(){
     else{
         $("#cardNumber").css("border-color", "green");
     }
-    
 }
 
 function preventE (event) {
