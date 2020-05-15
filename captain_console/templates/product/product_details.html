@@ -8,12 +8,11 @@
             <hr class="manHR">
             <div class="rowCust">
                 <div class="leftCol pb-5 prodImgs">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <div id="carouselProduct" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" class="active"><img src="{{ product.image }}" class="smolImg"></li>
-{#                                        {{ }}#}
+                            <li data-target="#carouselProduct" class="active cursorDef"><img src="{{ product.image }}" class="smolImg"></li>
                             {% for pic in pictures %}
-                                <li data-target="#carouselExampleCaptions" class="cursorDef">
+                                <li data-target="#carouselProduct" class="cursorDef">
                                     <img src="{{ pic.product_pic }}" class="smolImg">
                                 </li>
                             {% endfor %}
@@ -28,12 +27,12 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                        <a class="carousel-control-prev" href="#carouselProduct" role="button"
                            data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                        <a class="carousel-control-next" href="#carouselProduct" role="button"
                            data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
@@ -60,7 +59,7 @@
         </div>
     </div>
 
-    {#    <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"><img src="{% static 'images/icon.png' %}" style="height: 25px;" /></li>#}
+    {#    <li data-target="#carouselProduct" data-slide-to="{{ i }}" class="active"><img src="{% static 'images/icon.png' %}" style="height: 25px;" /></li>#}
 
 {% endblock %}
 
