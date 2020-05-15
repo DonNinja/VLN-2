@@ -542,6 +542,10 @@ a .card-title {
     text-indent: 0px;
 }
 
+#registerError {
+    display: inline-block;
+}
+
 @media screen and (min-width: 1181px) {
     #searchButton {
         display: none;
