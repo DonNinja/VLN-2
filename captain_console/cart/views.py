@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from product.models import Product
 from cart.models import Cart
-from histories.models import Purchase_history
+from histories.models import Purchase_history, Search_history
 from django.http import JsonResponse, Http404
 from django.contrib.auth.decorators import login_required
 
@@ -56,6 +56,8 @@ def empty_cart(request):
 
         cart_content.delete()
         return JsonResponse({"status": "All items have been removed from cart" })
+
+
 
 def render_contact_info(request):
     return render(request, 'profile/cart/contact_info.html')

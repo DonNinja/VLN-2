@@ -125,7 +125,7 @@ $(document).ready(function () {
                 results = resp.data.map(d => {
                     // return html to inject into product page
                     return `
-                        <div id='${ d.name }-${ d.price }' class="col mb-4 productObject">
+                        <div id='${ d.name };${ d.price }' class="col mb-4 productObject">
                             <div class="card h-100">
                                 <a href="${ d.id }">
                                     <img src="${ d.image }" class="card-img-top manImg" alt="${ d.name }">

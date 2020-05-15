@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from account.models import Account
 from django.core.files.storage import default_storage
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -10,6 +11,7 @@ def register(request):
     """Renders the register page for the user if he is navigating to it, takes post request to save user"""
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)      # get form
+        print(form.is_valid())
         if form.is_valid():     # check if all inputs are valid
 
             form.save()
@@ -23,12 +25,17 @@ def register(request):
             
             return redirect('profile')      # redirect user to their profile page
         else:
-            # TODO display username already taken
-            return redirect('register')     # else if inputs were not valid (i.e. username) stay on the register page
+            
+            errors = form.errors.get_json_data()
+            return render(request, 'user/register.html', {
+            'form': UserCreationForm(),
+            'errors': errors
+            })# else if inputs were not valid (i.e. username) stay on the register page
     
     else:       # if not post request render page with form
         return render(request, 'user/register.html', {
-            'form': UserCreationForm()
+            'form': UserCreationForm(),
+            'errors': ''
         })
 
 def edit_profile(request):

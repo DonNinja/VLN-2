@@ -1,19 +1,24 @@
 {% extends 'sidebar.html' %}
 {% block content %}
+{% load static %}
+    <script src="{% static 'js/history.js' %}"></script>
     <div class='title'>
         <div class="card bg-light m-2 p-2 overflow-hidden">
             <h1>Search History</h1>
             <hr>
         <div class="row">
                 <button class="btn miscBtn SHbutton m-auto" type="button" onclick="navigateTo('../account/profile')">Back to profile</button>
+                <button class="btn miscBtn SHbutton m-auto" type="button" onclick="emptySearch()">Delete search history</button>
         </div>
             <div class="row border-bottom border-dark">
                 <div id="SHtitleLeft" class="col leftCol rBorder"><b>Search</b></div>
                 <div id="SHtitleRight" class="col"><b>Date, time</b></div>
             </div>
+            <div id="SHcontainer">
             {% for history in histories %}
                 {% include 'profile/histories/single_search_history.html' with histories=history %}
             {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

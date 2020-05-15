@@ -23,7 +23,6 @@ divSort = (sortType, reversed=false) =>{
         // sorts the list by price
         $("#orderDrop").html("Order by: Price (Ascending)");
         product_true_list.sort((a,b) =>{
-
             return a[1]-b[1]
         })
     }
