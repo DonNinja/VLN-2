@@ -528,6 +528,8 @@ a .card-title {
 
 #headerButton {
     background-color: #b8b8b8;
+    height: 4rem;
+    width: 5rem;
 }
 
 @media screen and (min-width: 1181px) {
@@ -590,6 +592,7 @@ a .card-title {
 
     #sidebarButton {
         width: 100%;
+        height: 3.5rem;
         background-color: #fff;
         margin: 6px 0 6px 0;
     }
@@ -631,7 +634,7 @@ a .card-title {
     }
 
     #filter {
-        margin-left: 16%;
+        margin-left: 14.5%;
     }
 
     .leftCol {
@@ -696,7 +699,7 @@ a .card-title {
     }
 
     #searchForm * {
-        height: 3rem;
+        height: 3.5rem;
     }
 
     #searchForm .filterBox {
@@ -710,6 +713,21 @@ a .card-title {
 
     .SHbutton {
         height: 4rem!important;
+    }
+
+    #filterSearch {
+        height: 3.5rem;
+        width: 6rem;
+        float: right;
+        margin: 0;
+    }
+
+    #filter select {
+        height: 3rem;
+    }
+
+    #filter input {
+        height: 3rem;
     }
 }
 
