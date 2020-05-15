@@ -585,6 +585,10 @@ a .card-title {
     height: 25rem;
 }
 
+#cardMain {
+    text-align: left;
+}
+
 @media screen and (min-width: 1181px) {
     #searchButton {
         display: none;

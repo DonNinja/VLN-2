@@ -15,9 +15,9 @@
         <h1 class="card-title">Payment</h1>
         <hr>
     <form action="../overview">
-        <label for="cardName">Name of Cardholder:</label>
-        <input type="text" id="cardName" name="cardName" onfocus="resetCSS(this)"></br>
-        <select tabindex="11" id="CardType" style="margin-left: 10px;" onfocus="resetCSS(this)">
+        <label for="cardName">Name of Cardholder:</label><br>
+        <input type="text" id="cardName" class="mb-2 w-100" name="cardName mb-2" onfocus="resetCSS(this)"><br>
+        <select tabindex="11" id="CardType" class="mb-2 w-100" onfocus="resetCSS(this)">
             <option value="AmEx">American Express</option>
             <option value="CarteBlanche">Carte Blanche</option>
             <option value="DinersClub">Diners Club</option>
@@ -32,9 +32,11 @@
             <option value="VisaElectron">Visa Electron</option>
             <option value="LaserCard">Laser</option>
         </select>
-        <label for="cardNumber">Card number:</label>
-        <input type="number" id="cardNumber" name="cardNumber" onfocus="resetCSS(this)"></br>
-        <button id="cardCheckButton" type="button">Recheck card</button>
+        <br>
+        <label for="cardNumber">Card number:</label><br>
+        <input type="number" id="cardNumber" class="mb-2 w-100" name="cardNumber" onfocus="resetCSS(this)"></br>
+{#        <button id="cardCheckButton" type="button">Recheck card</button>#}
+        <div class="text-center">
         <label for="cardExp">Expiration date:</label>
         <select id="cardExpMonth" name="cardExpMonth" onfocus="resetCSS(this)">
             <option id="01" value="01">01</option>
@@ -57,12 +59,17 @@
             <option value="2023">2023</option>
             <option value="2024">2024</option>
         </select>
+        </div>
+        <div class="text-center mb-1">
         <label for="cardCVC">CVC:</label>
         <input type="number" id="cardCVC" name="cardCVC" min="000" max="999" onfocus="resetCSS(this)"/><br>
+        </div>
             <div id="paymentAlert" class="alert alert-danger mt-2 text-center" role="alert">
                 Your card is invalid. Error fields have been marked.
             </div>
-        <input type="button" class="btn miscBtn" id="submitCard" name="submitCard" value="Continue"/>
+        <div class="text-center">
+            <input type="button" class="btn miscBtn m-auto" id="submitCard" name="submitCard" value="Continue"/>
+        </div>
     </form>
     </div>
 </div>
