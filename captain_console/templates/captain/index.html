@@ -2,57 +2,40 @@
 {% load static %}
 {% block content %}
     <div class="title">
-    <div class="card m-2">
-    <h1>On Sale</h1>
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                {% for i in loop_times %}
-                    {% if forloop.first%}
-                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}" class="active"></li>
-                    {% else %}
-                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ i }}"></li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner rotateImg">
-                {% for item in product %}
-                    {% if forloop.first %}
-                        <div class="carousel-item active">
-                    {% else %}
-                        <div class="carousel-item">
-                    {% endif %}
+        <div class="card m-2 onSale">
+            <h1>On Sale</h1>
+            <div id="carouselSale" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for i in loop_times %}
+                        {% if forloop.first %}
+                            <li data-target="#carouselSale" data-slide-to="{{ i }}" class="active"></li>
+                        {% else %}
+                            <li data-target="#carouselSale" data-slide-to="{{ i }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner rotateImg">
+                    {% for item in product %}
+                        {% if forloop.first %}
+                            <div class="carousel-item active">
+                        {% else %}
+                            <div class="carousel-item">
+                        {% endif %}
 
-                        {% include "captain/carousel_item.html" with item=item %}
-                        </div>
-                {% endfor %}
+                    {% include "captain/carousel_item.html" with item=item %}
+                    </div>
+                    {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselSale" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselSale" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-        <div class="card m-2">
-            <h1 class="card-title">Don't scream</h1>
-            <hr>
-            <pre class="captain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mauris libero. In egestas varius finibus. Nullam quis urna condimentum, luctus turpis at, ullamcorper sapien. Nulla porttitor orci sed enim auctor, in tincidunt magna molestie. Quisque sit amet placerat nulla. Nullam sit amet elit vel elit tempus tincidunt. Vivamus et egestas lorem. Cras magna nisi, lobortis nec bibendum non, bibendum at neque. In ligula orci, placerat porttitor orci pretium, semper condimentum urna. Donec quis metus ut nisi hendrerit malesuada bibendum vitae risus.</pre>
-
-            <pre class="captain">Proin varius vitae risus at mollis. Vivamus vel turpis ac sem maximus auctor non in ligula. Duis a turpis congue velit ullamcorper semper. Duis elementum feugiat nunc sit amet auctor. Aliquam pulvinar bibendum placerat. Nam venenatis vehicula nunc, eget aliquet purus viverra eu. Fusce ac luctus diam. Etiam eget euismod justo. Proin condimentum pulvinar tempus. Nullam aliquam quam nec libero imperdiet condimentum non in libero. Donec sed dui hendrerit leo elementum tempor. Maecenas condimentum mauris non neque cursus, sed bibendum ipsum gravida.</pre>
-
-            <pre class="captain">Integer a rhoncus nisl. Sed vestibulum, risus sed laoreet euismod, ex ligula vehicula leo, vitae aliquam arcu tellus in nulla. Sed tristique augue blandit, auctor enim vel, porta neque. Etiam scelerisque urna mauris, quis dapibus dui feugiat vitae. Aenean nec augue elementum, interdum enim et, sagittis erat. Donec ornare nunc gravida, rhoncus lorem sed, suscipit ante. Phasellus cursus augue ac nunc aliquet condimentum. Aenean vehicula scelerisque neque, et congue nisi rutrum vel. Phasellus ipsum mauris, dignissim et odio vel, facilisis tincidunt tortor. Ut malesuada, orci non facilisis dignissim, nulla nibh cursus tellus, ut laoreet quam felis at libero. Quisque consequat orci id eros cursus, non viverra lacus ultricies. Sed viverra massa nec eros sodales, ut finibus lectus iaculis.</pre>
-        </div>
-        <div class="card m-2">
-            <h1 class="card-title">Don't scream</h1>
-            <hr>
-            <pre class="captain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mauris libero. In egestas varius finibus. Nullam quis urna condimentum, luctus turpis at, ullamcorper sapien. Nulla porttitor orci sed enim auctor, in tincidunt magna molestie. Quisque sit amet placerat nulla. Nullam sit amet elit vel elit tempus tincidunt. Vivamus et egestas lorem. Cras magna nisi, lobortis nec bibendum non, bibendum at neque. In ligula orci, placerat porttitor orci pretium, semper condimentum urna. Donec quis metus ut nisi hendrerit malesuada bibendum vitae risus.</pre>
-
-            <pre class="captain">Proin varius vitae risus at mollis. Vivamus vel turpis ac sem maximus auctor non in ligula. Duis a turpis congue velit ullamcorper semper. Duis elementum feugiat nunc sit amet auctor. Aliquam pulvinar bibendum placerat. Nam venenatis vehicula nunc, eget aliquet purus viverra eu. Fusce ac luctus diam. Etiam eget euismod justo. Proin condimentum pulvinar tempus. Nullam aliquam quam nec libero imperdiet condimentum non in libero. Donec sed dui hendrerit leo elementum tempor. Maecenas condimentum mauris non neque cursus, sed bibendum ipsum gravida.</pre>
-
-            <pre class="captain">Integer a rhoncus nisl. Sed vestibulum, risus sed laoreet euismod, ex ligula vehicula leo, vitae aliquam arcu tellus in nulla. Sed tristique augue blandit, auctor enim vel, porta neque. Etiam scelerisque urna mauris, quis dapibus dui feugiat vitae. Aenean nec augue elementum, interdum enim et, sagittis erat. Donec ornare nunc gravida, rhoncus lorem sed, suscipit ante. Phasellus cursus augue ac nunc aliquet condimentum. Aenean vehicula scelerisque neque, et congue nisi rutrum vel. Phasellus ipsum mauris, dignissim et odio vel, facilisis tincidunt tortor. Ut malesuada, orci non facilisis dignissim, nulla nibh cursus tellus, ut laoreet quam felis at libero. Quisque consequat orci id eros cursus, non viverra lacus ultricies. Sed viverra massa nec eros sodales, ut finibus lectus iaculis.</pre>
         </div>
     </div>
 {% endblock %}

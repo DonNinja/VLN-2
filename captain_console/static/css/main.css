@@ -563,7 +563,7 @@ a .card-title {
     width: 100%;
 }
 
-#carouselExampleCaptions {
+#carouselProduct {
     height: 16rem;
 }
 
@@ -579,6 +579,10 @@ a .card-title {
 
 .cursorDef {
     cursor: default!important;
+}
+
+#carouselSale {
+    height: 25rem;
 }
 
 @media screen and (min-width: 1181px) {
