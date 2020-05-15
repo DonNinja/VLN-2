@@ -239,6 +239,6 @@ function raiseFilter() {
 }
 
 function resetCSS(el) {
-    // This removes the inline css we put in for error fields in payment stage
+    // This removes the inline css we put in for error fields
     $(el).removeAttr("style");
 }

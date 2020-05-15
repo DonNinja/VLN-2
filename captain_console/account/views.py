@@ -41,12 +41,13 @@ def register(request):
 def edit_profile(request):
     """Function for user to edit their profile"""
     if request.method == 'POST':            # if request is post
+        userN = request.POST['username']
         firstN = request.POST['firstName']      # get all input fields
         lastN = request.POST['lastName']
         curr_user = get_object_or_404(Account, acc_id=request.user)
       
-        # if len(userN) >= 1 and len(userN) <= 150:
-        #     request.user.username = userN
+        if len(userN) >= 1 and len(userN) <= 150:
+            request.user.username = userN
 
         if len(firstN) >=1 and len(firstN) <= 150:      # verify all user name inputs
             curr_user.first_name = firstN
@@ -62,7 +63,7 @@ def edit_profile(request):
             curr_user.profile_image = new_img
             curr_user.save()
 
-        # request.user.save()  
+        request.user.save()  
 
         return redirect('profile')      
         
