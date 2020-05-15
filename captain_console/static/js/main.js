@@ -113,7 +113,7 @@ $(document).ready(function () {
         newHTML.push(`
         <h1 class="card-title">Results for: '${search_req}'</h1>
         <hr>
-        <div class="dropdown ml-3"{% comment %} align="left"{% endcomment %}>
+        <div class="dropdown ml-3"}>
                 <button id="orderDrop" class="btn miscBtn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by: Name (Ascending)
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
