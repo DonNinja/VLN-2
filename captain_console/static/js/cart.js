@@ -33,12 +33,14 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    fillTables()
     $("#cardCVC").keypress(preventMore3)
     $("#cardCVC").keydown(preventE)
     // $("#cardNumber").change(creditCheck)
     $("#cardCheckButton").click(creditCheck)
     $("#cartContinue").click(cartContinueCheck)
     $("#submitCard").click(cardValidation)
+    checkIfReady()
 })
 
 function cardValidation() {
@@ -142,7 +144,7 @@ function removeFromCart() {
         .animate({top: '-8%'}, /*Seconds*/1000, /*Easing*/"swing");
 }
 
-function cardConfirmation() {
+function cartConfirmation() {
     let overlay = jQuery('<div id="overlay"></div>');
     overlay.appendTo($("#overviewMain"));
     $("#overlay").fadeIn(300);
@@ -180,3 +182,39 @@ function fillTables() {
         $("#tableCardCVC").html(localStorage.getItem("cardcvc"));
     });
 }
+
+function checkIfReady() {
+    var completeList = [
+        localStorage.getItem("fullname"),
+        localStorage.getItem("city"),
+        localStorage.getItem("streetname"),
+        localStorage.getItem("housenumber"),
+        localStorage.getItem("country"),
+        localStorage.getItem("postcode"),
+        localStorage.getItem("cardname"),
+        localStorage.getItem("cardtype"),
+        localStorage.getItem("cardnum"),
+        localStorage.getItem("cardexp"),
+        localStorage.getItem("cardcvc")
+    ]
+    // console.log('inb4 tests')
+    var cartValid = $("#priceTotal").html()
+    
+    if (completeList.every(Boolean) && Number(cartValid) !== 0) {
+        $('#confirmButton').click(cartConfirmation)
+        // console.log('in if tests')
+    }
+    else {
+        // console.log('in else tests')
+        if (!(Number(cartValid) !== 0)) {
+            msg = "You need to have an item in the cart to be able to complete a purchase"
+        }
+        else {
+            msg = "You need to fill in all of the required information  to complete your purchase"
+        }
+        $("#confirmButton").click(function (){
+            alert(msg)
+        })
+    }
+}
+

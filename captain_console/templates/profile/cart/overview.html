@@ -83,8 +83,8 @@
             {% endfor %}
             <div id='cartPrice' class="d-flex">
                 <b>Total: </b>
-                <u>{{ total }}</u>
-                <button class="btn miscBtn mr-0 ml-auto" onclick="cardConfirmation()">Confirm
+                <u id="priceTotal">{{ total }}</u>
+                <button id="confirmButton" class="btn miscBtn mr-0 ml-auto" >Confirm
                 </button>
             </div>
         </div>
@@ -98,10 +98,7 @@
             <div class="card-text overwriteDesc">
                 Your purchase has been finalized and will be processed within 2 - 10000 business days.
             </div>
-            <button class="btn miscBtn mt-2" onclick="navigateTo('/')">Back to home page</button>
+            <button  class="btn miscBtn mt-2" onclick="navigateTo('/')">Back to home page</button>
         </div>
     </div>
-    <script>
-        fillTables();
-    </script>
 {% endblock %}
