@@ -300,8 +300,14 @@ a .card-title {
 
 #SHsearch {
     margin: auto;
-    color: blue;
+}
+
+.point {
     cursor: pointer;
+}
+
+.textBlue {
+    color:blue;
 }
 
 #SHsearch:hover {
@@ -557,11 +563,12 @@ a .card-title {
 }
 
 .carousel-item img {
-    object-fit: scale-down;
+    object-fit: fill;
 }
 
 .smolImg {
     height: 25px;
+    width: 100%;
 }
 
 #carouselExampleCaptions {
@@ -570,6 +577,12 @@ a .card-title {
 
 #registerError {
     display: inline-block;
+}
+
+#userExists {
+    display: inline-flex;
+    padding: 1%;
+    margin: 0%;
 }
 
 .cursorDef {
@@ -776,6 +789,10 @@ a .card-title {
     }
 
     #confirmCard button {
+        height: 4rem;
+    }
+
+    .miscBtn {
         height: 4rem;
     }
 }

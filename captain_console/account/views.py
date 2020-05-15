@@ -45,8 +45,17 @@ def edit_profile(request):
         firstN = request.POST['firstName']      # get all input fields
         lastN = request.POST['lastName']
         curr_user = get_object_or_404(Account, acc_id=request.user)
+
+        users = Account.objects.all()
       
         if len(userN) >= 1 and len(userN) <= 150:
+            for name in users:
+                if userN == name.acc_id.username:
+                    return render(request, 'profile/edit_profile.html', {
+                        "username_exists": "Username is already taken",
+                        'account': curr_user,
+                        'dj_name': request.user.username
+                    })
             request.user.username = userN
 
         if len(firstN) >=1 and len(firstN) <= 150:      # verify all user name inputs

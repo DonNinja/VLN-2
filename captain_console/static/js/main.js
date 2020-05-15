@@ -35,6 +35,9 @@ function initializePage() {
     if (sidebar != null) {
         showOrHide();
     }
+    if ($(window).height() >= $(document).height()) {
+        $("#goUp").hide();
+    }
 }
 
 

@@ -13,7 +13,13 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <input name="username" class="editText" type="text" placeholder="New username"
-                               maxlength="150"><br>
+                               maxlength="150">
+                        {% if username_exists %}
+                        <div id="userExists" class="alert alert-danger">
+                            {{ username_exists }}
+                        </div>
+                        {% endif %}
+                        <br>
                         <input name="firstName" class="editText" type="text" placeholder="First name"
                                maxlength="150"><br>
                         <input name="lastName" class="editText" type="text" placeholder="Last name"
