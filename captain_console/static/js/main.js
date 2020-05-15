@@ -195,18 +195,6 @@ function shortenDesc() {
 }
 
 
-function fillTables() {
-    $(document).ready(function(){
-        console.log(localStorage.getItem("fullname"))
-        $("#tableName").html(localStorage.getItem("fullname"));
-        $("#tableCity").html(localStorage.getItem("city"));
-        $("#tableStreet").html(localStorage.getItem("streetname"));
-        $("#tableHouse").html(localStorage.getItem("housenumber"));
-        $("#tableCountry").html(localStorage.getItem("country"));
-        $("#tablePost").html(localStorage.getItem("postcode"));
-    });
-}
-
 
 function theSuccessStory() {
     if (window.innerWidth > 1180) {

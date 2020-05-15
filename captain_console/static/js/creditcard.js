@@ -52,6 +52,7 @@ ccErrors [4] = "Credit card number has an inappropriate number of digits";
 ccErrors [5] = "Warning! This credit card number is associated with a scam attempt";
 
 function checkCreditCard (cardnumber, cardname) {
+  cardnumber = cardnumber.replace(" ", "")
   console.log("Card Number: ", cardnumber)
   console.log("Card Name: ", cardname)
      
