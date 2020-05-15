@@ -64,7 +64,7 @@ def render_contact_info(request):
 
 def render_overview(request):
     login_id = request.user.id
-    cart_content = Cart.objects.all().filter(acc_id=login_id)   # reusing code from cart_index TODO make one function for this
+    cart_content = Cart.objects.all().filter(acc_id=login_id)   
     total_price = 0
     for item in cart_content:
         total_price += int(item.product_id.price)
