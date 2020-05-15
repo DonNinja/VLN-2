@@ -347,7 +347,7 @@ a .card-title {
 
 .leftCol img {
     max-width: 313px;
-    /*max-height: available;*/
+    max-height: available;
 }
 
 .rightCol {
@@ -538,8 +538,30 @@ a .card-title {
     width: 5rem;
 }
 
+.carousel-indicators {
+    bottom: -40px;
+}
+
 .carousel-indicators li {
     text-indent: 0px;
+    /*background: rgba(0, 0, 0, .5);*/
+    margin-right: 2em;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item img {
+    object-fit: scale-down;
+}
+
+.smolImg {
+    height: 25px;
+}
+
+#carouselExampleCaptions {
+    height: 16rem;
 }
 
 #registerError {
