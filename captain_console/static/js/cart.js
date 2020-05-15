@@ -214,7 +214,8 @@ function checkIfReady() {
             msg = "You need to fill in all of the required information  to complete your purchase"
         }
         $("#confirmButton").click(function (){
-            alert(msg)
+            document.getElementById("overviewAlert").innerHTML = msg;
+            $("#overviewAlert").show();
         })
     }
 }
