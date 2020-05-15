@@ -145,8 +145,8 @@ $(document).ready(function () {
                                     <p class="card-text">${ d.description }</p>
                                     <p>${ d.price } Kr</p>
                                     <div>
-                                        <button id="${ d.id }" type="button" class="buttonAddToCart miscBtn">Add to cart</button>
-                                        <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn">Reviews</button>
+                                        <button id="${ d.id }" type="button" class="buttonAddToCart mb-2 miscBtn w-100">Add to cart</button>
+                                        <button onclick="window.location.href='../reviews/product/${ d.id }'" type="button" class="miscBtn w-100">Reviews</button>
                                     </div>
                                 </div>
                             </div>
