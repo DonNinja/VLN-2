@@ -157,7 +157,7 @@ $(document).ready(function () {
 
                 $('#prodList').html(newHTML.join(''));
                 shortenDesc()
-
+                addToCartButtons()
             },
             error: function (xhr, status, error) {
                 console.log(error);
