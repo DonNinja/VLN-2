@@ -440,7 +440,7 @@ a .card-title {
 }
 
 .dFixed {
-    position: absolute;
+    position: fixed;
 }
 
 .center {
@@ -536,6 +536,10 @@ a .card-title {
     background-color: #b8b8b8;
     height: 4rem;
     width: 5rem;
+}
+
+.carousel-indicators li {
+    text-indent: 0px;
 }
 
 @media screen and (min-width: 1181px) {
@@ -714,6 +718,7 @@ a .card-title {
     }
 
     .sidebarItem {
+        height: 5rem;
         line-height: 4rem;
     }
 
@@ -734,6 +739,10 @@ a .card-title {
 
     #filter input {
         height: 3rem;
+    }
+
+    #confirmCard button {
+        height: 4rem;
     }
 }
 
