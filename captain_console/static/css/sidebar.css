@@ -11,10 +11,7 @@
     background-color: white;
     text-decoration: none;
     font-variant: all-small-caps;
-    --font-size: 2rem;
-    font-size: var(--font-size);
-    --height: 5rem;
-    height: var(--height);
+    font-size: 2rem;
     /*width: 225px;*/
     vertical-align: middle;
     border: 2px solid black;
