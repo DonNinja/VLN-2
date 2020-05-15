@@ -35,7 +35,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#cardCVC").keypress(preventMore3)
     $("#cardCVC").keydown(preventE)
-    $("#cardNumber").change(creditCheck)
+    // $("#cardNumber").change(creditCheck)
     $("#cardCheckButton").click(creditCheck)
     $("#cartContinue").click(cartContinueCheck)
     $("#submitCard").click(cardValidation)
@@ -48,6 +48,16 @@ function cardValidation() {
     var card = $("#cardNumber").val()
     var type = $("#CardType").val()
     var cardCVC = $("#cardCVC").val()
+    var cardExpMonth = $("#cardExpMonth").val()
+    var cardExpYear = $("#cardExpYear").val()
+    var expDate = new Date(Number(cardExpYear), Number(cardExpMonth), -0)
+
+    if (expDate <= new Date()) {
+        invalidForms.push("cardExpMonth")
+        invalidForms.push("cardExpYear")
+        isValid = false;
+    }
+
     if (cardName.length === 0) {
         invalidForms.push("cardName")
         isValid = false;
@@ -55,8 +65,6 @@ function cardValidation() {
     if (!(checkCreditCard(card, type))) {
         invalidForms.push("CardType")
         invalidForms.push("cardNumber")
-        invalidForms.push("cardExpMonth")
-        invalidForms.push("cardExpYear")
         isValid = false
     }
     if ((cardCVC.length !== 3)) {
@@ -64,7 +72,12 @@ function cardValidation() {
         isValid = false
     }
     if (isValid) {
-        navigateTo('');
+        localStorage.setItem("cardname", cardName)
+        localStorage.setItem("cardnum", card)
+        localStorage.setItem("cardtype", type)
+        localStorage.setItem("cardcvc", cardCVC)
+        localStorage.setItem("cardexp", cardExpMonth + "/" + cardExpYear)
+        navigateTo('../overview');
     }
     else {
         document.getElementById("paymentAlert").innerHTML = "Your card is invalid. Error fields have been marked. <p class='mb-0'>" + ccErrors[ccErrorNo] + "</p>";
@@ -75,6 +88,7 @@ function cardValidation() {
             $("#" + invalidForms[i]).css('border-color', 'red');
             $("#" + invalidForms[i]).css('box-shadow', '0 0 .25rem red');
         }
+        
     }
 }
 
@@ -150,3 +164,27 @@ function emptyCart(){
         }
     })
 };
+
+function fillTables() {
+    $(document).ready(function(){
+        $("#tableName").html(localStorage.getItem("fullname"));
+        $("#tableCity").html(localStorage.getItem("city"));
+        $("#tableStreet").html(localStorage.getItem("streetname"));
+        $("#tableHouse").html(localStorage.getItem("housenumber"));
+        $("#tableCountry").html(localStorage.getItem("country"));
+        $("#tablePost").html(localStorage.getItem("postcode"));
+        $("#tableCardName").html(localStorage.getItem("cardname"));
+        $("#tableCardType").html(localStorage.getItem("cardtype"));
+        var card = localStorage.getItem("cardnum")
+        var last4 = card.slice(-4)
+        // var cardStr = "*" * (card.length - 4)
+        var cardStr = ""
+        for (var i=0; i < (card.length - 4); i++) {
+            cardStr += "*"
+        }
+        console.log(cardStr)
+        $("#tableCardNumber").html(cardStr + last4);
+        $("#tableCardExpDate").html(localStorage.getItem("cardexp"));
+        $("#tableCardCVC").html("***");
+    });
+}
