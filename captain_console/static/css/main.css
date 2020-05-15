@@ -299,6 +299,12 @@ a .card-title {
 
 #SHsearch {
     margin: auto;
+    color: blue;
+    cursor: pointer;
+}
+
+#SHsearch:hover {
+    text-decoration: underline;
 }
 
 /*#SHdate {

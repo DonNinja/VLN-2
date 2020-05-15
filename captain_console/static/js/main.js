@@ -90,6 +90,11 @@ $(document).ready(function () {
     })
 })
 
+function clickSearch(searchQuery) {
+    $("#barSearch").val(searchQuery)
+    $("#buttonSearch").click()
+}
+
 $(document).ready(function () {
     $("#buttonSearch").on("click", function (e) {
         var search_req = $("#barSearch").val(); // get search from search bar
