@@ -480,15 +480,7 @@ a .card-title {
     z-index: 9999;
 }
 
-#contactAlert {
-    display: none;
-}
-
-#cartAlert {
-    display: none;
-}
-
-#paymentAlert {
+.alert-danger {
     display: none;
 }
 
@@ -707,6 +699,7 @@ a .card-title {
     .rightCol {
         width: 100%;
         border-top: 1px solid rgba(0,0,0,.1);
+        margin-top: .5rem;
     }
 
     .rightCol .row {
